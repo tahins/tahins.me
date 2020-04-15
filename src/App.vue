@@ -93,5 +93,9 @@ body, html {
   .summary {
     max-width: 100% !important;
   } 
+
+  .summary .description {
+  font-size: 2.25rem !important;
+  }
 }
 </style>

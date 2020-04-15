@@ -76,7 +76,6 @@ export default {
 .summary .description {
   margin: 30px 0 20px 0;
   font-size: 3rem;
-  /* font-size: 2.25rem; */
 }
 
 .love { color: tomato; }
