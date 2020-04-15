@@ -81,7 +81,7 @@ export default {
         title: "Tahin Weds Opi",
         description: "Completing the half of our deen.",
         technology: "CSS3 animation",
-        url: "tahins-wedding.netlify.com",
+        url: "https://tahins-wedding.netlify.com",
         githubUrl: "https://www.github.com/tahins/wedding",
         imageUrl: "../../img/projects/wedding.jpg",
         bgSize: "cover"
