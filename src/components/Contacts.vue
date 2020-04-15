@@ -20,7 +20,7 @@ export default {
       {
         text: "Email",
         iconClassName: "fas fa-envelope-square 7x",
-        url: "mailto:tahin.36@gmail.com"
+        url: "mailto:tahin.36@gmail.com?subject=Hello Tahin"
       },
       {
         text: "Medium",

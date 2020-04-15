@@ -1,12 +1,12 @@
 <template>
   <div class="hello">
       <div class="quote">
-        <a href="#" class="silent-link">
+        <a href="https://sunnah.com/riyadussaliheen/18/1" class="silent-link" target="_blank" rel="noopener noreferrer">
           speak a good word or remain silent.
         </a>
       </div>
       <div class="summary">
-        <div class="position">Frontend Engineer - Product Manager</div>
+        <div class="position faded-text">Frontend Engineer - Product Manager</div>
         <div class="description">
           <span class="love">❤</span> to code in Javascript.
           <br/>
@@ -75,7 +75,8 @@ export default {
 
 .summary .description {
   margin: 30px 0 20px 0;
-  font-size: 2.25rem;
+  font-size: 3rem;
+  /* font-size: 2.25rem; */
 }
 
 .love { color: tomato; }

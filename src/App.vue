@@ -16,6 +16,8 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri&display=swap');
+
 :root {
   --padding-horizontal: 70px;
   --padding-vertical: 60px;
@@ -34,7 +36,11 @@ body, html {
   background-color: #000;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+  font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,'Hind Siliguri',serif;
+}
+
+.faded-text {
+  color: #a6a6a6;
 }
 
 .section-title {
@@ -58,7 +64,7 @@ body, html {
 
 /* Small devices */
 @media (max-width: 576px) { 
-  .quote {
+  /* .quote {
     font-size: 1rem !important;
   }
 
@@ -68,7 +74,7 @@ body, html {
 
   .summary .description {
     font-size: 1.3rem !important;
-  }
+  } */
 }
 
 /* Medium devices */
@@ -77,8 +83,8 @@ body, html {
     padding: 20px !important;
   }  
   .above-fold {
-    width: calc(100vw - 60px) !important;
-    height: calc(100vh - 60px) !important;
+    width: calc(100vw - 40px) !important;
+    height: 100vh !important;
   } 
 
    .hello {
