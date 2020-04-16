@@ -1,7 +1,6 @@
 module.exports = {
     pwa: {
-        name: '@tahins - Hello world!',
-        shortName: '@tahins',
+        name: '@tahins',
         themeColor: '#000000'
     }
 }
