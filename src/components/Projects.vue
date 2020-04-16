@@ -46,7 +46,7 @@ export default {
         title: "Prayer Time",
         description: "A beautiful way to the know the prayer times in your city.",
         technology: "React, Typescript, PWA",
-        url: "https://prayer-time.netlify.app",
+        url: "https://prayer-time.tahins.me",
         githubUrl: "https://www.github.com/tahins/prayer-time-ts",
         imageUrl: "../../img/projects/prayer-time.png",
         bgSize: "200px"
@@ -55,7 +55,7 @@ export default {
         title: "Refactoring Color",
         description: "A scientific way to generate the color palette for your next project.",
         technology: "Hyperapp",
-        url: "https://refactoring-color.netlify.app",
+        url: "https://refactoring-color.tahins.me",
         githubUrl: "https://www.github.com/tahins/refactoring-color",
         imageUrl: "../../img/projects/refactoring-color.jpg",
         bgSize: "cover"
@@ -81,7 +81,7 @@ export default {
         title: "Tahin Weds Opi",
         description: "Completing the half of our deen.",
         technology: "CSS3 animation",
-        url: "https://tahins-wedding.netlify.app",
+        url: "https://wedding.tahins.me",
         githubUrl: "https://www.github.com/tahins/wedding",
         imageUrl: "../../img/projects/wedding.jpg",
         bgSize: "cover"
@@ -90,7 +90,7 @@ export default {
         title: "My Village",
         description: "A 360° experience of my home at Chitholia, Feni.",
         technology: "React VR",
-        url: "https://chitholia.netlify.app",
+        url: "https://village.tahins.me",
         githubUrl: "https://www.github.com/tahins/village",
         imageUrl: "../../img/projects/village.jpg",
         bgSize: "cover"
@@ -99,7 +99,7 @@ export default {
         title: "আবহাওয়া",
         description: "A simple and minimal weather app.",
         technology: "LESS",
-        url: "https://abohawa.netlify.app",
+        url: "https://abohawa.tahins.me",
         githubUrl: "https://www.github.com/tahins/abohawa",
         imageUrl: "../../img/projects/abohawa.png",
         bgSize: "200px"
@@ -117,7 +117,7 @@ export default {
         title: "Dark Knight",
         description: "Because, he is Batman.",
         technology: "AngularJS",
-        url: "https://the-dark-knight.netlify.app",
+        url: "https://dark-knight.tahins.me",
         githubUrl: "https://www.github.com/tahins/dark-knight",
         imageUrl: "../../img/projects/dark-knight.jpg",
         bgSize: "cover"
@@ -126,7 +126,7 @@ export default {
         title: "Man Goes Mobile Website",
         description: "The legendary company website for Man Goes Mobile.",
         technology: "AngularJS",
-        url: "https://mangoesmobile.netlify.app",
+        url: "https://mangoesmobile.tahins.me",
         githubUrl: "https://www.github.com/tahins/mangoesmobile",
         imageUrl: "../../img/projects/mangoesmobile.jpg",
         bgSize: "cover"
@@ -135,7 +135,7 @@ export default {
         title: "Slate",
         description: "Just write.",
         technology: "JS",
-        url: "https://writte.netlify.app",
+        url: "https://slate.tahins.me",
         githubUrl: "https://www.github.com/tahins/slate",
         imageUrl: "../../img/projects/readly.jpg",
         bgSize: "cover"
