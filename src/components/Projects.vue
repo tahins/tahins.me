@@ -98,7 +98,7 @@ export default {
       {
         title: "আবহাওয়া",
         description: "A simple and minimal weather app.",
-        technology: "LESS",
+        technology: "AngularJS",
         url: "https://abohawa.tahins.me",
         githubUrl: "https://www.github.com/tahins/abohawa",
         imageUrl: "../../img/projects/abohawa.png",
@@ -116,7 +116,7 @@ export default {
       {
         title: "Dark Knight",
         description: "Because, he is Batman.",
-        technology: "AngularJS",
+        technology: "HTML, CSS, JS",
         url: "https://dark-knight.tahins.me",
         githubUrl: "https://www.github.com/tahins/dark-knight",
         imageUrl: "../../img/projects/dark-knight.jpg",
@@ -125,7 +125,7 @@ export default {
       {
         title: "Man Goes Mobile Website",
         description: "The legendary company website for Man Goes Mobile.",
-        technology: "AngularJS",
+        technology: "HTML, CSS, JS",
         url: "https://mangoesmobile.tahins.me",
         githubUrl: "https://www.github.com/tahins/mangoesmobile",
         imageUrl: "../../img/projects/mangoesmobile.jpg",
@@ -134,7 +134,7 @@ export default {
       {
         title: "Slate",
         description: "Just write.",
-        technology: "JS",
+        technology: "HTML, CSS, JS",
         url: "https://slate.tahins.me",
         githubUrl: "https://www.github.com/tahins/slate",
         imageUrl: "../../img/projects/readly.jpg",
