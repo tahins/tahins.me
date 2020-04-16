@@ -6,11 +6,11 @@
         </a>
       </div>
       <div class="summary">
-        <div class="position faded-text">Frontend Engineer - Product Manager</div>
+        <div class="position faded-text">Jack of all trades - master Frontend Engineer</div>
         <div class="description">
           <span class="love">❤</span> to code in Javascript.
           <br/>
-          Passionate about Webapp Performance, Optimization, UI and UX.
+          Passionate about Webapp Performance, Optimization, UI & UX.
           <br/>
           Give life to beautiful designs.
         </div>

@@ -6,16 +6,22 @@
     <div class="profile-image"></div>
     <div class="profile-summary">
       <div class="profile-name"><span class="faded-text">I am </span><strong>E. M. Yeaseenur Rahman Tahin</strong></div>
-      <div class="profile-position">Staff Software Enginner at Infolytx, Bangladesh</div>
+      <div class="profile-position">Staff Software Enginner <span class="faded-text">at Infolytx, Bangladesh</span></div>
       <div class="profile-description faded-text">
         <p>
-        Tahin completed his graduation on Computer Science and Engineering from BRAC University. He started his career as an Android Engineer. After that, switched to App Designing then Web Frontend Engineering and then Product Management. Currently he is working on cognitive agents, chatbots and Natural Language Processing.
+          I begun my career as an Android Engineer. After that, I switched to App Designing 
+          then Web Frontend Development and after that Product Management. Currently, I am 
+          working with cognitive agents, chatbots and Natural Language Processing.
         </p>
         <p>
-        He has experience in architechting and developing complex frontend applications and building cognitive chatbots. He has successfully led technical teams working on varities of softwares. Tahin also loves designing UI and UX for internet products and led product teams before.
+        I have experience in architecting and developing complex frontend applications and 
+        building cognitive chatbots. I have successfully led several technical and product 
+        teams working on varieties of software. I also love designing UI and UX for internet products. 
         </p>
         <p>
-        He is super enthusiast about everything related to tech and web. He cares very much about user experience and performance. He believes his versatile experience enables him to see everything from an unique perspective.
+        I am super enthusiast about everything related to tech and web. I care very much about 
+        user experience and performance. I believe, my diverse experience enables me to see things 
+        from an unique perspective.
         </p>
       </div>
     </div>
