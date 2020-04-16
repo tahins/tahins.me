@@ -53,7 +53,7 @@ export default {
       },
       {
         title: "Refactoring Color",
-        description: "A scientific way to generate the color palette for your next project.",
+        description: "Generate the UI color palette for your next project.",
         technology: "Hyperapp",
         url: "https://refactoring-color.tahins.me",
         githubUrl: "https://www.github.com/tahins/refactoring-color",
