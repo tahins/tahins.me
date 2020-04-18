@@ -52,6 +52,14 @@ export default {
         bgSize: "200px"
       },
       {
+        title: "কোভিড-১৯ পরিস্থিতি",
+        description: "A Covid-19 status app for Bangladesh.",
+        technology: "Vue, Serverless Lambda, PWA",
+        url: "https://coronabd.tahins.me",
+        imageUrl: "../../img/projects/coronabd.png",
+        bgSize: "200px"
+      },
+      {
         title: "Refactoring Color",
         description: "Generate the UI color palette for your next project.",
         technology: "Hyperapp",
