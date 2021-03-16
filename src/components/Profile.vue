@@ -6,7 +6,7 @@
     <div class="profile-image"></div>
     <div class="profile-summary">
       <div class="profile-name"><span class="faded-text">I am </span><strong>E. M. Yeaseenur Rahman Tahin</strong></div>
-      <div class="profile-position">Staff Software Enginner <span class="faded-text">at Infolytx, Bangladesh</span></div>
+      <div class="profile-position">Software Enginner <span class="faded-text">at 🥚 Chaldal Limited, Bangladesh</span></div>
       <div class="profile-description faded-text">
         <p>
           I begun my career as an Android Engineer. After that, I switched to App Designing 
