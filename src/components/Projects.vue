@@ -7,7 +7,7 @@
         backgroundImage: `url(${project.imageUrl})`,
         backgroundSize: project.bgSize
       }">
-        <div class="project-bg"></div>  
+        <div class="project-bg" role="img" :aria-label="`Screenshot of ${project.title}`"></div>
         <div class="project-info">
             <h4 class="project-title">{{project.title}}</h4>
             <div class="project-details">  

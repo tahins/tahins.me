@@ -3,25 +3,27 @@
     <a class="internal-link" id="profile"></a>
     <h1 class="section-title">Profile</h1>
 <div class="profile-container">
-    <div class="profile-image"></div>
+    <div class="profile-image" role="img" aria-label="Photo of E. M. Yeaseenur Rahman Tahin"></div>
     <div class="profile-summary">
       <div class="profile-name"><span class="faded-text">I am </span><strong>E. M. Yeaseenur Rahman Tahin</strong></div>
-      <div class="profile-position">Software Engineer <span class="faded-text">at 🥚 Chaldal Limited, Bangladesh</span></div>
+      <div class="profile-position">Full-Stack Engineer & Engineering Manager <span class="faded-text">at 🥚 Chaldal PLC, Bangladesh</span></div>
       <div class="profile-description faded-text">
         <p>
-          I begun my career as an Android Engineer. After that, I switched to App Designing 
-          then Web Frontend Development and after that Product Management. Currently, I am 
-          working with cognitive agents, chatbots and Natural Language Processing.
+          I began my career as an Android Engineer, then moved through App Design, Web Frontend,
+          and Product Management before settling into full-stack engineering and engineering
+          management. Along the way I've led teams, architected event-driven systems, and built
+          production AI/GenAI platforms.
         </p>
         <p>
-        I have experience in architecting and developing complex frontend applications and 
-        building cognitive chatbots. I have successfully led several technical and product 
-        teams working on varieties of software. I also love designing UI and UX for internet products. 
+          Today I manage engineering delivery across seven platforms at Chaldal, spanning
+          e-commerce, logistics, and food-tech. I built our order reconciliation system for
+          ledger-grade accuracy, led our PCI-DSS compliance work with Bangladesh Bank, and now
+          drive my team's adoption of AI agents for real operations.
         </p>
         <p>
-        I am super enthusiast about everything related to tech and web. I care very much about 
-        user experience and performance. I believe, my diverse experience enables me to see things 
-        from an unique perspective.
+          I'm a full-stack engineer who grew into engineering management, and I'm increasingly
+          focused on using the latest AI capabilities to make software genuinely better for the
+          people who use it — not AI for its own sake.
         </p>
       </div>
     </div>

@@ -6,13 +6,13 @@
         </a>
       </div>
       <div class="summary">
-        <div class="position faded-text">Jack of all trades - master Frontend Engineer</div>
+        <div class="position faded-text">Full-stack engineer, engineering manager, and builder of AI-powered software for real users.</div>
         <div class="description">
-          <span class="love">❤</span> to code in Javascript.
+          <span class="love">❤</span> to code, full-stack.
           <br/>
-          Passionate about Webapp Performance, Optimization, UI & UX.
+          Passionate about Engineering Leadership, Performance, and applied AI.
           <br/>
-          Give life to beautiful designs.
+          Building software for people, not for the sake of it.
         </div>
         <div class="separator">Spiderman ;)</div>
       </div>
