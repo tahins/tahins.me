@@ -8,6 +8,10 @@
       <div class="summary">
         <div class="position faded-text">Full-stack engineer, engineering manager, and builder of AI-powered software for real users.</div>
         <div class="description">
+          <span class="love">❤</span> to code, full-stack.
+          <br/>
+          Passionate about Engineering Leadership, Performance, and applied AI.
+          <br/>
           Building software for people, not for the sake of it.
         </div>
         <div class="separator">Spiderman ;)</div>
