@@ -23,7 +23,7 @@
         <p>
           I'm a full-stack engineer who grew into engineering management, and I'm increasingly
           focused on using the latest AI capabilities to make software genuinely better for the
-          people who use it — not AI for its own sake.
+          people who use it. Building software for people, not for the sake of it.
         </p>
       </div>
     </div>
