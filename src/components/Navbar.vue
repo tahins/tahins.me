@@ -6,7 +6,7 @@
       <div class="right">
         <ul class="nav-links">
           <li v-for="(navLink, index) in navLinks" :key="index">
-            <a :href="navLink.url">{{navLink.text}}</a>
+            <a :href="navLink.url" :target="navLink.url.startsWith('#') ? null : '_blank'" rel="noopener noreferrer">{{navLink.text}}</a>
           </li>
         </ul>
       </div>
@@ -30,6 +30,9 @@ export default {
       }, {
         text: "blog",
         url: "https://www.medium.com/@tahins"
+      }, {
+        text: "resume",
+        url: "/resume.pdf"
       }
     ]
   })

@@ -6,7 +6,7 @@
         </a>
       </div>
       <div class="summary">
-        <div class="position faded-text">Jack of all trades - master Frontend Engineer</div>
+        <div class="position faded-text">Full-stack engineer, engineering manager, and builder of AI-powered software for real users.</div>
         <div class="description">
           <span class="love">❤</span> to code in Javascript.
           <br/>
