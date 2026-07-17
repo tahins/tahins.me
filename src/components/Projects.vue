@@ -43,6 +43,14 @@ export default {
         bgSize: "200px"
       },
       {
+        title: "Alaap SMS",
+        description: "A spam-free, organized SMS inbox for Android.",
+        technology: "React, Material UI",
+        url: "https://alaap.app/",
+        imageUrl: "../../img/projects/alaap.png",
+        bgSize: "cover"
+      },
+      {
         title: "Prayer Time",
         description: "A beautiful way to the know the prayer times in your city.",
         technology: "React, Typescript, PWA",
