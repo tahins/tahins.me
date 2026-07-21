@@ -14,14 +14,16 @@
           across multi-platform organizations.
         </p>
         <p>
-          At Chaldal, I oversee technical delivery across seven business-critical platforms.
-          My recent work sits where reliability meets regulation: ledger-grade order
-          reconciliation, PCI-DSS and PSP compliance with Bangladesh Bank, event-driven
-          systems at scale, and GenAI tools that ship in production.
+          At Chaldal, I oversee technical delivery across grocery &amp; supply chain,
+          warehouse operations, perishable network, Cookups, HR, internal comms and an
+          inventory investment platform — spanning e-commerce, logistics, food-tech and
+          enterprise tooling. My recent work sits where reliability meets regulation:
+          ledger-grade order reconciliation, PCI-DSS and PSP compliance with Bangladesh Bank,
+          event-driven systems at scale and GenAI tools that ship in production.
         </p>
         <p>
-          I believe correctness, traceability, and reliability must be engineered — not assumed.
-          I lead organizations, but I stay hands-on on architecture, security, and the hard
+          I believe correctness, traceability and reliability must be engineered — not assumed.
+          I lead organizations, but I stay hands-on on architecture, security and the hard
           problems that don't fit on a slide.
         </p>
       </div>
