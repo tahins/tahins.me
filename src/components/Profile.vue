@@ -6,22 +6,23 @@
     <div class="profile-image"></div>
     <div class="profile-summary">
       <div class="profile-name"><span class="faded-text">I am </span><strong>E. M. Yeaseenur Rahman Tahin</strong></div>
-      <div class="profile-position">Software Engineer <span class="faded-text">at 🥚 Chaldal Limited, Bangladesh</span></div>
+      <div class="profile-position">Staff Software Engineer <span class="faded-text">at 🥚 Chaldal PLC, Dhaka, Bangladesh</span></div>
       <div class="profile-description faded-text">
         <p>
-          I begun my career as an Android Engineer. After that, I switched to App Designing 
-          then Web Frontend Development and after that Product Management. Currently, I am 
-          working with cognitive agents, chatbots and Natural Language Processing.
+          Engineering leader with 13+ years building high-performing teams and delivering
+          complex, mission-critical platforms — from early product work to leading delivery
+          across multi-platform organizations.
         </p>
         <p>
-        I have experience in architecting and developing complex frontend applications and 
-        building cognitive chatbots. I have successfully led several technical and product 
-        teams working on varieties of software. I also love designing UI and UX for internet products. 
+          At Chaldal, I oversee technical delivery across seven business-critical platforms.
+          My recent work sits where reliability meets regulation: ledger-grade order
+          reconciliation, PCI-DSS and PSP compliance with Bangladesh Bank, event-driven
+          systems at scale, and GenAI tools that ship in production.
         </p>
         <p>
-        I am super enthusiast about everything related to tech and web. I care very much about 
-        user experience and performance. I believe, my diverse experience enables me to see things 
-        from an unique perspective.
+          I believe correctness, traceability, and reliability must be engineered — not assumed.
+          I lead organizations, but I stay hands-on on architecture, security, and the hard
+          problems that don't fit on a slide.
         </p>
       </div>
     </div>
@@ -47,7 +48,7 @@ export default {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('../../public/img/me.png');
+  background-image: url('../../public/img/me.webp');
 }
 .profile .profile-summary {
   flex-basis: 50%;

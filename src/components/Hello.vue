@@ -6,15 +6,15 @@
         </a>
       </div>
       <div class="summary">
-        <div class="position faded-text">Jack of all trades - master Frontend Engineer</div>
+        <div class="position faded-text">Head of Engineering · Technical Leader</div>
         <div class="description">
-          <span class="love">❤</span> to code in Javascript.
+          Building high-performing teams
           <br/>
-          Passionate about Webapp Performance, Optimization, UI & UX.
+          and mission-critical platforms.
           <br/>
-          Give life to beautiful designs.
+          <span class="love">13+</span> years in the craft.
         </div>
-        <div class="separator">Spiderman ;)</div>
+        <div class="separator">Engineering Excellence</div>
       </div>
     </div>
 </template>

@@ -5,7 +5,7 @@
       <Hello /> 
     </div>
     <Projects />
-    <Profile />    
+    <Profile />
     <Contacts />    
     <Footer />    
   </div>
