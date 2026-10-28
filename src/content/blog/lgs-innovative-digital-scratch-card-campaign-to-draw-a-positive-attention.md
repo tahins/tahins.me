@@ -19,7 +19,7 @@ originalUrl: https://tahins.medium.com/4092275114fe
 
 ### Background
 
-LG-Butterfly, a well known international electronics brand, also very popular in Bangladesh. Every year on the eve of Eid ul Adha they run a [Scratch Card campaign](https://www.facebook.com/search/top/?q=%E2%80%AA%23%E2%80%8Escratchisgood%E2%80%AC) where anyone who buys any LG-Butterfly products get a discount based on their scratch card. It is one of the most popular campaigns of LG-Butterfly and their customers love it.
+LG-Butterfly, a well known international electronics brand, also very popular in Bangladesh. Every year on the eve of Eid ul Adha they run a Scratch Card campaign where anyone who buys any LG-Butterfly products get a discount based on their scratch card. It is one of the most popular campaigns of LG-Butterfly and their customers love it.
 
 However, last August, on the eve of Eid ul Adha, they wished to do something different. Something that no brands ever did in Bangladesh before. They planned to bring that Scratch Card campaign into the digital arena. Adcomm was the Media Agency in charge of the campaign.
 
@@ -46,7 +46,7 @@ Bagher Bachcha Digital of Adcomm and LG Butterfly relied on G&R for both.
 
 G&R, being the largest online Ad Network in Bangladesh, serves 600 million ads per month. For maximum and relevant reach, they decided to target only Bangladeshi audiences in both desktop and mobile.
 
-G&R partnering with SSL Wireless (for instant mobile recharge), prepared the HTML5 — Rich Media creatives for LG-Butterfly. You can see an example creative [here](http://tools.green-red.com/ad-gallery).
+G&R partnering with SSL Wireless (for instant mobile recharge), prepared the HTML5 — Rich Media creatives for LG-Butterfly. You can see an example creative here.
 
 ### Results
 

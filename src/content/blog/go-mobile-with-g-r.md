@@ -17,15 +17,15 @@ originalUrl: https://tahins.medium.com/937707e66678
 
 > Grab the fastest growing customer base with Mobile Advertising
 
-Since the introduction of 3G services, the internet has been spreading in Bangladesh at a fascinating speed. By the end of 2014, internet users grew from [35 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2013) to nearly [44 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2014). In 2015, we had [10.5 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2015) additional internet subscribers in Bangladesh. Of the 54 million active internet subscribers, nearly 96% are on mobile and 10 million use smartphones. G&R’s data also says the same. In 2015, our mobile inventory surpassed the desktop inventory.
+Since the introduction of 3G services, the internet has been spreading in Bangladesh at a fascinating speed. By the end of 2014, internet users grew from [35 million](https://web.archive.org/web/20150324040218/http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2013) to nearly [44 million](https://web.archive.org/web/20150923194942/http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2014). In 2015, we had [10.5 million](https://web.archive.org/web/20180307014332/http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2015) additional internet subscribers in Bangladesh. Of the 54 million active internet subscribers, nearly 96% are on mobile and 10 million use smartphones. G&R’s data also says the same. In 2015, our mobile inventory surpassed the desktop inventory.
 
 ![Illustration](../../assets/blog/go-mobile-with-g-r/image-2.png)
 
-[G&R](https://www.green-red.com/) is the first and largest ad network in Bangladesh as we’ve been in the business for over 5 years. We are the local Digital Advertising Network in Bangladesh with over 4500+ local websites and apps within our network. Through this robust network, any brand or company can reach up to 20 Million Bangladeshis who browse the internet from both Desktop and Mobile every day.
+[G&R](https://web.archive.org/web/20160407045350/https://www.green-red.com/) is the first and largest ad network in Bangladesh as we’ve been in the business for over 5 years. We are the local Digital Advertising Network in Bangladesh with over 4500+ local websites and apps within our network. Through this robust network, any brand or company can reach up to 20 Million Bangladeshis who browse the internet from both Desktop and Mobile every day.
 
 ![Illustration](../../assets/blog/go-mobile-with-g-r/image-3.png)
 
-As a dynamic technology company, mobile was always a prime focus for G&R. We have had great device and network targeting features for the mobile for a long time. Recently, we have strengthened our local [Mobile Advertising Platform](https://www.green-red.com/mobile) even more, to enable advertisers, ad agencies and other online media buyers to acquire quality local mobile traffic.
+As a dynamic technology company, mobile was always a prime focus for G&R. We have had great device and network targeting features for the mobile for a long time. Recently, we have strengthened our local [Mobile Advertising Platform](https://web.archive.org/web/20191015005210/https://www.green-red.com/mobile) even more, to enable advertisers, ad agencies and other online media buyers to acquire quality local mobile traffic.
 
 #### Why G&R Mobile Ads?
 
@@ -53,7 +53,7 @@ G&R has different ad types for both mobile web and applications. Besides the tra
 
 *Different types of Ads in G&R*
 
-> If you are interested in promoting your mobile application, with our [App Install Tracker (SDK)](https://blog.green-red.com/download-matters-right-5fa1f8066d6), you can increase and monitor the downloads.
+> If you are interested in promoting your mobile application, with our App Install Tracker (SDK), you can increase and monitor the downloads.
 
 #### Targeting
 
@@ -69,7 +69,7 @@ With growing internet connectivity, the availability of cheaper varieties of sma
 
 In where **G&R** can make a great way for advertisers.
 
-[![Illustration](../../assets/blog/go-mobile-with-g-r/image-6.png)](https://adnetwork.green-red.com/register/)
+[![Illustration](../../assets/blog/go-mobile-with-g-r/image-6.png)](https://web.archive.org/web/20190826071131/https://adnetwork.green-red.com/register/)
 
 Co-author: [Md. Saidur Rahman Sagor](https://medium.com/u/3b90702ce13f), Senior Manager, Growth, G&R
 
