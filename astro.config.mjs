@@ -31,6 +31,12 @@ export default defineConfig({
   site: 'https://tahins.me',
   trailingSlash: 'always',
   integrations: [mdx(), sitemap()],
+  // CTO-approved. Hosted images only; Unsplash stays a hotlink.
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp',
+    },
+  },
   markdown: {
     shikiConfig: {
       theme: 'github-dark',

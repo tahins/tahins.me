@@ -6,7 +6,12 @@
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { countH1, findEmptyHrefs, findImgsMissingAlt } from './lib/markup-checks.mjs';
+import {
+  countH1,
+  findEmptyHrefs,
+  findImgsMissingAlt,
+  findUnsplashImgsMissingSize,
+} from './lib/markup-checks.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -64,6 +69,7 @@ const mediumHosts = [];
 const missingAlt = [];
 const emptyHrefs = [];
 const headingIssues = [];
+const unsplashSizeIssues = [];
 
 for (const file of files) {
   const html = await readFile(file, 'utf8');
@@ -77,6 +83,8 @@ for (const file of files) {
   if (hrefs.length) emptyHrefs.push({ file: rel, tags: hrefs });
   const h1s = countH1(html);
   if (h1s !== 1) headingIssues.push({ file: rel, count: h1s });
+  const unsized = findUnsplashImgsMissingSize(html);
+  if (unsized.length) unsplashSizeIssues.push({ file: rel, tags: unsized });
   for (const target of localTargets(html)) {
     if (target.startsWith('/http')) continue;
     const ok = await Promise.any(distPathFor(target).map((candidate) => exists(candidate).then((yes) => (yes ? candidate : Promise.reject()))),).catch(() => null);
@@ -121,6 +129,22 @@ if (headingIssues.length) {
   }
   process.exitCode = 1;
 }
-if (!broken.length && !mediumHosts.length && !missingAlt.length && !emptyHrefs.length && !headingIssues.length) {
-  console.log(`Checked ${files.length} HTML files: links, alts, hrefs, H1s, and Medium hosts look good.`);
+if (unsplashSizeIssues.length) {
+  console.error('Unsplash images must stay hotlinked with w=, fm=webp, and srcset:');
+  for (const item of unsplashSizeIssues) {
+    console.error(`  ${item.file}: ${item.tags.join(' ')}`);
+  }
+  process.exitCode = 1;
+}
+if (
+  !broken.length &&
+  !mediumHosts.length &&
+  !missingAlt.length &&
+  !emptyHrefs.length &&
+  !headingIssues.length &&
+  !unsplashSizeIssues.length
+) {
+  console.log(
+    `Checked ${files.length} HTML files: links, alts, hrefs, H1s, Medium hosts, and Unsplash sizes look good.`,
+  );
 }

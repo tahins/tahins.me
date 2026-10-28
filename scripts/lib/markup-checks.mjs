@@ -23,3 +23,16 @@ export function findEmptyHrefs(html = '') {
 export function countH1(html = '') {
   return [...html.matchAll(H1_TAG)].length;
 }
+
+const UNSPLASH_IMG = /<img\b[^>]*images\.unsplash\.com[^>]*>/gi;
+
+export function findUnsplashImgsMissingSize(html = '') {
+  return [...html.matchAll(UNSPLASH_IMG)]
+    .map((match) => match[0])
+    .filter(
+      (tag) =>
+        !/\bsrcset=/i.test(tag) ||
+        !/[?&]w=\d+/i.test(tag) ||
+        !/[?&]fm=webp/i.test(tag),
+    );
+}

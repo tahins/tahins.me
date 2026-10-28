@@ -7,6 +7,7 @@ import {
   countH1,
   findEmptyHrefs,
   findImgsMissingAlt,
+  findUnsplashImgsMissingSize,
 } from '../scripts/lib/markup-checks.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -40,6 +41,18 @@ test('markup helpers catch missing alt, empty hrefs, and H1 counts', () => {
   assert.deepEqual(findEmptyHrefs('<a href="/blog/">'), []);
   assert.equal(countH1('<h1>One</h1><h2>Two</h2>'), 1);
   assert.equal(countH1('<h1>One</h1><h1>Two</h1>'), 2);
+  assert.deepEqual(
+    findUnsplashImgsMissingSize(
+      '<img src="https://images.unsplash.com/photo-1" alt="">',
+    ),
+    ['<img src="https://images.unsplash.com/photo-1" alt="">'],
+  );
+  assert.deepEqual(
+    findUnsplashImgsMissingSize(
+      '<img src="https://images.unsplash.com/photo-1?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1?w=400&fm=webp&q=75 400w" alt="">',
+    ),
+    [],
+  );
 });
 
 test('source pages give every img/Picture an alt and every anchor an href', async () => {
