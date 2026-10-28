@@ -53,11 +53,18 @@ async function exists(filePath) {
   }
 }
 
+const MEDIUM_IMAGE_HOST =
+  /(?:cdn-images-\d+\.medium\.com|miro\.medium\.com)/i;
+
 const files = (await walk(dist)).filter((file) => file.endsWith('.html'));
 const broken = [];
+const mediumHosts = [];
 
 for (const file of files) {
   const html = await readFile(file, 'utf8');
+  if (MEDIUM_IMAGE_HOST.test(html)) {
+    mediumHosts.push(path.relative(dist, file));
+  }
   for (const target of localTargets(html)) {
     if (target.startsWith('/http')) continue;
     const ok = await Promise.any(distPathFor(target).map((candidate) => exists(candidate).then((yes) => (yes ? candidate : Promise.reject()))),).catch(() => null);
@@ -73,6 +80,14 @@ if (broken.length) {
     console.error(`  ${item.file} -> ${item.target}`);
   }
   process.exitCode = 1;
-} else {
-  console.log(`Checked ${files.length} HTML files: no broken internal links.`);
+}
+if (mediumHosts.length) {
+  console.error('Built pages still load images from a Medium host:');
+  for (const file of mediumHosts) {
+    console.error(`  ${file}`);
+  }
+  process.exitCode = 1;
+}
+if (!broken.length && !mediumHosts.length) {
+  console.log(`Checked ${files.length} HTML files: no broken internal links or Medium-hosted images.`);
 }

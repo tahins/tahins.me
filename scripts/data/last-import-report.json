@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-10-28T07:18:03.188Z",
+  "generatedAt": "2026-10-28T07:51:13.687Z",
   "note": "Medium RSS only carries recent posts. Re-run with --zip when Tahin provides the official export.",
-  "found": 14,
-  "imported": 14,
+  "found": 15,
+  "imported": 15,
   "posts": [
     {
       "slug": "nyay-o-ihsan",
@@ -74,6 +74,12 @@
       "slug": "durbol-sei-onneshonkari",
       "title": "দুর্বল সেই অণ্বেষণকারী আর অন্বেষিত",
       "originalUrl": "https://tahins.medium.com/691e2717e8fc",
+      "draft": false
+    },
+    {
+      "slug": "enable-google-now-in-non-supported-countries",
+      "title": "Enable Google Now in non-supported countries",
+      "originalUrl": "https://tahins.medium.com/b0898a050790",
       "draft": false
     },
     {
@@ -204,6 +210,11 @@
       "slug": "durbol-sei-onneshonkari",
       "originalUrl": "https://miro.medium.com/v2/resize:fit:720/1*vP5M5YJrWc3nqccA7ZEYmQ.jpeg",
       "localPath": "src/assets/blog/durbol-sei-onneshonkari/image-1.jpeg"
+    },
+    {
+      "slug": "enable-google-now-in-non-supported-countries",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1200/1*VTxzfPC8OSMZARkNrPnmKg.jpeg",
+      "localPath": "src/assets/blog/enable-google-now-in-non-supported-countries/image-1.jpeg"
     },
     {
       "slug": "g-r-html5-clicktag-tutorial",

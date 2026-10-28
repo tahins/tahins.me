@@ -5,6 +5,7 @@ node_modules
 
 # Medium official export — import it, don't commit it
 *.zip
+/uploads/
 
 # local env files
 .env

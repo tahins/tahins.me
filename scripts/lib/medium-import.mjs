@@ -25,6 +25,7 @@ export const SLUG_BY_STORY_ID = {
   eef7ed9450d4: 'shotto-ki-ar-mithya-ki',
   '691e2717e8fc': 'durbol-sei-onneshonkari',
   '597067493830': 'mobile-e-thakun-gr-er-sathe',
+  b0898a050790: 'enable-google-now-in-non-supported-countries',
 };
 
 /**
@@ -37,7 +38,9 @@ export const RESPONSE_FILENAME_HINTS = [
   /one[-_. ]*might[-_. ]*never[-_. ]*figure[-_. ]*it[-_. ]*out/i,
 ];
 
-const MEDIUM_CDN = /(?:cdn-images-1\.medium\.com|miro\.medium\.com)/i;
+export const MEDIUM_IMAGE_HOST =
+  /(?:cdn-images-\d+\.medium\.com|miro\.medium\.com)/i;
+const MEDIUM_CDN = MEDIUM_IMAGE_HOST;
 const TRACKING_IMG = /medium\.com\/_\/stat/i;
 const UNSPLASH_HOST = /(?:images\.)?unsplash\.com/i;
 
@@ -82,6 +85,11 @@ export function mediumImageKey(src = '') {
 
 export function isMediumCdn(src = '') {
   return MEDIUM_CDN.test(src);
+}
+
+export function findMediumImageHosts(text = '') {
+  const urls = String(text).match(/https?:\/\/[^\s"'<>]+/gi) || [];
+  return urls.filter((url) => isMediumCdn(url));
 }
 
 export function isUnsplashUrl(src = '') {
