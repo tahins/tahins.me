@@ -61,5 +61,38 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
   const postCover = html.match(/<div class="post-cover">[\s\S]*?<\/div>/);
   assert.ok(postCover);
   assert.doesNotMatch(postCover[0], /unsplash-credit/);
-  assert.match(html, /class="unsplash-credit"/);
+  assert.match(
+    html,
+    /Photo by <a href="https:\/\/unsplash\.com\/@mnzoutfits"[^>]*>Mnz<\/a> on <a href="https:\/\/unsplash\.com\/photos\/sgx6AIOB7Ak"/,
+  );
+  assert.match(
+    html,
+    /property="og:image" content="https:\/\/images\.unsplash\.com\/photo-1548768041-2fceab4c0b85\?w=1200&fm=webp&q=75"/,
+  );
+  assert.match(html, /name="twitter:image" content="https:\/\/images\.unsplash\.com\/photo-1548768041-2fceab4c0b85\?w=1200&fm=webp&q=75"/);
+  assert.match(html, /og:image:alt" content="কালো পৃষ্ঠে কালো, ধূসর ও বাদামি তিনটি ভি-নেক জামা"/);
+  assert.doesNotMatch(html, /<div class="prose">[\s\S]*<img[\s\S]*photo-1548768041/);
+  const index = await readFile(path.join(dist, 'blog/index.html'), 'utf8');
+  assert.match(
+    index,
+    /href="\/blog\/tin-ti-jama-surah-yusuf\/"[\s\S]*?photo-1548768041-2fceab4c0b85\?w=240&fm=webp&q=75/,
+  );
+});
+
+test('tin-ti-jama frontmatter uses the sgx6AIOB7Ak Unsplash cover, not a body duplicate', async () => {
+  const md = await readFile(
+    path.join(root, 'src/content/blog/tin-ti-jama-surah-yusuf.md'),
+    'utf8',
+  );
+  const closed = md.indexOf('\n---\n', 4);
+  const front = md.slice(0, closed);
+  const body = md.slice(closed);
+  assert.match(front, /heroImage: https:\/\/images\.unsplash\.com\/photo-1548768041-2fceab4c0b85\?w=1200&fm=webp&q=75/);
+  assert.match(front, /heroImageAlt: কালো পৃষ্ঠে কালো, ধূসর ও বাদামি তিনটি ভি-নেক জামা/);
+  assert.match(front, /photographer: Mnz/);
+  assert.match(front, /photographerUrl: https:\/\/unsplash\.com\/@mnzoutfits/);
+  assert.match(front, /unsplashUrl: https:\/\/unsplash\.com\/photos\/sgx6AIOB7Ak/);
+  assert.doesNotMatch(body, /<img\b/);
+  assert.doesNotMatch(md, /photo-1542219550-2da790bf52e9/);
+  assert.doesNotMatch(md, /AIE1_Kp5Zp4/);
 });

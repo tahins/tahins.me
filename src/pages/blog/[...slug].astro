@@ -56,7 +56,7 @@ if (heroIsRemote) {
   description={excerpt}
   canonical={canonical}
   ogImage={ogImage}
-  ogImageAlt={post.data.title}
+  ogImageAlt={post.data.heroImageAlt || post.data.title}
   type="article"
   publishedTime={post.data.pubDate.toISOString()}
   tags={post.data.tags}
