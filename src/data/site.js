@@ -8,6 +8,13 @@ export const site = {
   fontAwesomeKit: 'https://kit.fontawesome.com/f9b50c9352.js',
 };
 
+/** Blog chrome. Bio is the home-page intro, concatenated; no new copy. */
+export const blogProfile = {
+  name: 'Tahin Rahman',
+  role: 'Staff Software Engineer',
+  bio: 'Building high-performing teams and mission-critical platforms. 13+ years in the craft.',
+};
+
 export const navLinks = [
   { text: 'projects', url: '/#projects' },
   { text: 'blog', url: '/blog/' },

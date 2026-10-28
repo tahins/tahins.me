@@ -1,0 +1,12 @@
+---
+import BlogAvatar from './BlogAvatar.astro';
+import { blogProfile } from '../data/site.js';
+---
+
+<div class="blog-compact-author">
+  <BlogAvatar size={40} />
+  <div>
+    <p class="sidebar-name">{blogProfile.name}</p>
+    <p class="sidebar-role">{blogProfile.role}</p>
+  </div>
+</div>

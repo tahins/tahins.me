@@ -39,7 +39,10 @@ export default defineConfig({
   },
   markdown: {
     shikiConfig: {
-      theme: 'github-dark',
+      themes: {
+        light: 'github-light',
+        dark: 'github-dark',
+      },
     },
     remarkPlugins: [remarkEmptyImageAlts],
     rehypePlugins: [rehypeLazyImages],

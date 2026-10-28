@@ -1,0 +1,41 @@
+---
+import { Picture } from 'astro:assets';
+import { isUnsplashImage, previewSource } from '../lib/blog.js';
+import { localBlogImage } from '../lib/blog-images.js';
+import { unsplashSized, unsplashSrcset } from '../lib/unsplash.js';
+
+const { post, sizes = '(max-width: 639px) 80px, 112px' } = Astro.props;
+const source = previewSource(post);
+const unsplash = source && isUnsplashImage(source);
+const local = source ? localBlogImage(source) : null;
+const alt = post.data.title;
+---
+
+<div class="post-preview">
+  {unsplash && (
+    <img
+      src={unsplashSized(source, 240)}
+      srcset={unsplashSrcset(source, [240, 480])}
+      sizes={sizes}
+      width="112"
+      height="112"
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+    />
+  )}
+  {!unsplash && local && (
+    <Picture
+      src={local}
+      alt={alt}
+      widths={[80, 112, 160, 224, 240]}
+      sizes={sizes}
+      width={112}
+      height={112}
+      formats={['webp']}
+      loading="lazy"
+      decoding="async"
+    />
+  )}
+  {!unsplash && !local && <span class="post-preview-tile" aria-hidden="true"></span>}
+</div>

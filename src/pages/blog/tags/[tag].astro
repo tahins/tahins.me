@@ -1,8 +1,10 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Navbar from '../../../components/Navbar.astro';
-import Footer from '../../../components/Footer.astro';
-import { getPublishedPosts, postPath, formatDate } from '../../../lib/blog.js';
+import BlogChrome from '../../../components/BlogChrome.astro';
+import BlogCompactAuthor from '../../../components/BlogCompactAuthor.astro';
+import BlogPostList from '../../../components/BlogPostList.astro';
+import BlogSidebar from '../../../components/BlogSidebar.astro';
+import { getPublishedPosts } from '../../../lib/blog.js';
 import { site } from '../../../data/site.js';
 
 export async function getStaticPaths() {
@@ -21,27 +23,20 @@ const { tag, posts } = Astro.props;
 ---
 
 <BaseLayout
+  variant="blog"
   title={`#${tag} — ${site.shortName}`}
   description={`Posts tagged ${tag} on tahins.me`}
   canonical={`${site.url}/blog/tags/${tag}/`}
 >
-  <div class="page-shell">
-    <Navbar />
-    <main class="blog-tags">
-      <p class="post-meta"><a href="/blog/">blog</a> / tags</p>
-      <h1 class="section-title">#{tag}</h1>
-      <ul class="post-list">
-        {posts.map((post) => (
-          <li>
-            <a href={postPath(post)}>
-              <h2>{post.data.title}</h2>
-            </a>
-            <div class="post-meta">{formatDate(post.data.pubDate)}</div>
-            <p>{post.data.description}</p>
-          </li>
-        ))}
-      </ul>
-    </main>
-    <Footer />
-  </div>
+  <BlogChrome>
+    <div class="blog-layout">
+      <BlogCompactAuthor />
+      <main class="blog-feed">
+        <p class="post-byline"><a href="/blog/">Blog</a> / tags</p>
+        <h1 class="blog-page-title">#{tag}</h1>
+        <BlogPostList posts={posts} />
+      </main>
+      <BlogSidebar />
+    </div>
+  </BlogChrome>
 </BaseLayout>

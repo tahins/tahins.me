@@ -2,16 +2,19 @@
 import { getImage } from 'astro:assets';
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import { getPublishedPosts, formatDate, isRemoteImage } from '../../lib/blog.js';
+import BlogChrome from '../../components/BlogChrome.astro';
+import BlogAvatar from '../../components/BlogAvatar.astro';
+import ArticleCover from '../../components/ArticleCover.astro';
+import {
+  formatDate,
+  getPublishedPosts,
+  isRemoteImage,
+  previewSource,
+  readingLabel,
+} from '../../lib/blog.js';
+import { localBlogImage } from '../../lib/blog-images.js';
 import { unsplashSized } from '../../lib/unsplash.js';
-import { site } from '../../data/site.js';
-
-const localImages = import.meta.glob('../../assets/blog/**/*.{jpeg,jpg,png,gif,webp}', {
-  eager: true,
-  import: 'default',
-});
+import { blogProfile, site } from '../../data/site.js';
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -24,19 +27,24 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
-const hero = post.data.heroImage;
+const hero = previewSource(post);
 const heroIsRemote = Boolean(hero && isRemoteImage(hero));
+const hasHero = Boolean(hero && (heroIsRemote || localBlogImage(hero)));
 
 let ogImage;
 if (heroIsRemote) {
   ogImage = /images\.unsplash\.com/i.test(hero) ? unsplashSized(hero, 1200) : hero;
-} else if (hero && localImages[hero]) {
-  const optimized = await getImage({ src: localImages[hero], width: 1200 });
-  ogImage = new URL(optimized.src, site.url).href;
+} else if (hero) {
+  const local = localBlogImage(hero);
+  if (local) {
+    const optimized = await getImage({ src: local, width: 1200 });
+    ogImage = new URL(optimized.src, site.url).href;
+  }
 }
 ---
 
 <BaseLayout
+  variant="blog"
   title={`${post.data.title} — ${site.shortName}`}
   description={post.data.description}
   canonical={canonical}
@@ -46,32 +54,50 @@ if (heroIsRemote) {
   publishedTime={post.data.pubDate.toISOString()}
   tags={post.data.tags}
 >
-  <div class="page-shell">
-    <Navbar />
-    <article class="blog-post">
-      <p class="post-meta">
-        <a href="/blog/">blog</a>
-        {' / '}
-        {formatDate(post.data.pubDate)}
-        {post.data.updatedDate && ` · updated ${formatDate(post.data.updatedDate)}`}
-      </p>
-      <h1>{post.data.title}</h1>
-      {post.data.tags.length > 0 && (
-        <p class="tag-list">
-          {post.data.tags.map((tag) => (
-            <a href={`/blog/tags/${tag}/`}>#{tag}</a>
-          ))}
-        </p>
-      )}
+  <BlogChrome>
+    <article class:list={['blog-post', { 'has-hero': hasHero }]}>
+      <header class="article-header">
+        <h1 class="article-title">{post.data.title}</h1>
+        {post.data.description && <p class="article-subtitle">{post.data.description}</p>}
+        <div class="article-author">
+          <BlogAvatar size={48} />
+          <div>
+            <p class="sidebar-name">{blogProfile.name}</p>
+            <p class="post-byline">
+              {formatDate(post.data.pubDate)}
+              {' · '}
+              {readingLabel(post.body)}
+              {post.data.updatedDate && ` · updated ${formatDate(post.data.updatedDate)}`}
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <ArticleCover post={post} />
+
       <div class="prose">
         <Content />
       </div>
-      {post.data.originalUrl && (
-        <p class="original-link">
-          Originally published on <a href={post.data.originalUrl}>Medium</a>.
-        </p>
-      )}
+
+      <footer class="article-footer">
+        {post.data.tags.length > 0 && (
+          <p class="tag-list">
+            {post.data.tags.map((tag) => (
+              <a href={`/blog/tags/${tag}/`}>#{tag}</a>
+            ))}
+          </p>
+        )}
+        <section class="article-about">
+          <h2>About Tahin</h2>
+          <p>{blogProfile.bio}</p>
+          <p><a href="/blog/">More on the blog</a></p>
+        </section>
+        {post.data.originalUrl && (
+          <p class="original-link">
+            Originally published on <a href={post.data.originalUrl}>Medium</a>.
+          </p>
+        )}
+      </footer>
     </article>
-    <Footer />
-  </div>
+  </BlogChrome>
 </BaseLayout>

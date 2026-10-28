@@ -1,4 +1,7 @@
 import { getCollection } from 'astro:content';
+import { readingLabel, readingMinutes } from './reading-time.js';
+
+export { readingLabel, readingMinutes };
 
 export async function getPublishedPosts() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -21,4 +24,36 @@ export function formatDate(date) {
 
 export function isRemoteImage(src = '') {
   return /^https?:\/\//.test(src);
+}
+
+export function isUnsplashImage(src = '') {
+  return /images\.unsplash\.com/i.test(src);
+}
+
+export function firstContentImage(body = '') {
+  const markdown = String(body).match(/!\[[^\]]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)/);
+  if (markdown) return markdown[1];
+  const html = String(body).match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i);
+  return html ? html[1] : null;
+}
+
+export function previewSource(post) {
+  return post?.data?.heroImage || firstContentImage(post?.body || '');
+}
+
+export function tagCounts(posts, limit = 10) {
+  const map = new Map();
+  for (const post of posts) {
+    for (const tag of post.data.tags || []) {
+      map.set(tag, (map.get(tag) || 0) + 1);
+    }
+  }
+  return [...map.entries()]
+    .map(([tag, count]) => ({ tag, count }))
+    .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag))
+    .slice(0, limit);
+}
+
+export function featuredPosts(posts, limit = 5) {
+  return posts.filter((post) => post.data.featured).slice(0, limit);
 }

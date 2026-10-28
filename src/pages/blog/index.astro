@@ -1,44 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import { getPublishedPosts, postPath, formatDate } from '../../lib/blog.js';
+import BlogChrome from '../../components/BlogChrome.astro';
+import BlogCompactAuthor from '../../components/BlogCompactAuthor.astro';
+import BlogPostList from '../../components/BlogPostList.astro';
+import BlogSidebar from '../../components/BlogSidebar.astro';
+import { getPublishedPosts } from '../../lib/blog.js';
 import { site } from '../../data/site.js';
 
 const posts = await getPublishedPosts();
-const tags = [...new Set(posts.flatMap((post) => post.data.tags))].sort();
 ---
 
 <BaseLayout
+  variant="blog"
   title={`Blog — ${site.shortName}`}
   description="Writing by E. M. Yeaseenur Rahman Tahin, moved from Medium onto tahins.me."
   canonical={`${site.url}/blog/`}
 >
-  <div class="page-shell">
-    <Navbar />
-    <main class="blog-index">
-      <h1 class="section-title">Blog</h1>
-      <p class="faded-text">Notes on engineering, product, and deen. Formerly at tahins.medium.com.</p>
-      {tags.length > 0 && (
-        <p class="tag-list">
-          Tags:
-          {tags.map((tag) => (
-            <a href={`/blog/tags/${tag}/`}>#{tag}</a>
-          ))}
-        </p>
-      )}
-      <ul class="post-list">
-        {posts.map((post) => (
-          <li>
-            <a href={postPath(post)}>
-              <h2>{post.data.title}</h2>
-            </a>
-            <div class="post-meta">{formatDate(post.data.pubDate)}</div>
-            <p>{post.data.description}</p>
-          </li>
-        ))}
-      </ul>
-    </main>
-    <Footer />
-  </div>
+  <BlogChrome>
+    <div class="blog-layout">
+      <BlogCompactAuthor />
+      <main class="blog-feed">
+        <h1 class="blog-page-title">Blog</h1>
+        <BlogPostList posts={posts} />
+      </main>
+      <BlogSidebar />
+    </div>
+  </BlogChrome>
 </BaseLayout>

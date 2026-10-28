@@ -43,6 +43,7 @@ updatedDate: 2026-10-29T12:00:00.000Z   # optional
 tags:
   - engineering
 draft: false
+featured: false                        # optional; true lists the post under Popular
 heroImage: https://images.unsplash.com/photo-xxxxx
 heroImageCredit:                        # optional, shown for Unsplash photos
   photographer: Jane Doe

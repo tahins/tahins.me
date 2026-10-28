@@ -11,6 +11,7 @@ const {
   type = 'website',
   publishedTime,
   tags = [],
+  variant = 'home',
 } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, site.url).href;
@@ -52,7 +53,7 @@ const imageAlt = ogImageAlt || site.author;
       Add GA4 (G-XXXXXXXX) or enable Netlify Analytics here later.
     -->
   </head>
-  <body>
+  <body class={variant === 'blog' ? 'blog-theme' : undefined}>
     <slot />
   </body>
 </html>
