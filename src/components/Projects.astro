@@ -2,15 +2,14 @@
 import { projects } from '../data/site.js';
 ---
 
-<div class="projects section">
-  <a class="internal-link" id="projects"></a>
-  <h1 class="section-title">Projects</h1>
+<section class="projects section" id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" class="section-title">Projects</h2>
   <ul class="project-list">
     {projects.map((project) => (
       <li style={`background-image: url(${project.imageUrl}); background-size: ${project.bgSize || 'cover'};`}>
         <div class="project-bg"></div>
         <div class="project-info">
-          <h4 class="project-title">{project.title}</h4>
+          <h3 class="project-title">{project.title}</h3>
           <div class="project-details">
             <div class="project-description">{project.description}</div>
             <br />
@@ -32,4 +31,4 @@ import { projects } from '../data/site.js';
       </li>
     ))}
   </ul>
-</div>
+</section>
