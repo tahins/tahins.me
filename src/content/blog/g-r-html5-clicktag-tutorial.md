@@ -1,5 +1,6 @@
 ---
 slug: g-r-html5-clicktag-tutorial
+excerpt: "\"clickTag\" is a way Ad Networks track clicks on an ad banner."
 title: G&R HTML5 clickTAG Tutorial
 description: What is “clickTag”? “clickTag” is a way Ad Networks track clicks on an ad banner. Why “clickTag”? Ad Networks use dynamic URL for click tracking on an ad banner. “clickTag” is the way how Ad Networks communicate with a…
 pubDate: 2016-02-22T00:00:00.000Z

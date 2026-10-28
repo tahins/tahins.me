@@ -83,7 +83,7 @@ test('header computed styles match on / and an article in light and dark', async
     for (const width of [390, 1440]) {
       for (const colorScheme of ['light', 'dark']) {
         const readings = [];
-        for (const pathname of ['/', '/blog/tin-ti-jama-surah-yusuf/']) {
+        for (const pathname of ['/', '/blog/3-dress-surah-yusuf/']) {
           const page = await browser.newPage({
             viewport: { width, height: 900 },
             colorScheme,
@@ -121,7 +121,7 @@ test('header computed styles match on / and an article in light and dark', async
     }
 
     for (const width of [390, 1440]) {
-      for (const pathname of ['/blog/', '/blog/tin-ti-jama-surah-yusuf/', '/blog/tags/tdd/']) {
+      for (const pathname of ['/blog/', '/blog/3-dress-surah-yusuf/', '/blog/tags/tdd/']) {
         const page = await browser.newPage({
           viewport: { width, height: 900 },
           colorScheme: 'light',

@@ -18,8 +18,16 @@ test('unregistering worker is shipped at /service-worker.js', async () => {
 });
 
 test('old Vue PWA registered the same /service-worker.js path', async () => {
-  const { stdout } = await execFileAsync('git', ['show', 'master:src/registerServiceWorker.js'], {
-    cwd: root,
-  });
+  const { stdout: deletedAt } = await execFileAsync(
+    'git',
+    ['log', '-1', '--diff-filter=D', '--pretty=format:%H', '--', 'src/registerServiceWorker.js'],
+    { cwd: root },
+  );
+  assert.ok(deletedAt.trim(), 'expected git history for the Vue service worker');
+  const { stdout } = await execFileAsync(
+    'git',
+    ['show', `${deletedAt.trim()}^:src/registerServiceWorker.js`],
+    { cwd: root },
+  );
   assert.match(stdout, /\$\{process\.env\.BASE_URL\}service-worker\.js/);
 });

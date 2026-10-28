@@ -229,10 +229,10 @@ test('built articles preload Literata Regular locally and set lang', async (t) =
     return;
   }
   const english = await readFile(
-    path.join(dist, 'blog/the-mindset-behind-test-driven-development-tdd/index.html'),
+    path.join(dist, 'blog/tdd-mindset/index.html'),
     'utf8',
   );
-  const bangla = await readFile(path.join(dist, 'blog/nyay-o-ihsan/index.html'), 'utf8');
+  const bangla = await readFile(path.join(dist, 'blog/justice-and-ihsan/index.html'), 'utf8');
   const list = await readFile(path.join(dist, 'blog/index.html'), 'utf8');
   const home = await readFile(path.join(dist, 'index.html'), 'utf8');
 

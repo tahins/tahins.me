@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
-const ARTICLE = '/blog/nyay-o-ihsan/';
+const ARTICLE = '/blog/justice-and-ihsan/';
 const NOTO_400 = '/fonts/noto-serif-bengali-400-v3.000.woff2';
 const HIND_400 = '/fonts/hind-siliguri-400-v1.001.woff2';
 

@@ -27,9 +27,9 @@ async function load(name) {
 
 test('parses official Medium export HTML: title, dates, tags, canonical URL', async () => {
   const html = await load('medium-export-sample.html');
-  const post = parseExportHtml(html, '2018-04-25_Sample-ccf34a785233.html');
+  const post = parseExportHtml(html, '2018-04-25_Sample-abcdef012345.html');
   assert.equal(post.title, 'Sample Medium export post');
-  assert.equal(post.originalUrl, 'https://tahins.medium.com/ccf34a785233');
+  assert.equal(post.originalUrl, 'https://tahins.medium.com/abcdef012345');
   assert.equal(post.draft, false);
   assert.equal(post.pubDate.toISOString(), '2018-04-25T16:21:43.123Z');
   assert.equal(post.updatedDate.toISOString(), '2018-04-26T15:50:14.644Z');
@@ -49,7 +49,7 @@ test('keeps code blocks, quotes, headings, and converts embeds to links', async 
   assert.match(file.markdown, /^slug: [a-z0-9]+(?:-[a-z0-9]+)*$/m);
   assert.match(file.markdown, /pubDate: 2018-04-25T16:21:43.123Z/);
   assert.match(file.markdown, /draft: false/);
-  assert.match(file.markdown, /originalUrl: https:\/\/tahins\.medium\.com\/ccf34a785233/);
+  assert.match(file.markdown, /originalUrl: https:\/\/tahins\.medium\.com\/abcdef012345/);
 });
 
 test('Unsplash images stay remote and keep photographer credit', async () => {
@@ -87,7 +87,7 @@ test('importFromExportZip reads posts/*.html inside a zip', async () => {
   const html = await load('medium-export-sample.html');
   const zip = new JSZip();
   zip.file('profile/profile.html', '<html></html>');
-  zip.file('posts/2018-04-25_Sample-ccf34a785233.html', html);
+  zip.file('posts/2018-04-25_Sample-abcdef012345.html', html);
   const { written, report } = await importFromExportZip(await zip.generateAsync({ type: 'nodebuffer' }), {
     download: false,
   });
@@ -143,7 +143,7 @@ test('slugFromMediumUrl strips the Medium post id', () => {
       'https://tahins.medium.com/test-driven-development-tdd-by-example-ccf34a785233',
       'unused',
     ),
-    'test-driven-development-tdd-by-example',
+    'tdd-by-example',
   );
   assert.equal(mediumImageKey('https://cdn-images-1.medium.com/max/1024/0*HIy3JgWyB0Fl39sn.'), '0*hiy3jgwyb0fl39sn');
 });
@@ -174,11 +174,11 @@ test('Bangla posts get readable transliterated slugs instead of dash soup', () =
       'https://tahins.medium.com/%E0%A6%A8%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%AF%E0%A6%BC-%E0%A6%93-%E0%A6%87%E0%A6%B9%E0%A6%B8%E0%A6%BE%E0%A6%A8-df686b6e20f5',
       'ন্যায় ও ইহসান',
     ),
-    'nyay-o-ihsan',
+    'justice-and-ihsan',
   );
   assert.equal(
     slugFromMediumUrl('', 'ন্যায় ও ইহসান', '2026-10-27_--------df686b6e20f5.html'),
-    'nyay-o-ihsan',
+    'justice-and-ihsan',
   );
 });
 
@@ -202,7 +202,7 @@ test('named response filenames are drafts even without p-in-reply-to', () => {
     true,
   );
   assert.equal(parseExportHtml(html, '2016-10-03_One-might-never-figure-it-out--.html').draft, true);
-  assert.equal(isMediumResponse(html, '2018-04-25_Sample-ccf34a785233.html'), false);
+  assert.equal(isMediumResponse(html, '2018-04-25_Sample-abcdef012345.html'), false);
 });
 
 test('export zip ignores everything except posts/*.html', async () => {
@@ -212,7 +212,7 @@ test('export zip ignores everything except posts/*.html', async () => {
   zip.file('profile/profile.html', '<html><body>private</body></html>');
   zip.file('claps/claps.csv', 'private');
   zip.file('drafts/secret.html', '<article><h1>Draft</h1><section class="e-content"><p>no</p></section></article>');
-  zip.file('posts/2018-04-25_Sample-ccf34a785233.html', story);
+  zip.file('posts/2018-04-25_Sample-abcdef012345.html', story);
   zip.file('posts/2015-12-14_Your-dramatic-intro--.html', response);
   const { written, report } = await importFromExportZip(await zip.generateAsync({ type: 'nodebuffer' }), {
     download: false,
