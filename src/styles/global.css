@@ -639,6 +639,10 @@ html {
   max-width: 680px;
 }
 
+.blog-post {
+  margin-inline: auto;
+}
+
 .blog-page-title,
 .article-title {
   margin: 0 0 16px;
