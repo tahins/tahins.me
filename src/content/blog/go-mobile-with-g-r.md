@@ -1,4 +1,5 @@
 ---
+slug: go-mobile-with-g-r
 title: Go Mobile with G&R
 description: Grab the fastest growing customer base with Mobile Advertising Since the introduction of 3G services, the internet has been spreading in Bangladesh at a fascinating speed. By the end of 2014, internet users grew from 35…
 pubDate: 2016-04-04T15:28:51.000Z

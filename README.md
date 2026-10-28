@@ -31,11 +31,12 @@ Requires Node.js 22+.
 ## Write a post (plain Git)
 
 1. Create a branch from `master`.
-2. Add a Markdown (or MDX) file under `src/content/blog/`. The filename is the URL slug: `src/content/blog/my-post.md` becomes `https://tahins.me/blog/my-post/`.
+2. Add a Markdown (or MDX) file under `src/content/blog/`.
 3. Use this frontmatter:
 
 ```md
 ---
+slug: my-post
 title: My post title
 description: Imported Medium lead. Used for listings and social cards unless excerpt is set.
 excerpt: Optional. Overrides description on /blog, RSS, and og/twitter share text.
@@ -45,6 +46,7 @@ tags:
   - engineering
 draft: false
 featured: false                        # optional; true lists the post under Popular
+old_slugs: []                           # optional previous slugs; each becomes a 301
 heroImage: https://images.unsplash.com/photo-xxxxx
 heroImageCredit:                        # optional, shown for Unsplash photos
   photographer: Jane Doe
@@ -56,6 +58,8 @@ originalUrl: https://tahins.medium.com/ccf34a785233   # Medium story id
 Your post in Markdown. Unsplash images stay as remote URLs. Screenshots belong in
 `src/assets/blog/<slug>/` and are referenced with a relative path.
 ```
+
+`slug` is required and is the only source of `/blog/<slug>/` — not the filename or title. Use lowercase a–z, 0–9, and hyphens; no leading, trailing, or double hyphens. Optional `old_slugs` lists previous slugs; the build writes Netlify 301s from `/blog/<old>/` to `/blog/<slug>/` in `dist/_redirects` so renaming a post does not break shared links.
 
 4. Push the branch. Netlify will build a deploy preview.
 5. Check the preview, then merge to publish. `draft: true` posts are omitted from production builds, RSS, and the sitemap.

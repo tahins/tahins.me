@@ -1,4 +1,5 @@
 ---
+slug: introducing-ad-creator-tool-by-g-r
 title: Introducing Ad Creator Tool by G&R
 description: A beautiful design comes from a beautiful mind. Tools should not be a barrier in the way. If you have a beautiful display ad design in your mind, you should be able to make them with ease. What is Ad Creator Tool? Ad…
 pubDate: 2015-11-17T00:00:00.000Z

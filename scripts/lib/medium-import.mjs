@@ -597,6 +597,7 @@ export function toMarkdownFile(post) {
   const converted = htmlToMarkdown(post.html || '', { slug });
   const hero = converted.images.find((img) => img.kind === 'unsplash' || img.kind === 'medium' || img.kind === 'remote');
   const frontmatter = {
+    slug,
     title: post.title,
     description: post.description || excerptFromHtml(post.html || ''),
     pubDate: formatDay(post.pubDate),

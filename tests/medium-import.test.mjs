@@ -46,6 +46,7 @@ test('keeps code blocks, quotes, headings, and converts embeds to links', async 
   assert.match(file.markdown, /### A heading/);
   assert.match(file.markdown, /Watch on YouTube/);
   assert.match(file.markdown, /gist\.github\.com\/tahins\/abc123/);
+  assert.match(file.markdown, /^slug: [a-z0-9]+(?:-[a-z0-9]+)*$/m);
   assert.match(file.markdown, /pubDate: 2018-04-25T16:21:43.123Z/);
   assert.match(file.markdown, /draft: false/);
   assert.match(file.markdown, /originalUrl: https:\/\/tahins\.medium\.com\/ccf34a785233/);

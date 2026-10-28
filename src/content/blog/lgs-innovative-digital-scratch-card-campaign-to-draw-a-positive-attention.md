@@ -1,4 +1,5 @@
 ---
+slug: lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention
 title: LG’s Innovative Digital Scratch Card Campaign to Draw a Positive attention
 description: Background LG-Butterfly, a well known international electronics brand, also very popular in Bangladesh. Every year on the eve of Eid ul Adha they run a Scratch Card campaign where anyone who buys any LG-Butterfly…
 pubDate: 2016-11-17T10:33:26.000Z

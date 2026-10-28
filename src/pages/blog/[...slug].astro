@@ -11,6 +11,7 @@ import {
   isRemoteImage,
   postExcerpt,
   postLang,
+  postPath,
   previewSource,
   readingLabel,
 } from '../../lib/blog.js';
@@ -21,7 +22,7 @@ import { blogProfile, site } from '../../data/site.js';
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
   return posts.map((post) => ({
-    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    params: { slug: post.data.slug },
     props: { post },
   }));
 }
@@ -30,7 +31,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 const excerpt = postExcerpt(post);
 const lang = postLang(post);
-const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
+const canonical = new URL(postPath(post), site.url).href;
 const hero = previewSource(post);
 const heroIsRemote = Boolean(hero && isRemoteImage(hero));
 const hasHero = Boolean(hero && (heroIsRemote || localBlogImage(hero)));

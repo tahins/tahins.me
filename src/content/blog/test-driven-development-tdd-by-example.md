@@ -1,4 +1,5 @@
 ---
+slug: test-driven-development-tdd-by-example
 title: Test Driven Development (TDD) by example
 description: Contrary to popular belief, TDD is not a testing process. It is a design process. It’s a robust way of designing software components interactively, one unit at a time, by making sure that the individual component’s…
 pubDate: 2018-04-25T16:21:43.000Z

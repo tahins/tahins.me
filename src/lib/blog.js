@@ -1,5 +1,6 @@
 import { getCollection } from 'astro:content';
 import { readingLabel, readingMinutes } from './reading-time.js';
+import { postSlug } from './slugs.js';
 
 export { readingLabel, readingMinutes };
 
@@ -11,7 +12,7 @@ export async function getPublishedPosts() {
 }
 
 export function postPath(post) {
-  return `/blog/${post.id.replace(/\.mdx?$/, '')}/`;
+  return `/blog/${postSlug(post)}/`;
 }
 
 const BENGALI_SCRIPT = /[\u0980-\u09FF]/;
