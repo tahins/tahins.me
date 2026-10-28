@@ -15,6 +15,18 @@
   [headers.values]
     Cache-Control = "no-cache"
 
+# Versioned WOFF2 files in /fonts and hashed Astro assets in /_astro.
+# Cache them for a year. Any changed font MUST get a new filename.
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/_astro/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # Old Vue CLI emitted index.html at this path.
 [[redirects]]
   from = "/index.html"
