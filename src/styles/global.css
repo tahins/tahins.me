@@ -315,6 +315,10 @@ html {
   color: #fff;
 }
 
+.tag-list a {
+  margin-right: 0.75em;
+}
+
 .blog-post .hero {
   width: 100%;
   max-height: 420px;
