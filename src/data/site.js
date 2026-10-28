@@ -55,6 +55,7 @@ export const projects = [
     technology: 'AngularJS, PWA',
     // Browse omitted: SSL error on https://app.guidedverses.com (listed in PR).
     imageUrl: '/img/projects/gdvs.png',
+    imageAlt: 'Guided Verses app logo',
     bgSize: '200px',
   },
   {
@@ -63,6 +64,7 @@ export const projects = [
     technology: 'React, Material UI',
     // Browse omitted: Cloudflare login wall on https://alaap.app/ (listed in PR).
     imageUrl: '/img/projects/alaap.png',
+    imageAlt: 'Alaap SMS app artwork',
     bgSize: 'cover',
   },
   {
@@ -72,6 +74,7 @@ export const projects = [
     url: 'https://prayer-time.tahins.me',
     githubUrl: 'https://www.github.com/tahins/prayer-time-ts',
     imageUrl: '/img/projects/prayer-time.png',
+    imageAlt: 'Prayer Time app logo',
     bgSize: '200px',
   },
   {
@@ -80,6 +83,7 @@ export const projects = [
     technology: 'Vue, Serverless Lambda, PWA',
     url: 'https://coronabd.tahins.me',
     imageUrl: '/img/projects/coronabd.png',
+    imageAlt: 'COVID-19 Bangladesh status app logo',
     bgSize: '200px',
   },
   {
@@ -89,6 +93,7 @@ export const projects = [
     url: 'https://refactoring-color.tahins.me',
     githubUrl: 'https://www.github.com/tahins/refactoring-color',
     imageUrl: '/img/projects/refactoring-color.jpg',
+    imageAlt: 'Abstract color field for the Refactoring Color palette generator',
     bgSize: 'cover',
   },
   {
@@ -98,6 +103,7 @@ export const projects = [
     url: 'https://readly.tahins.me',
     githubUrl: 'https://www.github.com/tahins/readly',
     imageUrl: '/img/projects/readly.jpg',
+    imageAlt: 'Readly news app artwork',
     bgSize: 'cover',
   },
   {
@@ -106,6 +112,7 @@ export const projects = [
     technology: 'AngularJS',
     // Browse omitted: http://www.islamporichiti.com returns 500 (listed in PR).
     imageUrl: '/img/projects/islam-porichiti.png',
+    imageAlt: 'Islam Porichiti logo',
     bgSize: '200px',
   },
   {
@@ -115,6 +122,7 @@ export const projects = [
     url: 'https://wedding.tahins.me',
     githubUrl: 'https://www.github.com/tahins/wedding',
     imageUrl: '/img/projects/wedding.jpg',
+    imageAlt: 'Artwork from Tahin and Opi\'s wedding site',
     bgSize: 'cover',
   },
   {
@@ -124,6 +132,7 @@ export const projects = [
     url: 'https://village.tahins.me',
     githubUrl: 'https://www.github.com/tahins/village',
     imageUrl: '/img/projects/village.jpg',
+    imageAlt: '360 degree view of Chitholia village',
     bgSize: 'cover',
   },
   {
@@ -133,6 +142,7 @@ export const projects = [
     url: 'https://abohawa.tahins.me',
     githubUrl: 'https://www.github.com/tahins/abohawa',
     imageUrl: '/img/projects/abohawa.png',
+    imageAlt: 'Abohawa weather app logo',
     bgSize: '200px',
   },
   {
@@ -142,6 +152,7 @@ export const projects = [
     url: 'https://www.npmjs.com/package/angular-gnrad',
     githubUrl: 'https://www.github.com/tahins/angular-gnrad',
     imageUrl: '/img/projects/angular-gnrad.jpg',
+    imageAlt: 'angular-gnrad package artwork',
     bgSize: 'cover',
   },
   {
@@ -151,6 +162,7 @@ export const projects = [
     url: 'https://dark-knight.tahins.me',
     githubUrl: 'https://www.github.com/tahins/dark-knight',
     imageUrl: '/img/projects/dark-knight.jpg',
+    imageAlt: 'Dark Knight Batman artwork',
     bgSize: 'cover',
   },
   {
@@ -160,6 +172,7 @@ export const projects = [
     url: 'https://mangoesmobile.tahins.me',
     githubUrl: 'https://www.github.com/tahins/mangoesmobile',
     imageUrl: '/img/projects/mangoesmobile.jpg',
+    imageAlt: 'Man Goes Mobile website artwork',
     bgSize: 'cover',
   },
   {
@@ -169,6 +182,7 @@ export const projects = [
     url: 'https://slate.tahins.me',
     githubUrl: 'https://www.github.com/tahins/slate',
     imageUrl: '/img/projects/readly.jpg',
+    imageAlt: 'Slate writing app artwork',
     bgSize: 'cover',
   },
   {
@@ -177,6 +191,7 @@ export const projects = [
     technology: 'LESS',
     githubUrl: 'https://www.github.com/tahins/rongdhonu',
     imageUrl: '/img/projects/rongdhonu.jpg',
+    imageAlt: 'rongdhonu Bootstrap theme artwork',
     bgSize: 'cover',
   },
   {
@@ -185,5 +200,6 @@ export const projects = [
     technology: 'CSS3 animation',
     // Browse omitted: http://codepen.io/tahins/full/lzdmc returns 500 (listed in PR).
     imageUrl: '/img/projects/gandr-loading.jpg',
+    imageAlt: 'G&R loading animation artwork',
   },
 ];
