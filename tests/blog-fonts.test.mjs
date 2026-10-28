@@ -72,6 +72,15 @@ function headerFor(toml, glob) {
   return headerBlocks(toml).find((block) => new RegExp(`for\\s*=\\s*"${escaped}"`).test(block));
 }
 
+function redirectBlocks(toml) {
+  return toml.split(/\[\[redirects\]\]/).slice(1);
+}
+
+function redirectFrom(toml, from) {
+  const escaped = from.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return redirectBlocks(toml).find((block) => new RegExp(`from\\s*=\\s*"${escaped}"`).test(block));
+}
+
 const css = await readFile(path.join(root, 'src/styles/global.css'), 'utf8');
 const pkg = await readFile(path.join(root, 'package.json'), 'utf8');
 const slugPage = await readFile(path.join(root, 'src/pages/blog/[...slug].astro'), 'utf8');
@@ -220,6 +229,14 @@ test('netlify.toml immutable-caches /fonts/* and /_astro/*', () => {
   assert.match(fonts, /Cache-Control\s*=\s*"public, max-age=31536000, immutable"/);
   assert.match(fontLicenses, /Content-Type\s*=\s*"text\/plain; charset=utf-8"/);
   assert.match(astro, /Cache-Control\s*=\s*"public, max-age=31536000, immutable"/);
+});
+
+test('netlify.toml force-301s /index.html to /', () => {
+  const rule = redirectFrom(netlify, '/index.html');
+  assert.ok(rule, 'missing [[redirects]] for /index.html');
+  assert.match(rule, /to\s*=\s*"\/"/);
+  assert.match(rule, /status\s*=\s*301/);
+  assert.match(rule, /force\s*=\s*true/);
 });
 
 test('built articles preload Literata Regular locally and set lang', async (t) => {
