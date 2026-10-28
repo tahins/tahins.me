@@ -10,6 +10,7 @@ tags:
   - programming
   - testing
 draft: false
+featured: true
 updatedDate: 2018-04-26T15:43:14.260Z
 heroImage: ../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-1.png
 originalUrl: https://tahins.medium.com/b02deccbff81

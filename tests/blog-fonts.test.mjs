@@ -160,6 +160,12 @@ test('@font-face files are local, versioned, swap, and Bengali faces set unicode
   for (const face of hind) {
     assert.match(face, /unicode-range:\s*U\+0980-09FF;/);
   }
+  const literata = faces.filter((face) => /Literata/.test(face));
+  assert.equal(literata.length, 3);
+  for (const face of literata) {
+    assert.match(face, /unicode-range:\s*U\+0000-00FF/);
+    assert.doesNotMatch(face, /U\+0980/);
+  }
 });
 
 test('no @font-face or font preload URL points off-site', () => {
@@ -193,6 +199,8 @@ test('Bangla posts get lang=bn; English posts get lang=en', () => {
   assert.match(layout, /lang=\{lang\}/);
   assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*line-height:\s*1\.8/);
   assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*font-size:\s*19px/);
+  assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.article-title \{[\s\S]*font-size:\s*33px/);
+  assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.article-title \{[\s\S]*font-size:\s*43px/);
 });
 
 test('netlify.toml immutable-caches /fonts/* and /_astro/*', () => {

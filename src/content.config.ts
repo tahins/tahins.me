@@ -31,6 +31,7 @@ const blog = defineCollection({
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
     heroImage: z.string().optional(),
+    heroImageAlt: z.string().optional(),
     heroImageCredit: unsplashCredit,
     originalUrl: z.string().url().optional(),
   }),

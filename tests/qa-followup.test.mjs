@@ -22,8 +22,8 @@ test('404 page uses the site chrome with Home and Blog links', () => {
   assert.match(page404, /<h1>Page not found<\/h1>/);
   assert.match(page404, /href="\/"/);
   assert.match(page404, /href="\/blog\/"/);
-  assert.match(page404, /<Navbar/);
   assert.match(page404, /not-found-links/);
+  assert.doesNotMatch(page404, /<Navbar/);
 });
 
 test('manifest restores the live maskable icons', async () => {

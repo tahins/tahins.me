@@ -23,6 +23,12 @@
   --padding-horizontal: 70px;
   --padding-vertical: 60px;
   --padding-mobile: 20px;
+  /* Site bar: always the home look, not theme tokens. */
+  --bar-bg: #000;
+  --bar-fg: #fff;
+  --bar-underline: #fff;
+  --bar-size: 14px;
+  --bar-font: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, 'Hind Siliguri', serif;
 }
 
 * {
@@ -36,6 +42,7 @@ html {
   color: #fff;
   font-size: 14px;
   background-color: #000;
+  overflow-x: clip;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, 'Hind Siliguri', serif;
@@ -139,8 +146,17 @@ html {
   border-color: tomato;
 }
 
+.site-header {
+  background: var(--bar-bg);
+  color: var(--bar-fg);
+  font-family: var(--bar-font);
+  font-size: var(--bar-size);
+  letter-spacing: normal;
+  padding: var(--padding-vertical) var(--padding-horizontal) 0;
+}
+
 .home {
-  padding: 60px 70px;
+  padding: 0 var(--padding-horizontal) var(--padding-vertical);
 }
 
 .above-fold {
@@ -148,7 +164,7 @@ html {
   padding-bottom: 50px;
   flex-direction: column;
   width: calc(100vw - 140px);
-  height: calc(100vh - 60px);
+  height: calc(100vh - 104px);
 }
 
 .navbar {
@@ -158,11 +174,16 @@ html {
   align-items: center;
   justify-content: space-between;
   gap: 8px;
+  font-family: var(--bar-font);
+  font-size: var(--bar-size);
+  letter-spacing: normal;
+  background: var(--bar-bg);
+  color: var(--bar-fg);
 }
 
 .navbar .brand,
 .navbar .nav-links a {
-  color: #fff;
+  color: var(--bar-fg);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -172,15 +193,19 @@ html {
   padding: 10px 8px;
   text-decoration: none;
   box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
 }
 
 .navbar .brand {
   padding-left: 0;
-  border-bottom: 4px solid #fff;
+  border-bottom: 4px solid var(--bar-underline);
 }
 
-.navbar .nav-links a:hover {
-  border-bottom: 4px solid #fff;
+.navbar .nav-links a:hover,
+.navbar .nav-links a[aria-current='page'] {
+  border-bottom: 4px solid var(--bar-underline);
 }
 
 .navbar .nav-links {
@@ -574,14 +599,18 @@ html {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    padding: 20px 20px 0;
+  }
+
   .home,
   .page-shell {
-    padding: 20px !important;
+    padding: 0 20px 20px !important;
   }
 
   .above-fold {
     width: calc(100vw - 40px) !important;
-    height: 100vh !important;
+    height: calc(100vh - 64px) !important;
   }
 
   .hello {
@@ -642,6 +671,7 @@ html {
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/literata-latin-400-v3.103.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2010-2027, U+2030-203A, U+2044, U+20AC;
 }
 
 @font-face {
@@ -650,6 +680,7 @@ html {
   font-weight: 400;
   font-display: swap;
   src: url('/fonts/literata-latin-400-italic-v3.103.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2010-2027, U+2030-203A, U+2044, U+20AC;
 }
 
 @font-face {
@@ -658,6 +689,7 @@ html {
   font-weight: 700;
   font-display: swap;
   src: url('/fonts/literata-latin-700-v3.103.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2010-2027, U+2030-203A, U+2044, U+20AC;
 }
 
 @font-face {
@@ -712,8 +744,26 @@ html {
   color: var(--blog-link);
 }
 
+/* Bar stays the home look on every page, including light blog. */
+.blog-theme .site-header,
+.blog-theme .site-header a,
 .blog-theme .navbar .brand,
-.blog-theme .navbar .nav-links a,
+.blog-theme .navbar .nav-links a {
+  color: var(--bar-fg);
+  font-family: var(--bar-font);
+}
+
+.blog-theme .site-header,
+.blog-theme .navbar {
+  background: var(--bar-bg);
+}
+
+.blog-theme .navbar .brand,
+.blog-theme .navbar .nav-links a:hover,
+.blog-theme .navbar .nav-links a[aria-current='page'] {
+  border-bottom-color: var(--bar-underline);
+}
+
 .blog-theme .post-stretched,
 .blog-theme .popular-link,
 .blog-theme .work-links a,
@@ -721,14 +771,6 @@ html {
 .blog-theme .sidebar-rss,
 .blog-theme .tag-list a {
   color: var(--blog-text);
-}
-
-.blog-theme .navbar .brand {
-  border-bottom-color: var(--blog-text);
-}
-
-.blog-theme .navbar .nav-links a:hover {
-  border-bottom-color: var(--blog-text);
 }
 
 .blog-theme .footer {
@@ -1027,19 +1069,29 @@ html {
   margin: 0 0 28px;
 }
 
-.article-cover img,
-.article-cover picture {
+.post-cover {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+.post-cover img,
+.post-cover picture,
+.post-cover picture img {
   display: block;
   width: 100%;
   height: auto;
+  max-height: 70vh;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0;
 }
 
-.article-cover figcaption,
 .article-cover .unsplash-credit {
   margin: 8px 0 0;
   color: var(--blog-muted);
   font-family: var(--blog-chrome);
   font-size: 13px;
+  text-align: left;
 }
 
 .blog-post.has-hero .prose > figure:first-child,
@@ -1052,11 +1104,6 @@ html {
   font-family: var(--blog-serif);
   font-size: 18px;
   line-height: 28px;
-}
-
-.blog-post:lang(bn) .article-title {
-  font-size: 33px;
-  line-height: 1.8;
 }
 
 .blog-post:lang(bn) .prose {
@@ -1191,11 +1238,6 @@ html {
   .blog-post .prose {
     font-size: 20px;
     line-height: 32px;
-  }
-
-  .blog-post:lang(bn) .article-title {
-    font-size: 43px;
-    line-height: 1.8;
   }
 
   .blog-post:lang(bn) .prose {

@@ -5,6 +5,7 @@ description: আজকের হালাকায় ডা. সাইফুল
 pubDate: 2026-06-22T12:23:45.000Z
 tags: []
 draft: false
+featured: true
 updatedDate: 2026-06-22T12:23:45.470Z
 heroImage: https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=1200&fm=webp&q=75
 heroImageCredit:

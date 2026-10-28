@@ -8,7 +8,7 @@ const { post, sizes = '(max-width: 639px) 80px, 112px' } = Astro.props;
 const source = previewSource(post);
 const unsplash = source && isUnsplashImage(source);
 const local = source ? localBlogImage(source) : null;
-const alt = post.data.title;
+const alt = post.data.heroImageAlt || post.data.title;
 ---
 
 <div class="post-preview">

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
 import { site } from '../data/site.js';
 
 const {
@@ -59,6 +60,7 @@ const imageAlt = ogImageAlt || site.author;
     -->
   </head>
   <body class={variant === 'blog' ? 'blog-theme' : undefined}>
+    <Navbar />
     <slot />
   </body>
 </html>

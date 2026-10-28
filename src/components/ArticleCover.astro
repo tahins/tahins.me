@@ -5,41 +5,47 @@ import { isUnsplashImage, previewSource } from '../lib/blog.js';
 import { localBlogImage } from '../lib/blog-images.js';
 import { unsplashSized, unsplashSrcset } from '../lib/unsplash.js';
 
+const COVER_WIDTHS = [800, 1600, 2400];
+
 const { post } = Astro.props;
 const source = previewSource(post);
 const unsplash = source && isUnsplashImage(source);
 const local = source ? localBlogImage(source) : null;
-const alt = post.data.title;
+const alt = post.data.heroImageAlt || post.data.title;
 const credit = post.data.heroImageCredit;
 ---
 
 {(unsplash || local) && (
-  <figure class="article-cover">
-    {unsplash && (
-      <img
-        src={unsplashSized(source, 800)}
-        srcset={unsplashSrcset(source, [400, 800, 1200])}
-        sizes="(max-width: 680px) 100vw, 680px"
-        alt={alt}
-        loading="eager"
-        decoding="async"
-      />
-    )}
-    {local && (
-      <Picture
-        src={local}
-        alt={alt}
-        widths={[400, 680, 800, 1200]}
-        sizes="(max-width: 680px) 100vw, 680px"
-        formats={['webp']}
-        loading="eager"
-        decoding="async"
-      />
-    )}
-    {credit && unsplash && (
-      <figcaption>
-        <UnsplashCredit credit={credit} />
-      </figcaption>
-    )}
-  </figure>
+  <div class="article-cover">
+    <div class="post-cover">
+      {unsplash && (
+        <img
+          src={unsplashSized(source, 1600)}
+          srcset={unsplashSrcset(source, COVER_WIDTHS)}
+          sizes="100vw"
+          width="2400"
+          height="1350"
+          alt={alt}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      )}
+      {local && (
+        <Picture
+          src={local}
+          alt={alt}
+          widths={COVER_WIDTHS}
+          sizes="100vw"
+          width={2400}
+          height={1350}
+          formats={['webp']}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      )}
+    </div>
+    {credit && unsplash && <UnsplashCredit credit={credit} />}
+  </div>
 )}

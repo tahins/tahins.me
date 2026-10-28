@@ -10,19 +10,16 @@ tags:
   - muslim
   - bangla
 draft: false
+featured: true
 updatedDate: 2026-10-26T04:46:08.582Z
-heroImage: https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=1200&fm=webp&q=75
+heroImage: https://images.unsplash.com/photo-1548768041-2fceab4c0b85?w=1200&fm=webp&q=75
+heroImageAlt: কালো পৃষ্ঠে কালো, ধূসর ও বাদামি তিনটি ভি-নেক জামা
 heroImageCredit:
   photographer: Mnz
   photographerUrl: https://unsplash.com/@mnzoutfits
-  unsplashUrl: https://unsplash.com/photos/AIE1_Kp5Zp4
+  unsplashUrl: https://unsplash.com/photos/sgx6AIOB7Ak
 originalUrl: https://tahins.medium.com/eb3e2a421c17
 ---
-
-<figure>
-<img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="কালো, ধূসর ও বাদামি রঙের তিনটি ভাঁজ করা জামা" loading="lazy" />
-<figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@mnzoutfits">Mnz</a> on <a href="https://unsplash.com/photos/AIE1_Kp5Zp4">Unsplash</a></figcaption>
-</figure>
 
 সূরা ইউসুফে মোট তিনবার “জামা” (কামীছ)-এর উল্লেখ এসেছে। কুরআনে কোনো শব্দের পুনরাবৃত্তি কখনো নিরর্থক নয় -​ প্রতিটি জামার পেছনে লুকিয়ে আছে জীবনের এক একটি গভীর শিক্ষা।
 

@@ -71,6 +71,17 @@ export function tagCounts(posts, limit = 10) {
     .slice(0, limit);
 }
 
+/** Sidebar Popular order. Tahin-picked; do not reorder by date. */
+export const POPULAR_SLUGS = [
+  'tin-ti-jama-surah-yusuf',
+  'shotto-ki-ar-mithya-ki',
+  'the-mindset-behind-test-driven-development-tdd',
+];
+
 export function featuredPosts(posts, limit = 5) {
-  return posts.filter((post) => post.data.featured).slice(0, limit);
+  const featured = posts.filter((post) => post.data.featured);
+  const rank = new Map(POPULAR_SLUGS.map((slug, index) => [slug, index]));
+  return featured
+    .sort((a, b) => (rank.get(a.data.slug) ?? 99) - (rank.get(b.data.slug) ?? 99))
+    .slice(0, limit);
 }

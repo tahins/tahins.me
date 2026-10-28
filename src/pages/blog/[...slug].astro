@@ -17,6 +17,7 @@ import {
 } from '../../lib/blog.js';
 import { localBlogImage } from '../../lib/blog-images.js';
 import { unsplashSized } from '../../lib/unsplash.js';
+import { COVER_BEFORE_TITLE } from '../../lib/article-layout.js';
 import { blogProfile, site } from '../../data/site.js';
 
 export async function getStaticPaths() {
@@ -63,11 +64,10 @@ if (heroIsRemote) {
 >
   <BlogChrome>
     <article class:list={['blog-post', { 'has-hero': hasHero }]} lang={lang}>
-      <ArticleCover post={post} />
+      {COVER_BEFORE_TITLE && <ArticleCover post={post} />}
 
       <header class="article-header">
         <h1 class="article-title">{post.data.title}</h1>
-        {excerpt && <p class="article-subtitle">{excerpt}</p>}
         <div class="article-author">
           <BlogAvatar size={48} />
           <div>
@@ -81,6 +81,8 @@ if (heroIsRemote) {
           </div>
         </div>
       </header>
+
+      {!COVER_BEFORE_TITLE && <ArticleCover post={post} />}
 
       <div class="prose">
         <Content />

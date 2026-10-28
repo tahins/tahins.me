@@ -51,17 +51,28 @@ test('reading time is ~200 wpm and counts Bangla words', () => {
   assert.ok(readingMinutes(english) < readingMinutes(english + ' ' + english));
 });
 
-test('featured is in the schema and no post is flagged', async () => {
+test('featured lists Tahin’s Popular posts in the listed order', async () => {
   assert.match(schema, /featured:\s*z\.boolean\(\)\.default\(false\)/);
+  const blogLib = await readFile(path.join(root, 'src/lib/blog.js'), 'utf8');
+  assert.match(
+    blogLib,
+    /export const POPULAR_SLUGS = \[\s*'tin-ti-jama-surah-yusuf',\s*'shotto-ki-ar-mithya-ki',\s*'the-mindset-behind-test-driven-development-tdd',/,
+  );
+  const expected = [
+    'tin-ti-jama-surah-yusuf',
+    'shotto-ki-ar-mithya-ki',
+    'the-mindset-behind-test-driven-development-tdd',
+  ];
   const posts = (await walk(path.join(root, 'src/content/blog'))).filter((file) =>
     file.endsWith('.md'),
   );
   const flagged = [];
   for (const file of posts) {
     const text = await readFile(file, 'utf8');
-    if (/^featured:\s*true\s*$/m.test(text)) flagged.push(path.basename(file));
+    const slug = text.match(/^slug:\s*(.+)$/m)?.[1]?.trim();
+    if (/^featured:\s*true\s*$/m.test(text)) flagged.push(slug);
   }
-  assert.deepEqual(flagged, []);
+  assert.deepEqual(flagged.sort(), [...expected].sort());
 });
 
 test('list uses a stretched title link, a preview, and the excerpt helper', () => {
@@ -99,7 +110,7 @@ test('sidebar markup is an aside with RSS, topics, and current work — no Mediu
 test('article page has cover, author, about footer, and a single H1 title', () => {
   assert.match(article, /class="article-title"/);
   assert.match(article, /ArticleCover/);
-  assert.ok(article.indexOf('ArticleCover') < article.indexOf('article-title'));
+  assert.match(article, /COVER_BEFORE_TITLE/);
   assert.match(article, /About Tahin/);
   assert.match(article, /href="\/blog\/"/);
   assert.match(article, /variant="blog"/);
@@ -114,10 +125,16 @@ test('built /blog rows have a preview and the sidebar; tag pages have posts', as
     return;
   }
   const indexHtml = await readFile(path.join(dist, 'blog/index.html'), 'utf8');
-  const rows = [...indexHtml.matchAll(/class="post-row"/g)];
-  const previews = [...indexHtml.matchAll(/class="post-preview"/g)];
+  const listStart = indexHtml.indexOf('class="post-list"');
+  const listHtml = listStart === -1 ? '' : indexHtml.slice(listStart, indexHtml.indexOf('</ul>', listStart));
+  const rows = [...listHtml.matchAll(/class="post-row"/g)];
+  const previews = [...listHtml.matchAll(/class="post-preview"/g)];
+  const popular = [...indexHtml.matchAll(/class="sidebar-popular"/g)];
+  const popularThumbs = [...indexHtml.matchAll(/class="popular-link"/g)];
   assert.ok(rows.length >= 15, `expected 15+ post rows, got ${rows.length}`);
-  assert.equal(previews.length, rows.length, 'each row needs a preview');
+  assert.equal(previews.length, rows.length, 'each feed row needs a preview');
+  assert.equal(popular.length, 1);
+  assert.equal(popularThumbs.length, 3);
   assert.match(indexHtml, /aria-label="Blog sidebar"/);
   assert.match(indexHtml, /href="\/blog\/rss\.xml"/);
   assert.doesNotMatch(indexHtml, /href=["']["']/);
@@ -141,5 +158,9 @@ test('built /blog rows have a preview and the sidebar; tag pages have posts', as
   assert.doesNotMatch(articleHtml, /Originally published on Medium/);
   const coverAt = articleHtml.indexOf('article-cover');
   const titleAt = articleHtml.indexOf('article-title');
-  assert.ok(coverAt !== -1 && titleAt !== -1 && coverAt < titleAt);
+  const authorAt = articleHtml.indexOf('article-author');
+  assert.ok(titleAt !== -1 && authorAt !== -1 && coverAt !== -1);
+  assert.ok(titleAt < authorAt && authorAt < coverAt);
+  assert.match(articleHtml, /class="post-cover"/);
+  assert.match(indexHtml, /sidebar-popular/);
 });
