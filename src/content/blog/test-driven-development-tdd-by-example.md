@@ -23,7 +23,7 @@ Contrary to popular belief, TDD is not a testing process. It is a design process
 
 I have discussed at length about the mindset one should have prior to applying TDD in my last story. You can read it from the link below.
 
-> [The mindset behind Test Driven Development (TDD)](https://medium.com/@tahins/the-mindset-behind-test-driven-development-tdd-b02deccbff81)
+> [The mindset behind Test Driven Development (TDD)](/blog/the-mindset-behind-test-driven-development-tdd/)
 
 In this story we'll see what a basic implementation of TDD looks like. Note that, I will not cover the nitty-gritty of unit testing which includes concepts like setting up tests, mocking, different types of assertion etc. I will try to portray the idea as programming language and unit testing framework agnostically as possible. However, I will be using JavaScript throughout my example.
 

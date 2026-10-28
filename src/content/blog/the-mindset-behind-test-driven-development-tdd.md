@@ -76,7 +76,7 @@ Said every developer ever. Regardless of what project or technology you are work
 
 I have written another story with an example of TDD in action. You can find it in the link below.
 
-> [Test Driven Development (TDD) by example](https://medium.com/@tahins/test-driven-development-tdd-by-example-ccf34a785233)
+> [Test Driven Development (TDD) by example](/blog/test-driven-development-tdd-by-example/)
 
 That’s about it. My goal was to prepare you mentally for this unorthodox yet extremely useful approach. I hope some of you are convinced about the usefulness of TDD by now.
 
