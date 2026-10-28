@@ -18,9 +18,7 @@ function isCurrent(url = '') {
       <ul class="nav-links">
         {navLinks.map((navLink) => (
           <li>
-            <a href={navLink.url} aria-current={isCurrent(navLink.url) ? 'page' : undefined}>
-              {navLink.text}
-            </a>
+            <a href={navLink.url} aria-current={isCurrent(navLink.url) ? 'page' : undefined}>{navLink.text}</a>
           </li>
         ))}
       </ul>

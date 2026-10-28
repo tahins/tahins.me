@@ -13,6 +13,7 @@ const { size = 88 } = Astro.props;
     sizes={`${size}px`}
     width={size}
     formats={['webp']}
+    fallbackFormat="webp"
     loading="lazy"
     decoding="async"
   />
