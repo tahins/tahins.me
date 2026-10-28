@@ -548,5 +548,15 @@ html {
     font-size: 2.5rem;
     margin: 10px 12px;
   }
+
+  .archive-list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .archive-desc {
+    flex: 1 1 auto;
+  }
 }
 

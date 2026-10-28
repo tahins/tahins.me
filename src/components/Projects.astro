@@ -9,18 +9,20 @@ import { currentProjects, archiveProjects } from '../data/site.js';
       <li>
         <h3 class="project-title">{project.title}</h3>
         <p class="project-description">{project.description}</p>
-        <div class="project-links">
-          {project.url && (
-            <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-              Open
-            </a>
-          )}
-          {project.githubUrl && (
-            <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-              View code
-            </a>
-          )}
-        </div>
+        {(project.url || project.githubUrl) && (
+          <div class="project-links">
+            {project.url && (
+              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                Open
+              </a>
+            )}
+            {project.githubUrl && (
+              <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                View code
+              </a>
+            )}
+          </div>
+        )}
       </li>
     ))}
   </ul>

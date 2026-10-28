@@ -42,4 +42,21 @@ test('current work does not invent missing URLs', () => {
     currentProjects.find((project) => project.title === 'Guided Verses').url,
     'https://app.guidedverses.xyz/',
   );
+  assert.equal(
+    currentProjects.find((project) => project.title === 'Dua Deck').url,
+    'https://dua-deck.tahins.me/',
+  );
+});
+
+test('current work uses draft one-liners and https Guided Verses', () => {
+  const byTitle = Object.fromEntries(currentProjects.map((project) => [project.title, project]));
+  assert.equal(byTitle.Todox.description, 'A minimal, monochrome weekly to-do app.');
+  assert.equal(byTitle.GetBriefly.description, 'Bengali and English news, briefly.');
+  assert.equal(byTitle.HajjMate.description, 'A Hajj and Umrah companion app for pilgrims.');
+  assert.equal(byTitle['Quran Map'].description, 'A calm companion for Quran memorization.');
+  assert.equal(byTitle.Alaap.description, 'A privacy-first SMS app for Android.');
+  assert.match(byTitle['Dua Deck'].description, /tranquil and artistic Dua companion/i);
+  assert.match(byTitle['Guided Verses'].description, /friendly reading experience/i);
+  assert.doesNotMatch(byTitle['Guided Verses'].url, /^http:/);
+  assert.ok(currentProjects.every((project) => !project.githubUrl));
 });
