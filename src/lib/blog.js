@@ -14,6 +14,15 @@ export function postPath(post) {
   return `/blog/${post.id.replace(/\.mdx?$/, '')}/`;
 }
 
+const BENGALI_SCRIPT = /[\u0980-\u09FF]/;
+
+/** Bangla posts get lang="bn" on the article. */
+export function postLang(post) {
+  const title = post?.data?.title || '';
+  const body = post?.body || '';
+  return BENGALI_SCRIPT.test(title) || BENGALI_SCRIPT.test(body) ? 'bn' : 'en';
+}
+
 export function formatDate(date) {
   return new Intl.DateTimeFormat('en-GB', {
     year: 'numeric',

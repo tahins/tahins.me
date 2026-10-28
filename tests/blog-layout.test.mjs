@@ -72,12 +72,13 @@ test('list uses a stretched title link, a preview, and the excerpt helper', () =
   assert.match(schema, /excerpt:\s*z\.string\(\)\.optional/);
 });
 
-test('blog CSS is a 680px column, then a 1024px sidebar, Charter body, and color-scheme', () => {
+test('blog CSS is a 680px column, then a 1024px sidebar, Literata body, and color-scheme', () => {
   assert.match(css, /\.blog-feed,\s*\.blog-post \{[\s\S]*max-width:\s*680px/);
   assert.match(css, /@media \(min-width: 1024px\)/);
   assert.match(css, /minmax\(0, 680px\) 300px/);
   assert.match(css, /column-gap:\s*56px/);
   assert.match(css, /position:\s*sticky/);
+  assert.match(css, /Literata/);
   assert.match(css, /Charter/);
   assert.match(css, /prefers-color-scheme:\s*dark/);
   assert.match(css, /\.blog-theme \{[\s\S]*background: var\(--blog-bg\)/);

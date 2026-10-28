@@ -10,6 +10,7 @@ import {
   getPublishedPosts,
   isRemoteImage,
   postExcerpt,
+  postLang,
   previewSource,
   readingLabel,
 } from '../../lib/blog.js';
@@ -28,6 +29,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const excerpt = postExcerpt(post);
+const lang = postLang(post);
 const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
 const hero = previewSource(post);
 const heroIsRemote = Boolean(hero && isRemoteImage(hero));
@@ -55,9 +57,10 @@ if (heroIsRemote) {
   type="article"
   publishedTime={post.data.pubDate.toISOString()}
   tags={post.data.tags}
+  preloadFont="/fonts/literata-latin-400.woff2"
 >
   <BlogChrome>
-    <article class:list={['blog-post', { 'has-hero': hasHero }]}>
+    <article class:list={['blog-post', { 'has-hero': hasHero }]} lang={lang}>
       <ArticleCover post={post} />
 
       <header class="article-header">
