@@ -1,25 +1,28 @@
 ---
 import PostPreviewThumb from './PostPreviewThumb.astro';
-import { formatDate, postPath, readingLabel } from '../lib/blog.js';
+import { formatDate, postExcerpt, postPath, readingLabel } from '../lib/blog.js';
 
 const { posts } = Astro.props;
 ---
 
 <ul class="post-list">
-  {posts.map((post) => (
-    <li class="post-row">
-      <div class="post-copy">
-        <h2 class="post-title">
-          <a class="post-stretched" href={postPath(post)}>{post.data.title}</a>
-        </h2>
-        {post.data.description && <p class="post-subtitle">{post.data.description}</p>}
-        <p class="post-byline">
-          {formatDate(post.data.pubDate)}
-          {' · '}
-          {readingLabel(post.body)}
-        </p>
-      </div>
-      <PostPreviewThumb post={post} />
-    </li>
-  ))}
+  {posts.map((post) => {
+    const excerpt = postExcerpt(post);
+    return (
+      <li class="post-row">
+        <div class="post-copy">
+          <h2 class="post-title">
+            <a class="post-stretched" href={postPath(post)}>{post.data.title}</a>
+          </h2>
+          {excerpt && <p class="post-subtitle">{excerpt}</p>}
+          <p class="post-byline">
+            {formatDate(post.data.pubDate)}
+            {' · '}
+            {readingLabel(post.body)}
+          </p>
+        </div>
+        <PostPreviewThumb post={post} />
+      </li>
+    );
+  })}
 </ul>

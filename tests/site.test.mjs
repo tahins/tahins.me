@@ -37,7 +37,11 @@ test('current work uses Tahin-supplied links and leaves HajjMate without a URL',
   assert.equal(byTitle['Quran Map'].url, 'https://quran-map.tahins.me/');
   assert.equal(byTitle.HajjMate.url, undefined);
   assert.equal(byTitle.HajjMate.githubUrl, undefined);
-  assert.equal(byTitle.Alaap.url, 'https://alaap.tahins.me/');
+  assert.equal(byTitle['Alaap SMS'].url, 'https://alaap.tahins.me/');
+  assert.equal(
+    currentProjects.find((project) => project.title === 'Alaap'),
+    undefined,
+  );
   assert.equal(byTitle['Dua Deck'].url, 'https://dua-deck.tahins.me/');
   assert.equal(byTitle['Guided Verses'].url, 'https://app.guidedverses.xyz/');
   assert.ok(currentProjects.every((project) => !project.githubUrl));
@@ -53,7 +57,7 @@ test('current work uses Tahin taglines and site wording', () => {
   assert.equal(byTitle.getbriefly.description, 'Your personal Bengali news, briefly.');
   assert.equal(byTitle.HajjMate.description, 'A Hajj and Umrah companion app for pilgrims.');
   assert.equal(byTitle['Quran Map'].description, 'A calm companion for Quran memorization.');
-  assert.equal(byTitle.Alaap.description, 'A privacy-first SMS app for Android.');
+  assert.equal(byTitle['Alaap SMS'].description, 'A privacy-first SMS app for Android.');
   assert.match(byTitle['Dua Deck'].description, /tranquil and artistic Dua companion/i);
   assert.match(byTitle['Guided Verses'].description, /friendly reading experience/i);
 });

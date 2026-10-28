@@ -37,7 +37,8 @@ Requires Node.js 22+.
 ```md
 ---
 title: My post title
-description: One or two sentences for listings, RSS, and social cards.
+description: Imported Medium lead. Used for listings and social cards unless excerpt is set.
+excerpt: Optional. Overrides description on /blog, RSS, and og/twitter share text.
 pubDate: 2026-10-28T12:00:00.000Z
 updatedDate: 2026-10-29T12:00:00.000Z   # optional
 tags:

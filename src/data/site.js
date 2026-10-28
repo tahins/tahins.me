@@ -8,11 +8,11 @@ export const site = {
   fontAwesomeKit: 'https://kit.fontawesome.com/f9b50c9352.js',
 };
 
-/** Blog chrome. Bio is the home-page intro, concatenated; no new copy. */
+/** Blog chrome. */
 export const blogProfile = {
   name: 'Tahin Rahman',
   role: 'Staff Software Engineer',
-  bio: 'Building high-performing teams and mission-critical platforms. 13+ years in the craft.',
+  bio: 'Muslim • Father • Software engineer • Technologist',
 };
 
 export const navLinks = [
@@ -75,7 +75,7 @@ export const currentProjects = [
     url: 'https://quran-map.tahins.me/',
   },
   {
-    title: 'Alaap',
+    title: 'Alaap SMS',
     description: 'A privacy-first SMS app for Android.',
     url: 'https://alaap.tahins.me/',
   },

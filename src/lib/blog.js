@@ -41,6 +41,13 @@ export function previewSource(post) {
   return post?.data?.heroImage || firstContentImage(post?.body || '');
 }
 
+/** List, RSS, and share text. `excerpt` overrides the imported Medium description. */
+export function postExcerpt(post) {
+  const excerpt = post?.data?.excerpt;
+  if (typeof excerpt === 'string' && excerpt.trim()) return excerpt.trim();
+  return post?.data?.description || '';
+}
+
 export function tagCounts(posts, limit = 10) {
   const map = new Map();
   for (const post of posts) {

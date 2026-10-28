@@ -722,10 +722,6 @@ html {
 }
 
 .sidebar-bio {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
   margin-top: 8px;
 }
 
@@ -913,7 +909,7 @@ html {
 }
 
 .article-cover {
-  margin: 0 0 32px;
+  margin: 0 0 28px;
 }
 
 .article-cover img,
@@ -959,6 +955,7 @@ html {
 }
 
 .blog-post .prose figure {
+  width: 100%;
   margin: 1.25em 0 1.75em;
 }
 
@@ -997,7 +994,10 @@ html {
   color: var(--blog-muted);
 }
 
-.blog-post .prose img {
+.blog-post .prose img,
+.blog-post .prose picture {
+  display: block;
+  width: 100%;
   max-width: 100%;
   height: auto;
 }

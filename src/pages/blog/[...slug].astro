@@ -9,6 +9,7 @@ import {
   formatDate,
   getPublishedPosts,
   isRemoteImage,
+  postExcerpt,
   previewSource,
   readingLabel,
 } from '../../lib/blog.js';
@@ -26,6 +27,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const excerpt = postExcerpt(post);
 const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
 const hero = previewSource(post);
 const heroIsRemote = Boolean(hero && isRemoteImage(hero));
@@ -46,7 +48,7 @@ if (heroIsRemote) {
 <BaseLayout
   variant="blog"
   title={`${post.data.title} — ${site.shortName}`}
-  description={post.data.description}
+  description={excerpt}
   canonical={canonical}
   ogImage={ogImage}
   ogImageAlt={post.data.title}
@@ -56,9 +58,11 @@ if (heroIsRemote) {
 >
   <BlogChrome>
     <article class:list={['blog-post', { 'has-hero': hasHero }]}>
+      <ArticleCover post={post} />
+
       <header class="article-header">
         <h1 class="article-title">{post.data.title}</h1>
-        {post.data.description && <p class="article-subtitle">{post.data.description}</p>}
+        {excerpt && <p class="article-subtitle">{excerpt}</p>}
         <div class="article-author">
           <BlogAvatar size={48} />
           <div>
@@ -72,8 +76,6 @@ if (heroIsRemote) {
           </div>
         </div>
       </header>
-
-      <ArticleCover post={post} />
 
       <div class="prose">
         <Content />
@@ -92,11 +94,6 @@ if (heroIsRemote) {
           <p>{blogProfile.bio}</p>
           <p><a href="/blog/">More on the blog</a></p>
         </section>
-        {post.data.originalUrl && (
-          <p class="original-link">
-            Originally published on <a href={post.data.originalUrl}>Medium</a>.
-          </p>
-        )}
       </footer>
     </article>
   </BlogChrome>

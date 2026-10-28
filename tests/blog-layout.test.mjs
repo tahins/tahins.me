@@ -36,14 +36,9 @@ const list = await readFile(path.join(root, 'src/components/BlogPostList.astro')
 const article = await readFile(path.join(root, 'src/pages/blog/[...slug].astro'), 'utf8');
 const hello = await readFile(path.join(root, 'src/components/Hello.astro'), 'utf8');
 
-test('blog bio reuses the home intro and Staff title', () => {
-  assert.match(hello, /Building high-performing teams/);
-  assert.match(hello, /mission-critical platforms/);
-  assert.match(hello, /13\+/);
-  assert.equal(
-    blogProfile.bio,
-    'Building high-performing teams and mission-critical platforms. 13+ years in the craft.',
-  );
+test('blog bio and Staff title', () => {
+  assert.match(hello, /Staff Software Engineer/);
+  assert.equal(blogProfile.bio, 'Muslim • Father • Software engineer • Technologist');
   assert.equal(blogProfile.role, 'Staff Software Engineer');
   assert.equal(blogProfile.name, 'Tahin Rahman');
 });
@@ -69,10 +64,12 @@ test('featured is in the schema and no post is flagged', async () => {
   assert.deepEqual(flagged, []);
 });
 
-test('list uses a stretched title link and a preview element', () => {
+test('list uses a stretched title link, a preview, and the excerpt helper', () => {
   assert.match(list, /class="post-stretched"/);
   assert.match(list, /PostPreviewThumb/);
   assert.match(list, /readingLabel/);
+  assert.match(list, /postExcerpt/);
+  assert.match(schema, /excerpt:\s*z\.string\(\)\.optional/);
 });
 
 test('blog CSS is a 680px column, then a 1024px sidebar, Charter body, and color-scheme', () => {
@@ -85,6 +82,7 @@ test('blog CSS is a 680px column, then a 1024px sidebar, Charter body, and color
   assert.match(css, /prefers-color-scheme:\s*dark/);
   assert.match(css, /\.blog-theme \{[\s\S]*background: var\(--blog-bg\)/);
   assert.match(css, /--blog-link:\s*#9a3412/);
+  assert.match(css, /\.blog-post \.prose img,\s*\.blog-post \.prose picture \{[\s\S]*width:\s*100%/);
 });
 
 test('sidebar markup is an aside with RSS, topics, and current work — no Medium', () => {
@@ -100,9 +98,12 @@ test('sidebar markup is an aside with RSS, topics, and current work — no Mediu
 test('article page has cover, author, about footer, and a single H1 title', () => {
   assert.match(article, /class="article-title"/);
   assert.match(article, /ArticleCover/);
+  assert.ok(article.indexOf('ArticleCover') < article.indexOf('article-title'));
   assert.match(article, /About Tahin/);
   assert.match(article, /href="\/blog\/"/);
   assert.match(article, /variant="blog"/);
+  assert.match(article, /postExcerpt/);
+  assert.doesNotMatch(article, /Originally published on/);
 });
 
 test('built /blog rows have a preview and the sidebar; tag pages have posts', async (t) => {
@@ -136,4 +137,8 @@ test('built /blog rows have a preview and the sidebar; tag pages have posts', as
   assert.match(articleHtml, /class="blog-post/);
   assert.match(articleHtml, /max-width:680px|class="blog-post/);
   assert.match(articleHtml, /About Tahin/);
+  assert.doesNotMatch(articleHtml, /Originally published on Medium/);
+  const coverAt = articleHtml.indexOf('article-cover');
+  const titleAt = articleHtml.indexOf('article-title');
+  assert.ok(coverAt !== -1 && titleAt !== -1 && coverAt < titleAt);
 });

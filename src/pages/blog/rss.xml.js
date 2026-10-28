@@ -1,5 +1,5 @@
 import rss from '@astrojs/rss';
-import { getPublishedPosts, postPath } from '../../lib/blog.js';
+import { getPublishedPosts, postExcerpt, postPath } from '../../lib/blog.js';
 import { site } from '../../data/site.js';
 
 export async function GET(context) {
@@ -10,7 +10,7 @@ export async function GET(context) {
     site: context.site,
     items: posts.map((post) => ({
       title: post.data.title,
-      description: post.data.description,
+      description: postExcerpt(post),
       pubDate: post.data.pubDate,
       link: postPath(post),
       categories: post.data.tags,
