@@ -28,10 +28,17 @@ test('project thumbnails use Astro Picture with alt, not hotlinks', () => {
 test('current-work CSS is mobile-first list, then 2-col, then 3-col cards', () => {
   const start = css.indexOf('.current-projects {');
   const layout = css.slice(start);
-  assert.match(layout, /grid-template-columns:\s*1fr;/);
-  assert.match(layout, /min-height:\s*64px;/);
+  const phone = layout.slice(0, layout.indexOf('@media (min-width: 640px)'));
+  const tablet = layout.slice(
+    layout.indexOf('@media (min-width: 640px)'),
+    layout.indexOf('@media (min-width: 1024px)'),
+  );
+  assert.match(phone, /grid-template-columns:\s*1fr;/);
+  assert.match(phone, /min-height:\s*64px;/);
+  assert.match(phone, /\.current-projects \.project-open \{[\s\S]*?display:\s*none/);
   assert.match(layout, /@media \(min-width: 640px\)/);
-  assert.match(layout, /repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(tablet, /repeat\(2, minmax\(0, 1fr\)\)/);
+  assert.match(tablet, /\.current-projects \.project-open \{[\s\S]*?display:\s*inline-flex/);
   assert.match(layout, /@media \(min-width: 1024px\)/);
   assert.match(layout, /repeat\(3, minmax\(0, 1fr\)\)/);
   assert.match(layout, /aspect-ratio:\s*16\s*\/\s*10/);

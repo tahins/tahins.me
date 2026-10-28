@@ -306,10 +306,6 @@ html {
   z-index: 1;
 }
 
-.project-open {
-  display: none;
-}
-
 .project-code {
   position: relative;
   z-index: 2;
@@ -323,6 +319,10 @@ html {
   min-height: 44px;
   padding: 10px 12px 10px 0;
   text-decoration: none;
+}
+
+.current-projects .project-open {
+  display: none;
 }
 
 .project-link:hover {
@@ -387,7 +387,7 @@ html {
     max-width: 70ch;
   }
 
-  .project-open {
+  .current-projects .project-open {
     display: inline-flex;
   }
 
