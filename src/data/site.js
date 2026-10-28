@@ -44,19 +44,19 @@ export const contacts = [
 ];
 
 /**
- * Current work leads. One-liners are drafts for Tahin except Dua Deck
- * and Guided Verses, which use wording from each site.
- * No URL is invented: Todox, GetBriefly, HajjMate and Quran Map have
- * none in this repo, so those cards have no Open link.
+ * Current work leads. HajjMate still has no URL. Dua Deck and Guided
+ * Verses use wording from each site; Quran Map keeps its draft one-liner.
  */
 export const currentProjects = [
   {
     title: 'Todox',
-    description: 'A minimal, monochrome weekly to-do app.',
+    description: 'A minimal to-do app built for the busiest person on the earth.',
+    url: 'https://todox.tahins.me/',
   },
   {
     title: 'GetBriefly',
-    description: 'Bengali and English news, briefly.',
+    description: 'Your personal Bengali news, briefly.',
+    url: 'https://getbriefly.news/',
   },
   {
     title: 'HajjMate',
@@ -65,6 +65,7 @@ export const currentProjects = [
   {
     title: 'Quran Map',
     description: 'A calm companion for Quran memorization.',
+    url: 'https://quran-map.tahins.me/',
   },
   {
     title: 'Alaap',
