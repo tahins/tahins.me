@@ -28,7 +28,12 @@ test('contact list starts with email and has no Medium', () => {
 test('current work uses Tahin-supplied links and leaves HajjMate without a URL', () => {
   const byTitle = Object.fromEntries(currentProjects.map((project) => [project.title, project]));
   assert.equal(byTitle.Todox.url, 'https://todox.tahins.me/');
-  assert.equal(byTitle.GetBriefly.url, 'https://getbriefly.news/');
+  assert.equal(byTitle.getbriefly.title, 'getbriefly');
+  assert.equal(
+    currentProjects.find((project) => project.title === 'GetBriefly'),
+    undefined,
+  );
+  assert.equal(byTitle.getbriefly.url, 'https://getbriefly.news/');
   assert.equal(byTitle['Quran Map'].url, 'https://quran-map.tahins.me/');
   assert.equal(byTitle.HajjMate.url, undefined);
   assert.equal(byTitle.HajjMate.githubUrl, undefined);
@@ -45,7 +50,7 @@ test('current work uses Tahin taglines and site wording', () => {
     byTitle.Todox.description,
     'A minimal to-do app built for the busiest person on the earth.',
   );
-  assert.equal(byTitle.GetBriefly.description, 'Your personal Bengali news, briefly.');
+  assert.equal(byTitle.getbriefly.description, 'Your personal Bengali news, briefly.');
   assert.equal(byTitle.HajjMate.description, 'A Hajj and Umrah companion app for pilgrims.');
   assert.equal(byTitle['Quran Map'].description, 'A calm companion for Quran memorization.');
   assert.equal(byTitle.Alaap.description, 'A privacy-first SMS app for Android.');

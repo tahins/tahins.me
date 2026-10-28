@@ -54,7 +54,7 @@ export const currentProjects = [
     url: 'https://todox.tahins.me/',
   },
   {
-    title: 'GetBriefly',
+    title: 'getbriefly',
     description: 'Your personal Bengali news, briefly.',
     url: 'https://getbriefly.news/',
   },
