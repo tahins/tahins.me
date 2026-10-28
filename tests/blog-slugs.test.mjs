@@ -19,6 +19,7 @@ const blogDir = path.join(root, 'src/content/blog');
 
 const EXPECTED_POST_PATHS = [
   '/blog/3-dress-surah-yusuf/',
+  '/blog/a-flock-of-evenings/',
   '/blog/ad-creator-tool/',
   '/blog/becoming-a-product-manager-part-1/',
   '/blog/enable-google-now/',
@@ -121,7 +122,7 @@ test('fails on a missing slug, invalid format, or duplicate slug', () => {
 
 test('every post has a unique valid slug equal to its current URL', () => {
   assertSlugs(posts);
-  assert.equal(posts.length, 15);
+  assert.equal(posts.length, 16);
   const paths = posts.map((post) => `/blog/${post.slug}/`).sort();
   assert.deepEqual(paths, [...EXPECTED_POST_PATHS].sort());
   for (const post of posts) {
