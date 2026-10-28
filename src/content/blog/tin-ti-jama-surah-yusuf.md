@@ -10,7 +10,7 @@ tags:
   - bangla
 draft: false
 updatedDate: 2026-10-26T04:46:08.582Z
-heroImage: https://images.unsplash.com/photo-1542219550-2da790bf52e9?auto=format&fit=crop&w=1600&q=80
+heroImage: https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=1200&fm=webp&q=75
 heroImageCredit:
   photographer: Mnz
   photographerUrl: https://unsplash.com/@mnzoutfits
@@ -19,7 +19,7 @@ originalUrl: https://tahins.medium.com/eb3e2a421c17
 ---
 
 <figure>
-<img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1542219550-2da790bf52e9?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="" loading="lazy" />
 <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@mnzoutfits">Mnz</a> on <a href="https://unsplash.com/photos/AIE1_Kp5Zp4">Unsplash</a></figcaption>
 </figure>
 

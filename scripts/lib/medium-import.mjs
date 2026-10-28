@@ -3,6 +3,7 @@
  * into Markdown files for the Astro blog collection.
  */
 import { Buffer } from 'node:buffer';
+import { unsplashSized, unsplashSrcset } from '../../src/lib/unsplash.js';
 import { mkdir, readdir, readFile, rm, unlink, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { load } from 'cheerio';
@@ -630,7 +631,9 @@ export function toMarkdownFile(post) {
 }
 
 export function unsplashFigureHtml({ src, alt = '', credit } = {}) {
-  const img = `<img src="${src}" alt="${escapeAttr(alt)}" loading="lazy" />`;
+  const sized = unsplashSized(src, 800);
+  const srcset = unsplashSrcset(src);
+  const img = `<img src="${sized}" srcset="${srcset}" sizes="(max-width: 768px) 100vw, 800px" alt="${escapeAttr(alt)}" loading="lazy" />`;
   if (!credit?.photographer) {
     return `<figure>\n${img}\n</figure>`;
   }

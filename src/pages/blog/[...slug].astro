@@ -5,6 +5,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { getPublishedPosts, formatDate, isRemoteImage } from '../../lib/blog.js';
+import { unsplashSized } from '../../lib/unsplash.js';
 import { site } from '../../data/site.js';
 
 const localImages = import.meta.glob('../../assets/blog/**/*.{jpeg,jpg,png,gif,webp}', {
@@ -28,7 +29,7 @@ const heroIsRemote = Boolean(hero && isRemoteImage(hero));
 
 let ogImage;
 if (heroIsRemote) {
-  ogImage = hero;
+  ogImage = /images\.unsplash\.com/i.test(hero) ? unsplashSized(hero, 1200) : hero;
 } else if (hero && localImages[hero]) {
   const optimized = await getImage({ src: localImages[hero], width: 1200 });
   ogImage = new URL(optimized.src, site.url).href;
