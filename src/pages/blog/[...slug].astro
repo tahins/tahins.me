@@ -1,10 +1,16 @@
 ---
+import { getImage } from 'astro:assets';
 import { render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import { getPublishedPosts, formatDate, isRemoteImage } from '../../lib/blog.js';
 import { site } from '../../data/site.js';
+
+const localImages = import.meta.glob('../../assets/blog/**/*.{jpeg,jpg,png,gif,webp}', {
+  eager: true,
+  import: 'default',
+});
 
 export async function getStaticPaths() {
   const posts = await getPublishedPosts();
@@ -19,8 +25,14 @@ const { Content } = await render(post);
 const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
 const hero = post.data.heroImage;
 const heroIsRemote = Boolean(hero && isRemoteImage(hero));
-// Local assets are hashed into /_astro at build time; don't invent a public URL.
-const ogImage = heroIsRemote ? hero : undefined;
+
+let ogImage;
+if (heroIsRemote) {
+  ogImage = hero;
+} else if (hero && localImages[hero]) {
+  const optimized = await getImage({ src: localImages[hero], width: 1200 });
+  ogImage = new URL(optimized.src, site.url).href;
+}
 ---
 
 <BaseLayout
@@ -28,6 +40,7 @@ const ogImage = heroIsRemote ? hero : undefined;
   description={post.data.description}
   canonical={canonical}
   ogImage={ogImage}
+  ogImageAlt={post.data.title}
   type="article"
   publishedTime={post.data.pubDate.toISOString()}
   tags={post.data.tags}
