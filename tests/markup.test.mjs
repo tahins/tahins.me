@@ -53,6 +53,12 @@ test('markup helpers catch missing alt, empty hrefs, and H1 counts', () => {
     ),
     [],
   );
+  assert.deepEqual(
+    findUnsplashImgsMissingSize(
+      '<img src="https://images.unsplash.com/photo-1?w=800&#x26;fm=webp&#x26;q=75" srcset="https://images.unsplash.com/photo-1?w=400&#x26;fm=webp&#x26;q=75 400w" alt="">',
+    ),
+    [],
+  );
 });
 
 test('source pages give every img/Picture an alt and every anchor an href', async () => {

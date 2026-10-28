@@ -26,13 +26,19 @@ export function countH1(html = '') {
 
 const UNSPLASH_IMG = /<img\b[^>]*images\.unsplash\.com[^>]*>/gi;
 
+function decodeAmpersands(value = '') {
+  return value.replace(/&amp;/gi, '&').replace(/&#x26;/gi, '&').replace(/&#38;/g, '&');
+}
+
 export function findUnsplashImgsMissingSize(html = '') {
   return [...html.matchAll(UNSPLASH_IMG)]
     .map((match) => match[0])
-    .filter(
-      (tag) =>
-        !/\bsrcset=/i.test(tag) ||
-        !/[?&]w=\d+/i.test(tag) ||
-        !/[?&]fm=webp/i.test(tag),
-    );
+    .filter((tag) => {
+      const decoded = decodeAmpersands(tag);
+      return (
+        !/\bsrcset=/i.test(decoded) ||
+        !/[?&]w=\d+/i.test(decoded) ||
+        !/[?&]fm=webp/i.test(decoded)
+      );
+    });
 }
