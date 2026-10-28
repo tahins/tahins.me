@@ -1116,6 +1116,7 @@ html {
 }
 
 .blog-post:lang(bn) .prose {
+  font-size: 19px;
   line-height: 1.8;
 }
 
@@ -1249,6 +1250,7 @@ html {
   }
 
   .blog-post:lang(bn) .prose {
+    font-size: 21px;
     line-height: 1.8;
   }
 }

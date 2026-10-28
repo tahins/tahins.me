@@ -166,14 +166,14 @@ test('Bangla article prose uses Noto Serif Bengali 400 and English sizes', async
     }
 
     assert.equal(mobile.measured.title.fontSize, '32px');
-    assert.equal(mobile.measured.prose.fontSize, '18px');
-    assert.equal(mobile.measured.para.fontSize, '18px');
-    assert.equal(mobile.measured.para.lineHeight, '32.4px');
+    assert.equal(mobile.measured.prose.fontSize, '19px');
+    assert.equal(mobile.measured.para.fontSize, '19px');
+    assert.equal(mobile.measured.para.lineHeight, '34.2px');
 
     assert.equal(desktop.measured.title.fontSize, '42px');
-    assert.equal(desktop.measured.prose.fontSize, '20px');
-    assert.equal(desktop.measured.para.fontSize, '20px');
-    assert.equal(desktop.measured.para.lineHeight, '36px');
+    assert.equal(desktop.measured.prose.fontSize, '21px');
+    assert.equal(desktop.measured.para.fontSize, '21px');
+    assert.equal(desktop.measured.para.lineHeight, '37.8px');
   } finally {
     await browser.close();
     server.close();
