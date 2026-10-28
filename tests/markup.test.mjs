@@ -5,6 +5,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
   countH1,
+  findContentImgsWithBlankAlt,
   findEmptyHrefs,
   findImgsMissingAlt,
   findUnsplashImgsMissingSize,
@@ -36,6 +37,19 @@ test('markup helpers catch missing alt, empty hrefs, and H1 counts', () => {
   assert.deepEqual(findImgsMissingAlt('<img src="/x.jpg">'), ['<img src="/x.jpg">']);
   assert.deepEqual(findImgsMissingAlt('<img src="/x.jpg" alt="">'), []);
   assert.deepEqual(findImgsMissingAlt('<Picture src={x} alt="Portrait">'), []);
+  assert.deepEqual(findContentImgsWithBlankAlt('<img src="/x.jpg" alt="">'), [
+    '<img src="/x.jpg" alt="">',
+  ]);
+  assert.deepEqual(
+    findContentImgsWithBlankAlt('<img src="/x.jpg" alt="" role="presentation">'),
+    [],
+  );
+  assert.deepEqual(findContentImgsWithBlankAlt('<img src="/x.jpg" alt="A path in a forest">'), []);
+  assert.deepEqual(
+    findContentImgsWithBlankAlt('<img src="/x.jpg" alt="" aria-hidden="true">'),
+    [],
+  );
+  assert.deepEqual(findContentImgsWithBlankAlt('<img src={src} alt={alt} />'), []);
   assert.deepEqual(findEmptyHrefs('<a id="contact">'), ['<a id="contact">']);
   assert.deepEqual(findEmptyHrefs('<a href="">'), ['<a href="">']);
   assert.deepEqual(findEmptyHrefs('<a href="/blog/">'), []);
@@ -66,14 +80,17 @@ test('source pages give every img/Picture an alt and every anchor an href', asyn
     /\.(astro|md|mdx|html)$/.test(file),
   );
   const missingAlt = [];
+  const blankContentAlt = [];
   const emptyHrefs = [];
   for (const file of files) {
     const text = await readFile(file, 'utf8');
     const rel = path.relative(root, file);
     for (const tag of findImgsMissingAlt(text)) missingAlt.push({ file: rel, tag });
+    for (const tag of findContentImgsWithBlankAlt(text)) blankContentAlt.push({ file: rel, tag });
     for (const tag of findEmptyHrefs(text)) emptyHrefs.push({ file: rel, tag });
   }
   assert.deepEqual(missingAlt, []);
+  assert.deepEqual(blankContentAlt, []);
   assert.deepEqual(emptyHrefs, []);
 });
 
@@ -92,6 +109,9 @@ test('built HTML has one H1, img alts, and no empty hrefs', async (t) => {
     const h1s = countH1(html);
     if (h1s !== 1) issues.push(`${rel} has ${h1s} h1s`);
     for (const tag of findImgsMissingAlt(html)) issues.push(`${rel} missing alt: ${tag}`);
+    for (const tag of findContentImgsWithBlankAlt(html)) {
+      issues.push(`${rel} blank content alt: ${tag}`);
+    }
     for (const tag of findEmptyHrefs(html)) issues.push(`${rel} empty href: ${tag}`);
   }
   assert.deepEqual(issues, []);

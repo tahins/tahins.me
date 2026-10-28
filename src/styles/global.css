@@ -87,6 +87,58 @@ html {
   border-color: tomato;
 }
 
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.not-found {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 36em;
+  padding: 48px 0;
+}
+
+.not-found h1 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.not-found p {
+  margin: 0 0 8px;
+  color: #a6a6a6;
+}
+
+.not-found-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.not-found-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 10px 18px;
+  color: #000;
+  background: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #fff;
+}
+
+.not-found-links a:hover {
+  color: #fff;
+  background: tomato;
+  border-color: tomato;
+}
+
 .home {
   padding: 60px 70px;
 }

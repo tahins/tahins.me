@@ -13,6 +13,7 @@ const {
   tags = [],
   variant = 'home',
   preloadFont,
+  lang = 'en',
 } = Astro.props;
 
 const canonicalURL = canonical || new URL(Astro.url.pathname, site.url).href;
@@ -21,7 +22,7 @@ const imageAlt = ogImageAlt || site.author;
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />

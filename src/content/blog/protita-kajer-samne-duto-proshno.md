@@ -20,7 +20,7 @@ originalUrl: https://tahins.medium.com/79348dc0e0b1
 ---
 
 <figure>
-<img src="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1429743305873-d4065c15f93e?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="ঘন জঙ্গলে একটি মাটির পথ দুই দিকে ভাগ হয়ে গেছে" loading="lazy" />
 <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@madebyjens">Jens Lelie</a> on <a href="https://unsplash.com/photos/u0vgcIOQG08">Unsplash</a></figcaption>
 </figure>
 

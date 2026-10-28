@@ -179,7 +179,7 @@ test('no @font-face or font preload URL points off-site', () => {
     assert.doesNotMatch(tag, GOOGLE_FONT_HOSTS);
   }
   assert.match(slugPage, /preloadFont="\/fonts\/literata-latin-400-v3\.103\.woff2"/);
-  assert.doesNotMatch(indexPage, /preloadFont/);
+  assert.match(indexPage, /preloadFont="\/fonts\/literata-latin-400-v3\.103\.woff2"/);
   assert.doesNotMatch(slugPage, /preloadFont=.*noto/i);
   assert.doesNotMatch(slugPage, /preloadFont=.*hind/i);
 });
@@ -190,16 +190,20 @@ test('Bangla posts get lang=bn; English posts get lang=en', () => {
   assert.match(blogLib, /\? 'bn' : 'en'/);
   assert.match(slugPage, /postLang/);
   assert.match(slugPage, /lang=\{lang\}/);
+  assert.match(layout, /lang=\{lang\}/);
   assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*line-height:\s*1\.8/);
   assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*font-size:\s*19px/);
 });
 
 test('netlify.toml immutable-caches /fonts/* and /_astro/*', () => {
   const fonts = headerFor(netlify, '/fonts/*');
+  const fontLicenses = headerFor(netlify, '/fonts/*.txt');
   const astro = headerFor(netlify, '/_astro/*');
   assert.ok(fonts, 'missing [[headers]] for /fonts/*');
+  assert.ok(fontLicenses, 'missing [[headers]] for /fonts/*.txt');
   assert.ok(astro, 'missing [[headers]] for /_astro/*');
   assert.match(fonts, /Cache-Control\s*=\s*"public, max-age=31536000, immutable"/);
+  assert.match(fontLicenses, /Content-Type\s*=\s*"text\/plain; charset=utf-8"/);
   assert.match(astro, /Cache-Control\s*=\s*"public, max-age=31536000, immutable"/);
 });
 
@@ -224,9 +228,16 @@ test('built articles preload Literata Regular locally and set lang', async (t) =
   assert.match(bangla, /href="\/fonts\/literata-latin-400-v3\.103\.woff2"/);
   assert.doesNotMatch(english, /preload[^>]+noto-serif-bengali/i);
   assert.doesNotMatch(english, /preload[^>]+hind-siliguri/i);
-  assert.doesNotMatch(list, /rel="preload"[^>]+as="font"/);
+  assert.match(
+    list,
+    /<link rel="preload" href="\/fonts\/literata-latin-400-v3\.103\.woff2" as="font" type="font\/woff2" crossorigin/,
+  );
   assert.doesNotMatch(home, /rel="preload"[^>]+as="font"/);
 
+  assert.match(english, /<html lang="en">/);
+  assert.match(bangla, /<html lang="bn">/);
+  assert.match(list, /<html lang="en">/);
+  assert.match(home, /<html lang="en">/);
   assert.match(english, /<article class="blog-post[^"]*" lang="en">/);
   assert.match(bangla, /<article class="blog-post[^"]*" lang="bn">/);
 
@@ -248,6 +259,15 @@ test('built articles preload Literata Regular locally and set lang', async (t) =
   assert.equal(await exists(path.join(dist, 'fonts/literata-latin-400-v3.103.woff2')), true);
   assert.equal(await exists(path.join(dist, 'fonts/noto-serif-bengali-400-v3.000.woff2')), true);
   assert.equal(await exists(path.join(dist, 'fonts/hind-siliguri-400-v1.001.woff2')), true);
+  for (const name of [
+    'OFL-Literata.txt',
+    'OFL-NotoSerifBengali.txt',
+    'OFL-HindSiliguri.txt',
+  ]) {
+    assert.equal(await exists(path.join(dist, 'fonts', name)), true, name);
+    const text = await readFile(path.join(dist, 'fonts', name), 'utf8');
+    assert.match(text, /SIL Open Font License/i);
+  }
 });
 
 test('built output never references fonts.googleapis.com or fonts.gstatic.com', async (t) => {

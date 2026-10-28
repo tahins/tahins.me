@@ -9,6 +9,31 @@ export function findImgsMissingAlt(html = '') {
     .filter((tag) => !/\balt\s*=/i.test(tag));
 }
 
+function altValue(tag = '') {
+  const quoted = tag.match(/\balt\s*=\s*(["'])([\s\S]*?)\1/i);
+  if (quoted) return quoted[2];
+  if (/\balt\s*=\s*\{/.test(tag)) return '{expr}';
+  return null;
+}
+
+function isExplicitlyDecorative(tag = '') {
+  return (
+    /\brole\s*=\s*(["'])presentation\1/i.test(tag) ||
+    /\baria-hidden\s*=\s*(["'])true\1/i.test(tag)
+  );
+}
+
+/** Content images with missing or blank alt. Decorative imgs must set role="presentation" or aria-hidden="true". */
+export function findContentImgsWithBlankAlt(html = '') {
+  return [...html.matchAll(IMG_TAG)]
+    .map((match) => match[0])
+    .filter((tag) => {
+      if (isExplicitlyDecorative(tag)) return false;
+      const alt = altValue(tag);
+      return alt == null || alt.trim() === '';
+    });
+}
+
 export function findEmptyHrefs(html = '') {
   const empty = [];
   for (const match of html.matchAll(ANCHOR_TAG)) {

@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   countH1,
+  findContentImgsWithBlankAlt,
   findEmptyHrefs,
   findImgsMissingAlt,
   findUnsplashImgsMissingSize,
@@ -67,6 +68,7 @@ const files = (await walk(dist)).filter((file) => file.endsWith('.html'));
 const broken = [];
 const mediumHosts = [];
 const missingAlt = [];
+const blankContentAlt = [];
 const emptyHrefs = [];
 const headingIssues = [];
 const unsplashSizeIssues = [];
@@ -79,6 +81,8 @@ for (const file of files) {
   }
   const alts = findImgsMissingAlt(html);
   if (alts.length) missingAlt.push({ file: rel, tags: alts });
+  const blankAlts = findContentImgsWithBlankAlt(html);
+  if (blankAlts.length) blankContentAlt.push({ file: rel, tags: blankAlts });
   const hrefs = findEmptyHrefs(html);
   if (hrefs.length) emptyHrefs.push({ file: rel, tags: hrefs });
   const h1s = countH1(html);
@@ -115,6 +119,13 @@ if (missingAlt.length) {
   }
   process.exitCode = 1;
 }
+if (blankContentAlt.length) {
+  console.error('Content images with blank alt (mark decorative with role=presentation):');
+  for (const item of blankContentAlt) {
+    console.error(`  ${item.file}: ${item.tags.join(' ')}`);
+  }
+  process.exitCode = 1;
+}
 if (emptyHrefs.length) {
   console.error('Empty or missing hrefs:');
   for (const item of emptyHrefs) {
@@ -140,6 +151,7 @@ if (
   !broken.length &&
   !mediumHosts.length &&
   !missingAlt.length &&
+  !blankContentAlt.length &&
   !emptyHrefs.length &&
   !headingIssues.length &&
   !unsplashSizeIssues.length

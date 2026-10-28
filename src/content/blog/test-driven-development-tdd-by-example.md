@@ -263,7 +263,7 @@ Fibonacci
 Marvelous!!! Looks like we have a solid getNthFibonacci method with a concrete set of tests. We just finished development of a simple Fibonacci number generating function using TDD approach.
 
 <figure>
-<img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="Four children jumping for a football in a misty grove of trees" loading="lazy" />
 <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@robbie36">Robert Collins</a> on <a href="https://unsplash.com/photos/tvc5imO5pXk">Unsplash</a></figcaption>
 </figure>
 

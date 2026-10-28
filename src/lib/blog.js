@@ -17,7 +17,7 @@ export function postPath(post) {
 
 const BENGALI_SCRIPT = /[\u0980-\u09FF]/;
 
-/** Bangla posts get lang="bn" on the article. */
+/** Bangla posts get lang="bn" on <html> and the article. */
 export function postLang(post) {
   const title = post?.data?.title || '';
   const body = post?.body || '';

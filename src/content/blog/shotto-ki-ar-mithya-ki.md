@@ -15,7 +15,7 @@ originalUrl: https://tahins.medium.com/eef7ed9450d4
 ---
 
 <figure>
-<img src="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="" loading="lazy" />
+<img src="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=800&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1484069560501-87d72b0c3669?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="অন্ধকার সুড়ঙ্গের মাঝে আলোর প্রশ্নবোধক চিহ্ন" loading="lazy" />
 <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@emilymorter">Emily Morter</a> on <a href="https://unsplash.com/photos/8xAA0f9yQnE">Unsplash</a></figcaption>
 </figure>
 
