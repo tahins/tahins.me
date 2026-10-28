@@ -7,12 +7,16 @@ import assert from 'node:assert/strict';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
-const SHOTS = ['todox', 'getbriefly', 'quran-map', 'dua-deck'];
+const SHOTS = ['todox', 'getbriefly', 'hajjmate', 'quran-map', 'alaap', 'dua-deck', 'gdvs'];
 const SHOT_ALTS = {
   Todox: 'Todox home page with the headline The Command Center For Your Life',
   getbriefly: 'getbriefly home page with the headline News, simplified',
+  HajjMate: 'HajjMate home page with the headline Never miss a step on your sacred journey',
   'Quran Map': 'Quran Map surah list in Bangla, with the Mushaf and memorization modes',
   'Dua Deck': 'Dua Deck showing a swipeable dua card in Arabic',
+  'Alaap SMS': 'Alaap SMS home page with the headline Your OTPs stay loud. Your promos go quiet',
+  'Guided Verses':
+    'Guided Verses on phone, tablet, desktop, and laptop showing a verse with English and Bangla translations',
 };
 
 async function exists(filePath) {
@@ -78,7 +82,7 @@ test('source PNGs live in src/assets/projects and not public/', async () => {
   }
 });
 
-test('dist has no todox/getbriefly/quran-map/dua-deck PNG files', async (t) => {
+test('dist has no raw project-shot PNG files', async (t) => {
   if (!(await exists(dist))) {
     t.skip('dist/ not built yet');
     return;
@@ -96,7 +100,7 @@ test('dist has no todox/getbriefly/quran-map/dua-deck PNG files', async (t) => {
   }
 });
 
-test('site-shot cards render imgs with alts; HajjMate stays a placeholder; thumbs keep aspect ratio', async (t) => {
+test('every current-project card renders a site-shot img with alt and a fixed thumb ratio', async (t) => {
   if (!(await exists(dist))) {
     t.skip('dist/ not built yet');
     return;
@@ -171,8 +175,7 @@ test('site-shot cards render imgs with alts; HajjMate stays a placeholder; thumb
         assert.equal(byTitle[title]?.imgWidth, '800');
         assert.equal(byTitle[title]?.imgHeight, '500');
       }
-      assert.equal(byTitle.HajjMate?.hasPlaceholder, true);
-      assert.equal(byTitle.HajjMate?.hasImg, false);
+      assert.equal(after.length, Object.keys(SHOT_ALTS).length);
 
       for (const [phase, rows] of [
         ['before', before],

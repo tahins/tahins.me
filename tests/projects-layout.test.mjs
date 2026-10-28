@@ -25,8 +25,11 @@ test('project thumbnails use Astro Picture with alt, not hotlinks', () => {
   assert.match(astro, /project-placeholder/);
   assert.match(astro, /assets\/projects\/todox\.png/);
   assert.match(astro, /assets\/projects\/getbriefly\.png/);
+  assert.match(astro, /assets\/projects\/hajjmate\.png/);
   assert.match(astro, /assets\/projects\/quran-map\.png/);
+  assert.match(astro, /assets\/projects\/alaap\.png/);
   assert.match(astro, /assets\/projects\/dua-deck\.png/);
+  assert.match(astro, /assets\/projects\/gdvs\.png/);
   assert.match(astro, /fallbackFormat: 'webp'/);
   assert.match(astro, /width: 800, height: 500/);
   assert.match(
@@ -36,9 +39,21 @@ test('project thumbnails use Astro Picture with alt, not hotlinks', () => {
   assert.match(astro, /getbriefly: 'getbriefly home page with the headline News, simplified'/);
   assert.match(
     astro,
+    /HajjMate: 'HajjMate home page with the headline Never miss a step on your sacred journey'/,
+  );
+  assert.match(
+    astro,
     /'Quran Map': 'Quran Map surah list in Bangla, with the Mushaf and memorization modes'/,
   );
   assert.match(astro, /'Dua Deck': 'Dua Deck showing a swipeable dua card in Arabic'/);
+  assert.match(
+    astro,
+    /'Alaap SMS': 'Alaap SMS home page with the headline Your OTPs stay loud. Your promos go quiet'/,
+  );
+  assert.match(
+    astro,
+    /Guided Verses on phone, tablet, desktop, and laptop showing a verse with English and Bangla translations/,
+  );
   assert.match(css, /\.project-thumb--shot (?:picture|img)[\s\S]*object-position:\s*top/);
   assert.match(css, /\.project-thumb \{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/);
 });
