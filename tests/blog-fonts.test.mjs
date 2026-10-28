@@ -198,9 +198,16 @@ test('Bangla posts get lang=bn; English posts get lang=en', () => {
   assert.match(slugPage, /lang=\{lang\}/);
   assert.match(layout, /lang=\{lang\}/);
   assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*line-height:\s*1\.8/);
-  assert.match(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*font-size:\s*19px/);
+  assert.match(css, /\.blog-post \.prose \{[\s\S]*font-size:\s*18px/);
+  assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*font-size:\s*19px/);
+  assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.prose \{[\s\S]*font-size:\s*21px/);
   assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.article-title \{[\s\S]*font-size:\s*33px/);
   assert.doesNotMatch(css, /\.blog-post:lang\(bn\) \.article-title \{[\s\S]*font-size:\s*43px/);
+  assert.match(css, /\.blog-theme \{[^}]*font-family: var\(--blog-chrome\)/);
+  assert.match(
+    css,
+    /\.blog-theme:lang\(bn\) \{[^}]*--blog-serif:\s*'Noto Serif Bengali',\s*'Literata'/,
+  );
 });
 
 test('netlify.toml immutable-caches /fonts/* and /_astro/*', () => {

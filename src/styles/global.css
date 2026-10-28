@@ -725,6 +725,15 @@ html {
   color-scheme: light;
   background: var(--blog-bg);
   color: var(--blog-text);
+  /* Isolate blog pages from the home stack so Hind Siliguri cannot
+     claim Bengali in article prose via html/body inheritance. */
+  font-family: var(--blog-chrome);
+}
+
+/* Bangla pages: Noto is first so Regular 400 is the face that matches
+   U+0980, not Literata (latin-only) or Hind (home archive). */
+.blog-theme:lang(bn) {
+  --blog-serif: 'Noto Serif Bengali', 'Literata', Charter, Georgia, serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -1107,7 +1116,6 @@ html {
 }
 
 .blog-post:lang(bn) .prose {
-  font-size: 19px;
   line-height: 1.8;
 }
 
@@ -1241,7 +1249,6 @@ html {
   }
 
   .blog-post:lang(bn) .prose {
-    font-size: 21px;
     line-height: 1.8;
   }
 }
