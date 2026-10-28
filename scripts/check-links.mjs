@@ -1,10 +1,12 @@
 #!/usr/bin/env node
 /**
- * Fail the build if dist HTML points at missing local files.
+ * Fail the build if dist HTML points at missing local files,
+ * missing img alts, empty hrefs, or more than one H1.
  */
 import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { countH1, findEmptyHrefs, findImgsMissingAlt } from './lib/markup-checks.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dist = path.join(root, 'dist');
@@ -59,17 +61,27 @@ const MEDIUM_IMAGE_HOST =
 const files = (await walk(dist)).filter((file) => file.endsWith('.html'));
 const broken = [];
 const mediumHosts = [];
+const missingAlt = [];
+const emptyHrefs = [];
+const headingIssues = [];
 
 for (const file of files) {
   const html = await readFile(file, 'utf8');
+  const rel = path.relative(dist, file);
   if (MEDIUM_IMAGE_HOST.test(html)) {
-    mediumHosts.push(path.relative(dist, file));
+    mediumHosts.push(rel);
   }
+  const alts = findImgsMissingAlt(html);
+  if (alts.length) missingAlt.push({ file: rel, tags: alts });
+  const hrefs = findEmptyHrefs(html);
+  if (hrefs.length) emptyHrefs.push({ file: rel, tags: hrefs });
+  const h1s = countH1(html);
+  if (h1s !== 1) headingIssues.push({ file: rel, count: h1s });
   for (const target of localTargets(html)) {
     if (target.startsWith('/http')) continue;
     const ok = await Promise.any(distPathFor(target).map((candidate) => exists(candidate).then((yes) => (yes ? candidate : Promise.reject()))),).catch(() => null);
     if (!ok) {
-      broken.push({ file: path.relative(dist, file), target });
+      broken.push({ file: rel, target });
     }
   }
 }
@@ -88,6 +100,27 @@ if (mediumHosts.length) {
   }
   process.exitCode = 1;
 }
-if (!broken.length && !mediumHosts.length) {
-  console.log(`Checked ${files.length} HTML files: no broken internal links or Medium-hosted images.`);
+if (missingAlt.length) {
+  console.error('Images missing alt:');
+  for (const item of missingAlt) {
+    console.error(`  ${item.file}: ${item.tags.join(' ')}`);
+  }
+  process.exitCode = 1;
+}
+if (emptyHrefs.length) {
+  console.error('Empty or missing hrefs:');
+  for (const item of emptyHrefs) {
+    console.error(`  ${item.file}: ${item.tags.join(' ')}`);
+  }
+  process.exitCode = 1;
+}
+if (headingIssues.length) {
+  console.error('Pages must have exactly one H1:');
+  for (const item of headingIssues) {
+    console.error(`  ${item.file}: ${item.count}`);
+  }
+  process.exitCode = 1;
+}
+if (!broken.length && !mediumHosts.length && !missingAlt.length && !emptyHrefs.length && !headingIssues.length) {
+  console.log(`Checked ${files.length} HTML files: links, alts, hrefs, H1s, and Medium hosts look good.`);
 }
