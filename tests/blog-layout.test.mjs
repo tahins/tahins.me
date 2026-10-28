@@ -83,6 +83,16 @@ test('list uses a stretched title link, a preview, and the excerpt helper', () =
   assert.match(schema, /excerpt:\s*z\.string\(\)\.optional/);
 });
 
+test('blog avatar uses one shared cover crop anchored near the top of the head', async () => {
+  const avatar = await readFile(path.join(root, 'src/components/BlogAvatar.astro'), 'utf8');
+  const face = css.match(/\.blog-avatar img,\s*\.blog-avatar picture \{[^}]+\}/)?.[0] || '';
+  assert.match(face, /object-fit:\s*cover;/);
+  assert.match(face, /object-position:\s*50% 15%;/);
+  assert.doesNotMatch(face, /object-position:\s*center/);
+  assert.doesNotMatch(avatar, /height=\{size\}/);
+  assert.match(avatar, /class="blog-avatar"/);
+});
+
 test('blog CSS is a 680px column, then a 1024px sidebar, Literata body, and color-scheme', () => {
   assert.match(css, /\.blog-feed,\s*\.blog-post \{[\s\S]*max-width:\s*680px/);
   assert.match(css, /@media \(min-width: 1024px\)/);
