@@ -2,15 +2,20 @@
 import { contacts } from '../data/site.js';
 ---
 
-<div class="contacts">
-  <a class="internal-link" id="contact"></a>
+<section class="contacts" id="contact" aria-labelledby="contact-heading">
+  <h2 id="contact-heading" class="section-title">Contact</h2>
   <ul class="contact-items">
     {contacts.map((contact) => (
-      <li title={contact.text}>
-        <a href={contact.url} target="_blank" rel="noopener noreferrer">
-          <i class={contact.iconClassName}></i>
+      <li>
+        <a
+          href={contact.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={contact.text === 'Email' ? 'Email Tahin' : `Tahin on ${contact.text}`}
+        >
+          <i class={contact.iconClassName} aria-hidden="true"></i>
         </a>
       </li>
     ))}
   </ul>
-</div>
+</section>
