@@ -1,0 +1,16 @@
+---
+import { contacts } from '../data/site.js';
+---
+
+<div class="contacts">
+  <a class="internal-link" id="contact"></a>
+  <ul class="contact-items">
+    {contacts.map((contact) => (
+      <li title={contact.text}>
+        <a href={contact.url} target="_blank" rel="noopener noreferrer">
+          <i class={contact.iconClassName}></i>
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>

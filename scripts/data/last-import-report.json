@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-10-28T07:18:03.188Z",
+  "note": "Medium RSS only carries recent posts. Re-run with --zip when Tahin provides the official export.",
+  "found": 14,
+  "imported": 14,
+  "posts": [
+    {
+      "slug": "nyay-o-ihsan",
+      "title": "ন্যায় ও ইহসান",
+      "originalUrl": "https://tahins.medium.com/df686b6e20f5",
+      "draft": false
+    },
+    {
+      "slug": "tin-ti-jama-surah-yusuf",
+      "title": "তিনটি জামা: সূরা ইউসুফের একটি গভীর শিক্ষা",
+      "originalUrl": "https://tahins.medium.com/eb3e2a421c17",
+      "draft": false
+    },
+    {
+      "slug": "protita-kajer-samne-duto-proshno",
+      "title": "প্রতিটা কাজের সামনে দুটো প্রশ্ন",
+      "originalUrl": "https://tahins.medium.com/79348dc0e0b1",
+      "draft": false
+    },
+    {
+      "slug": "shotto-ki-ar-mithya-ki",
+      "title": "সত্য কী, আর মিথ্যা কী?",
+      "originalUrl": "https://tahins.medium.com/eef7ed9450d4",
+      "draft": false
+    },
+    {
+      "slug": "test-driven-development-tdd-by-example",
+      "title": "Test Driven Development (TDD) by example",
+      "originalUrl": "https://tahins.medium.com/ccf34a785233",
+      "draft": false
+    },
+    {
+      "slug": "the-mindset-behind-test-driven-development-tdd",
+      "title": "The mindset behind Test Driven Development (TDD)",
+      "originalUrl": "https://tahins.medium.com/b02deccbff81",
+      "draft": false
+    },
+    {
+      "slug": "lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention",
+      "title": "LG’s Innovative Digital Scratch Card Campaign to Draw a Positive attention",
+      "originalUrl": "https://tahins.medium.com/4092275114fe",
+      "draft": false
+    },
+    {
+      "slug": "spend-less-time-managing-ads-and-more-time-enjoying-life",
+      "title": "Spend less time managing ads and more time enjoying life",
+      "originalUrl": "https://tahins.medium.com/fbd57388146d",
+      "draft": false
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "title": "মোবাইলে থাকুন G&R-এর সাথে",
+      "originalUrl": "https://tahins.medium.com/597067493830",
+      "draft": false
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "title": "Go Mobile with G&R",
+      "originalUrl": "https://tahins.medium.com/937707e66678",
+      "draft": false
+    },
+    {
+      "slug": "becoming-a-product-manager-part-1",
+      "title": "Becoming a Product Manager - Part 1",
+      "originalUrl": "https://tahins.medium.com/9d904e7a9750",
+      "draft": false
+    },
+    {
+      "slug": "durbol-sei-onneshonkari",
+      "title": "দুর্বল সেই অণ্বেষণকারী আর অন্বেষিত",
+      "originalUrl": "https://tahins.medium.com/691e2717e8fc",
+      "draft": false
+    },
+    {
+      "slug": "g-r-html5-clicktag-tutorial",
+      "title": "G&R HTML5 clickTAG Tutorial",
+      "originalUrl": "https://tahins.medium.com/f0f7711c30aa",
+      "draft": false
+    },
+    {
+      "slug": "introducing-ad-creator-tool-by-g-r",
+      "title": "Introducing Ad Creator Tool by G&R",
+      "originalUrl": "https://tahins.medium.com/a1ac7a9e3dd7",
+      "draft": false
+    }
+  ],
+  "localizedImages": [
+    {
+      "slug": "nyay-o-ihsan",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*Mvy-tz_4Az9lG9XuxGeFzQ.png",
+      "localPath": "src/assets/blog/nyay-o-ihsan/image-1.png"
+    },
+    {
+      "slug": "the-mindset-behind-test-driven-development-tdd",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/0*1DFEyqaiblKhIuoY.png",
+      "localPath": "src/assets/blog/the-mindset-behind-test-driven-development-tdd/image-1.png"
+    },
+    {
+      "slug": "the-mindset-behind-test-driven-development-tdd",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/0*GwkMjFl6sFbcUfvz.png",
+      "localPath": "src/assets/blog/the-mindset-behind-test-driven-development-tdd/image-2.png"
+    },
+    {
+      "slug": "the-mindset-behind-test-driven-development-tdd",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/0*Y3vjrVEd1gYazCwe.jpg",
+      "localPath": "src/assets/blog/the-mindset-behind-test-driven-development-tdd/image-3.jpg"
+    },
+    {
+      "slug": "the-mindset-behind-test-driven-development-tdd",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/0*swMoFe65WX6bK-vl.jpg",
+      "localPath": "src/assets/blog/the-mindset-behind-test-driven-development-tdd/image-4.jpg"
+    },
+    {
+      "slug": "lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*dMh_kbSWEy2rl2XnyglVCQ.jpeg",
+      "localPath": "src/assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-1.jpeg"
+    },
+    {
+      "slug": "lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*mgfX0jt0ZNtNWVQ28hcwmA.gif",
+      "localPath": "src/assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-2.gif"
+    },
+    {
+      "slug": "spend-less-time-managing-ads-and-more-time-enjoying-life",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*XA3X1bJdTXP4Bj5pNzqffA.jpeg",
+      "localPath": "src/assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-1.jpeg"
+    },
+    {
+      "slug": "spend-less-time-managing-ads-and-more-time-enjoying-life",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*MfPrhiVQ-qwM_BTwA8hIwA.gif",
+      "localPath": "src/assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-2.gif"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*wvjU1UWeuPVFCC4bQyCjKA.jpeg",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-1.jpeg"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*s6J1v8jUcB687rYFeLSBVQ.png",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-2.png"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*_BZWWq9o1uHLH8tfGO_Ynw.png",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-3.png"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*ra-EG8Pgphbcc_mfcAhqNw.jpeg",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-4.jpeg"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*xfFhwml-JzJSJr1CUvJSRA.gif",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-5.gif"
+    },
+    {
+      "slug": "mobile-e-thakun-gr-er-sathe",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*WO2cqlOh0IdwEKfJro0tkw.png",
+      "localPath": "src/assets/blog/mobile-e-thakun-gr-er-sathe/image-6.png"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*px5s8Ow-EseMcOmvJLQB6g.jpeg",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-1.jpeg"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*s6J1v8jUcB687rYFeLSBVQ.png",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-2.png"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*yHcJyY36-W3vHomO3GYAbA.png",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-3.png"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*ra-EG8Pgphbcc_mfcAhqNw.jpeg",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-4.jpeg"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*xfFhwml-JzJSJr1CUvJSRA.gif",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-5.gif"
+    },
+    {
+      "slug": "go-mobile-with-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1400/1*x_aFmaiiiOaaKafc_JYMGw.png",
+      "localPath": "src/assets/blog/go-mobile-with-g-r/image-6.png"
+    },
+    {
+      "slug": "becoming-a-product-manager-part-1",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1000/1*6fbXECXf5uk3c0BL_WFT5w.jpeg",
+      "localPath": "src/assets/blog/becoming-a-product-manager-part-1/image-1.jpeg"
+    },
+    {
+      "slug": "durbol-sei-onneshonkari",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:720/1*vP5M5YJrWc3nqccA7ZEYmQ.jpeg",
+      "localPath": "src/assets/blog/durbol-sei-onneshonkari/image-1.jpeg"
+    },
+    {
+      "slug": "g-r-html5-clicktag-tutorial",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1200/1*2_eOa75784P9uEDOmSW0gw.jpeg",
+      "localPath": "src/assets/blog/g-r-html5-clicktag-tutorial/image-1.jpeg"
+    },
+    {
+      "slug": "introducing-ad-creator-tool-by-g-r",
+      "originalUrl": "https://miro.medium.com/v2/resize:fit:1200/1*6-nPBiWBWXNZuzhnDrsGyg.jpeg",
+      "localPath": "src/assets/blog/introducing-ad-creator-tool-by-g-r/image-1.jpeg"
+    }
+  ],
+  "unsplashImages": [
+    {
+      "slug": "tin-ti-jama-surah-yusuf",
+      "originalMediumUrl": "https://cdn-images-1.medium.com/max/1024/0*bXQZ9SSoRObRdb2q",
+      "unsplashUrl": "https://images.unsplash.com/photo-1542219550-2da790bf52e9?auto=format&fit=crop&w=1600&q=80",
+      "photographer": "Mnz"
+    },
+    {
+      "slug": "protita-kajer-samne-duto-proshno",
+      "originalMediumUrl": "https://cdn-images-1.medium.com/max/1024/0*vvAKIgAgSWt02g4Z",
+      "unsplashUrl": "https://images.unsplash.com/photo-1429743305873-d4065c15f93e?auto=format&fit=crop&w=1600&q=80",
+      "photographer": "Jens Lelie"
+    },
+    {
+      "slug": "shotto-ki-ar-mithya-ki",
+      "originalMediumUrl": "https://cdn-images-1.medium.com/max/1024/0*tM5MqIojf42CMZkJ",
+      "unsplashUrl": "https://images.unsplash.com/photo-1484069560501-87d72b0c3669?auto=format&fit=crop&w=1600&q=80",
+      "photographer": "Emily Morter"
+    },
+    {
+      "slug": "test-driven-development-tdd-by-example",
+      "originalMediumUrl": "https://cdn-images-1.medium.com/max/1024/0*HIy3JgWyB0Fl39sn.",
+      "unsplashUrl": "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1600&q=80",
+      "photographer": "Robert Collins"
+    }
+  ],
+  "remainingMediumCdn": [],
+  "skipped": []
+}

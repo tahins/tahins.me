@@ -1,8 +1,13 @@
 .DS_Store
 node_modules
 /dist
+.astro
+
+# Medium official export — import it, don't commit it
+*.zip
 
 # local env files
+.env
 .env.local
 .env.*.local
 

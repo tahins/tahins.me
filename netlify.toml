@@ -1,0 +1,22 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Returning visitors still have the Vue CLI PWA worker cached as
+# /service-worker.js. Serve the unregistering worker without caching.
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache, no-store, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+# Old Vue CLI emitted index.html at this path.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301

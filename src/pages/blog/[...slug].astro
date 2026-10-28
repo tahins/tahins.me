@@ -1,0 +1,63 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import { getPublishedPosts, formatDate, isRemoteImage } from '../../lib/blog.js';
+import { site } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id.replace(/\.mdx?$/, '') },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const canonical = new URL(`/blog/${post.id.replace(/\.mdx?$/, '')}/`, site.url).href;
+const hero = post.data.heroImage;
+const heroIsRemote = Boolean(hero && isRemoteImage(hero));
+// Local assets are hashed into /_astro at build time; don't invent a public URL.
+const ogImage = heroIsRemote ? hero : undefined;
+---
+
+<BaseLayout
+  title={`${post.data.title} — ${site.shortName}`}
+  description={post.data.description}
+  canonical={canonical}
+  ogImage={ogImage}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  tags={post.data.tags}
+>
+  <div class="page-shell">
+    <Navbar />
+    <article class="blog-post">
+      <p class="post-meta">
+        <a href="/blog/">blog</a>
+        {' / '}
+        {formatDate(post.data.pubDate)}
+        {post.data.updatedDate && ` · updated ${formatDate(post.data.updatedDate)}`}
+      </p>
+      <h1>{post.data.title}</h1>
+      {post.data.tags.length > 0 && (
+        <p class="tag-list">
+          {post.data.tags.map((tag) => (
+            <a href={`/blog/tags/${tag}/`}>#{tag}</a>
+          ))}
+        </p>
+      )}
+      <div class="prose">
+        <Content />
+      </div>
+      {post.data.originalUrl && (
+        <p class="original-link">
+          Originally published on <a href={post.data.originalUrl}>Medium</a>.
+        </p>
+      )}
+    </article>
+    <Footer />
+  </div>
+</BaseLayout>

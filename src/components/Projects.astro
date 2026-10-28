@@ -1,0 +1,35 @@
+---
+import { projects } from '../data/site.js';
+---
+
+<div class="projects section">
+  <a class="internal-link" id="projects"></a>
+  <h1 class="section-title">Projects</h1>
+  <ul class="project-list">
+    {projects.map((project) => (
+      <li style={`background-image: url(${project.imageUrl}); background-size: ${project.bgSize || 'cover'};`}>
+        <div class="project-bg"></div>
+        <div class="project-info">
+          <h4 class="project-title">{project.title}</h4>
+          <div class="project-details">
+            <div class="project-description">{project.description}</div>
+            <br />
+            <div class="project-technology"><strong>Built with:</strong> {project.technology}</div>
+            <br />
+            {project.url && (
+              <a href={project.url} target="_blank" rel="noopener noreferrer">
+                <strong><i class="fab fa-chrome"></i> Browse</strong>
+              </a>
+            )}
+            <br />
+            {project.githubUrl && (
+              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                <strong><i class="fab fa-github"></i> View code</strong>
+              </a>
+            )}
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
