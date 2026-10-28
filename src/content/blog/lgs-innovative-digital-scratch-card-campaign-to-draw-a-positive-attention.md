@@ -14,7 +14,7 @@ heroImage: ../../assets/blog/lgs-innovative-digital-scratch-card-campaign-to-dra
 originalUrl: https://tahins.medium.com/4092275114fe
 ---
 
-![](../../assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-1.jpeg)
+![Illustration](../../assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-1.jpeg)
 
 ### Background
 
@@ -39,7 +39,7 @@ There were 2 major challenges here.
 
 Bagher Bachcha Digital of Adcomm and LG Butterfly relied on G&R for both.
 
-![](../../assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-2.gif)
+![Illustration](../../assets/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/image-2.gif)
 
 *A gif demo of the experience*
 

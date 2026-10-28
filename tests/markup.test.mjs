@@ -12,7 +12,7 @@ import {
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 async function walk(dir) {
-  const entries = await readdir(dir, { withTypes: true });
+  const entries = await readdir(dir, { withFileTypes: true });
   const files = [];
   for (const entry of entries) {
     const full = path.join(dir, entry.name);

@@ -14,7 +14,7 @@ heroImage: ../../assets/blog/nyay-o-ihsan/image-1.png
 originalUrl: https://tahins.medium.com/df686b6e20f5
 ---
 
-![](../../assets/blog/nyay-o-ihsan/image-1.png)
+![Illustration](../../assets/blog/nyay-o-ihsan/image-1.png)
 
 > إِنَّ اللَّهَ يَأْمُرُ بِالْعَدْلِ وَالْإِحْسَانِ وَإِيتَاءِ ذِي الْقُرْبَىٰ وَيَنْهَىٰ عَنِ الْفَحْشَاءِ وَالْمُنكَرِ وَالْبَغْيِ ۚ يَعِظُكُمْ لَعَلَّكُمْ تَذَكَّرُونَ
 

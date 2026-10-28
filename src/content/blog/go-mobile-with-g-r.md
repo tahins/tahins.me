@@ -12,17 +12,17 @@ heroImage: ../../assets/blog/go-mobile-with-g-r/image-1.jpeg
 originalUrl: https://tahins.medium.com/937707e66678
 ---
 
-![](../../assets/blog/go-mobile-with-g-r/image-1.jpeg)
+![Illustration](../../assets/blog/go-mobile-with-g-r/image-1.jpeg)
 
 > Grab the fastest growing customer base with Mobile Advertising
 
 Since the introduction of 3G services, the internet has been spreading in Bangladesh at a fascinating speed. By the end of 2014, internet users grew from [35 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2013) to nearly [44 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2014). In 2015, we had [10.5 million](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2015) additional internet subscribers in Bangladesh. Of the 54 million active internet subscribers, nearly 96% are on mobile and 10 million use smartphones. G&R’s data also says the same. In 2015, our mobile inventory surpassed the desktop inventory.
 
-![](../../assets/blog/go-mobile-with-g-r/image-2.png)
+![Illustration](../../assets/blog/go-mobile-with-g-r/image-2.png)
 
 [G&R](https://www.green-red.com/) is the first and largest ad network in Bangladesh as we’ve been in the business for over 5 years. We are the local Digital Advertising Network in Bangladesh with over 4500+ local websites and apps within our network. Through this robust network, any brand or company can reach up to 20 Million Bangladeshis who browse the internet from both Desktop and Mobile every day.
 
-![](../../assets/blog/go-mobile-with-g-r/image-3.png)
+![Illustration](../../assets/blog/go-mobile-with-g-r/image-3.png)
 
 As a dynamic technology company, mobile was always a prime focus for G&R. We have had great device and network targeting features for the mobile for a long time. Recently, we have strengthened our local [Mobile Advertising Platform](https://www.green-red.com/mobile) even more, to enable advertisers, ad agencies and other online media buyers to acquire quality local mobile traffic.
 
@@ -46,9 +46,9 @@ G&R has different ad types for both mobile web and applications. Besides the tra
 
 **Expandable Ads** help brands communicate more information to the customers in an engaging way.
 
-![](../../assets/blog/go-mobile-with-g-r/image-4.jpeg)
+![Illustration](../../assets/blog/go-mobile-with-g-r/image-4.jpeg)
 
-![](../../assets/blog/go-mobile-with-g-r/image-5.gif)
+![Illustration](../../assets/blog/go-mobile-with-g-r/image-5.gif)
 
 *Different types of Ads in G&R*
 
@@ -68,7 +68,7 @@ With growing internet connectivity, the availability of cheaper varieties of sma
 
 In where **G&R** can make a great way for advertisers.
 
-[![](../../assets/blog/go-mobile-with-g-r/image-6.png)](https://adnetwork.green-red.com/register/)
+[![Illustration](../../assets/blog/go-mobile-with-g-r/image-6.png)](https://adnetwork.green-red.com/register/)
 
 Co-author: [Md. Saidur Rahman Sagor](https://medium.com/u/3b90702ce13f), Senior Manager, Growth, G&R
 

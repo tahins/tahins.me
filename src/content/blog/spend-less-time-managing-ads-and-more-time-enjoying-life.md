@@ -13,7 +13,7 @@ heroImage: ../../assets/blog/spend-less-time-managing-ads-and-more-time-enjoying
 originalUrl: https://tahins.medium.com/fbd57388146d
 ---
 
-![](../../assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-1.jpeg)
+![Illustration](../../assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-1.jpeg)
 
 Sometimes managing an online advertising campaign can be exhausting. Specially when you have 10–15 campaigns to manage with hundreds of ad creatives, it can take a lot of time. So today, G&R is introducing 2 new features to make lives easier for our advertisers and agencies.
 
@@ -21,7 +21,7 @@ Sometimes managing an online advertising campaign can be exhausting. Specially w
 
 From now, you can upload all your creatives from a single ad group at once. Just drag your creatives on the upload area or click on it and select all your creatives and press the “Upload” button.
 
-![](../../assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-2.gif)
+![Illustration](../../assets/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/image-2.gif)
 
 *Bulk Ad Uploader*
 

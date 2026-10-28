@@ -12,17 +12,17 @@ heroImage: ../../assets/blog/mobile-e-thakun-gr-er-sathe/image-1.jpeg
 originalUrl: https://tahins.medium.com/597067493830
 ---
 
-![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-1.jpeg)
+![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-1.jpeg)
 
 > মোবাইলে বিজ্ঞাপনের মাধ্যমে ক্রমবর্ধমান ক্রেতাদের সাথে থাকুন
 
 3G চালু হওয়ার পর থেকেই বাংলাদেশে ইন্টারনেট ব্যবহারের প্রসার অনেকটাই বেড়ে যায়। ২০১৪-র শেষ নাগাদ ইন্টারনেট ব্যবহারকারীর সংখ্যা [৩ কোটি ৫০ লক্ষ](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2013) থেকে বেড়ে দাড়ায় প্রায় [৪ কোটি ৪০ লক্ষ](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2014)। শুধু ২০১৫ সালেই এতে যোগ দেন আরো প্রায়[১ কোটি](http://www.btrc.gov.bd/content/internet-subscribers-bangladesh-december-2015) ব্যবহারকারী। বর্তমানে বাংলাদেশের ৫ কোটি ৪০ লক্ষ ইন্টারনেট ব্যবহারকারীর প্রায় ৯৬%-ই মোবাইল মাধ্যম থেকে ব্যবহার করেন যাদের মধ্যে প্রায় ১ কোটি স্মার্টফোন ব্যবহারকারী। G&R-এর উপাত্তের দিকে তাকালেও আমরা একই চিত্র দেখতে পারি। ২০১৫ সালে আমাদের মোবাইল বিজ্ঞাপনের অনুরোধ ডেস্কটপকে ছাড়িয়ে গেছে।
 
-![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-2.png)
+![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-2.png)
 
 [G&R](https://www.green-red.com/) বাংলাদেশে প্রথম এবং সর্ববৃহৎ অনলাইন বিজ্ঞাপন নেটওয়ার্ক। আমাদের নেটওয়ার্কে ৪৫০০+ ওয়েবসাইট ও মোবাইল অ্যাপ রয়েছে। এই শক্তিশালী নেটওয়ার্কের মাধ্যমে যে কোন বিজ্ঞাপনদাতা খুব সহজেই প্রতিদিন প্রায় ২ কোটি বাংলাদেশী ইন্টারনেট ব্যবহারকারীর কাছে পৌঁছে যেতে পারেন।
 
-![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-3.png)
+![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-3.png)
 
 একটি প্রগতিশীল প্রযুক্তি সংস্থা হিসেবে মোবাইল সবসময়ই G&R-এর চিন্তা-ভাবনার কেন্দ্রবিন্দুতে ছিল। মোবাইলের জন্য আমাদের সুনির্দিষ্ট মোবাইলের মডেল বা নেটওয়ার্কে বিজ্ঞাপন পৌঁছানোর ক্ষমতা আছে অনেক দিন ধরেই। সম্প্রতি, আমরা আমাদের [মোবাইল বিজ্ঞাপন নেটওয়ার্ককে](https://www.green-red.com/mobile-bn) আরও শক্তিশালী করেছি। ফলে, বিজ্ঞাপনদাতা বা বিজ্ঞাপন এজেন্সিদের জন্য অনলাইনে সঠিক ব্যবহারকারীর কাছে সঠিক বিজ্ঞাপন পৌঁছে দেয়া আরো সহজ হয়ে গেছে।
 
@@ -46,9 +46,9 @@ originalUrl: https://tahins.medium.com/597067493830
 
 বিজ্ঞাপনের মাধ্যমে ব্যবহারকারীদের কাছে আপনার পণ্য বা ব্যবসা সম্পর্কে বিস্তারিত তুলে ধরার জন্য **এক্সপান্ডেবল বিজ্ঞাপনের** কোন তুলনা হয় না।
 
-![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-4.jpeg)
+![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-4.jpeg)
 
-![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-5.gif)
+![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-5.gif)
 
 ***G&R-এর বিভিন্ন ধরনের বিজ্ঞাপন***
 
@@ -68,7 +68,7 @@ originalUrl: https://tahins.medium.com/597067493830
 
 এখানেই **G&R** বিজ্ঞাপনদাতাদের পথ দেখাতে পারে।
 
-[![](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-6.png)](https://adnetwork.green-red.com/register/)
+[![Illustration](../../assets/blog/mobile-e-thakun-gr-er-sathe/image-6.png)](https://adnetwork.green-red.com/register/)
 
 সহ-রচয়িতা: [মো: সাইদুর রহমান](https://medium.com/@saidur), জ্যেষ্ঠ ব্যবস্থাপক, ক্রমোন্নতি, G&R
 

@@ -26,7 +26,7 @@ There are 3 laws of TDD.
 2.  Write just enough code needed to pass that failing test. Don’t bother about code quality at this stage.
 3.  Refactor your code if possible.
 
-![](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-1.png)
+![Illustration](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-1.png)
 
 > It is a *“break first, build later”* approach.
 
@@ -34,11 +34,11 @@ There are 3 laws of TDD.
 
 In TDD, we write only a few lines of code each time to pass a failing unit test. So, our development cycle is very very short, which makes debugging very easy too. How easy would it be to debug, if we could know that our code was just fine a few seconds back?
 
-![](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-2.png)
+![Illustration](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-2.png)
 
 Developers love to learn about software by reading code. Even when we work with any 3rd party library, we tend to move directly to the code examples. Unit tests do the same for your production code. It makes other developers’ lives easier by being able to understand how your feature should work.
 
-![](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-3.jpg)
+![Illustration](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-3.jpg)
 
 Writing tests after writing the code is hard. As the code can be written without testability in mind, it might not be testable, or properly decoupled/modularized. Hence, we would need to change our code again to make it testable.
 
@@ -58,7 +58,7 @@ If you think this, you probably like to dive straight into the code when you see
 
 **It’s a waste of time.**
 
-![](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-4.jpg)
+![Illustration](../../assets/blog/the-mindset-behind-test-driven-development-tdd/image-4.jpg)
 
 It is true that TDD makes developing the initial version of the code a lengthy process, but it is not a waste. Moreover, if you consider the time for debugging, refactoring, and later understanding the code, then the amount of time you save in TDD is incredible. Remember, there is nothing good about driving fast in the wrong direction
 

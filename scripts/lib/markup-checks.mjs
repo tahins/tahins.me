@@ -1,4 +1,4 @@
-const IMG_TAG = /<(?:img|Picture)\b[\s\S]*?>/gi;
+const IMG_TAG = /<(?:img|Picture)\b[\s\S]*?>/g;
 const ANCHOR_TAG = /<a\b[\s\S]*?>/gi;
 const H1_TAG = /<h1\b/gi;
 const EMPTY_HREF = /\bhref\s*=\s*(["'])\s*\1/i;
