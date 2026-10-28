@@ -261,8 +261,9 @@ Fibonacci
 
 Marvelous!!! Looks like we have a solid getNthFibonacci method with a concrete set of tests. We just finished development of a simple Fibonacci number generating function using TDD approach.
 
-<img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1600&q=80" alt="" />
-
-*Photo by [Robert Collins](https://unsplash.com/@robbie36) on [Unsplash](https://unsplash.com/photos/tvc5imO5pXk)*
+<figure>
+<img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+<figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@robbie36">Robert Collins</a> on <a href="https://unsplash.com/photos/tvc5imO5pXk">Unsplash</a></figcaption>
+</figure>
 
 That’s about it. Hope you got a decent idea and more importantly overcome your fear about TDD after completing this series. So, start using TDD before it’s too late, and don’t forget to have fun. Peace 👍

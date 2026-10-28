@@ -338,6 +338,22 @@ function createTurndown() {
     },
   });
 
+  turndown.addRule('unsplashFigure', {
+    filter(node) {
+      if (node.nodeName !== 'FIGURE') return false;
+      const img = node.querySelector?.('img');
+      return Boolean(img && isUnsplashUrl(img.getAttribute('src') || ''));
+    },
+    replacement(_, node) {
+      const img = node.querySelector('img');
+      return `\n\n${unsplashFigureHtml({
+        src: img?.getAttribute('src') || '',
+        alt: img?.getAttribute('alt') || '',
+        credit: creditFromCaptionNode(node.querySelector('figcaption')),
+      })}\n\n`;
+    },
+  });
+
   turndown.addRule('figcaption', {
     filter: 'figcaption',
     replacement(content) {
@@ -352,8 +368,8 @@ function createTurndown() {
       node.nodeName === 'IMG' && isUnsplashUrl(node.getAttribute('src') || ''),
     replacement(_, node) {
       const src = node.getAttribute('src') || '';
-      const alt = (node.getAttribute('alt') || '').replace(/"/g, '&quot;');
-      return `\n\n<img src="${src}" alt="${alt}" />\n\n`;
+      const alt = node.getAttribute('alt') || '';
+      return `\n\n${unsplashFigureHtml({ src, alt })}\n\n`;
     },
   });
 
@@ -591,12 +607,13 @@ export function toMarkdownFile(post) {
   const yaml = stringifyYaml(frontmatter, { lineWidth: 0 }).trimEnd();
   let body = converted.markdown;
   if (hero?.kind === 'unsplash' && hero.rewrittenUrl) {
-    const heroLine = `<img src="${hero.rewrittenUrl}" alt="${escapeAttr(post.title)}" />`;
+    const figure = unsplashFigureHtml({
+      src: hero.rewrittenUrl,
+      alt: '',
+      credit: hero.credit,
+    });
     if (!body.includes(hero.rewrittenUrl)) {
-      const creditMd = hero.credit
-        ? `\n\n*Photo by ${creditMarkdown(hero.credit)}*`
-        : '';
-      body = `${heroLine}${creditMd}\n\n${body}`;
+      body = `${figure}\n\n${body}`;
     }
   }
 
@@ -606,6 +623,35 @@ export function toMarkdownFile(post) {
     markdown: `---\n${yaml}\n---\n\n${body}\n`,
     images: converted.images,
     frontmatter,
+  };
+}
+
+export function unsplashFigureHtml({ src, alt = '', credit } = {}) {
+  const img = `<img src="${src}" alt="${escapeAttr(alt)}" loading="lazy" />`;
+  if (!credit?.photographer) {
+    return `<figure>\n${img}\n</figure>`;
+  }
+  const name = credit.photographerUrl
+    ? `<a href="${escapeAttr(credit.photographerUrl)}">${escapeHtml(credit.photographer)}</a>`
+    : escapeHtml(credit.photographer);
+  const unsplash = credit.unsplashUrl
+    ? `<a href="${escapeAttr(credit.unsplashUrl)}">Unsplash</a>`
+    : 'Unsplash';
+  return `<figure>\n${img}\n<figcaption class="unsplash-credit">Photo by ${name} on ${unsplash}</figcaption>\n</figure>`;
+}
+
+function creditFromCaptionNode(caption) {
+  if (!caption) return null;
+  const links = [...(caption.querySelectorAll?.('a') || [])];
+  const photographerLink = links.find((a) => /unsplash\.com\/@/i.test(a.getAttribute('href') || ''));
+  const photoLink = links.find((a) => /unsplash\.com\/photos\//i.test(a.getAttribute('href') || ''));
+  const byMatch = (caption.textContent || '').match(/Photo by\s+(.+?)\s+on\s+Unsplash/i);
+  const photographer = (photographerLink?.textContent || byMatch?.[1] || '').trim();
+  if (!photographer && !photographerLink && !photoLink) return null;
+  return {
+    photographer: photographer || 'Unsplash photographer',
+    photographerUrl: photographerLink?.getAttribute('href') || undefined,
+    unsplashUrl: photoLink?.getAttribute('href') || undefined,
   };
 }
 
@@ -619,6 +665,14 @@ function creditMarkdown(credit) {
 
 function escapeAttr(value = '') {
   return String(value).replace(/"/g, '&quot;');
+}
+
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
 }
 
 function formatDay(date) {

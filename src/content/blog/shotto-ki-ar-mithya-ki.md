@@ -13,9 +13,10 @@ heroImageCredit:
 originalUrl: https://tahins.medium.com/eef7ed9450d4
 ---
 
-<img src="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?auto=format&fit=crop&w=1600&q=80" alt="" />
-
-*Photo by [Emily Morter](https://unsplash.com/@emilymorter) on [Unsplash](https://unsplash.com/photos/8xAA0f9yQnE)*
+<figure>
+<img src="https://images.unsplash.com/photo-1484069560501-87d72b0c3669?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+<figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@emilymorter">Emily Morter</a> on <a href="https://unsplash.com/photos/8xAA0f9yQnE">Unsplash</a></figcaption>
+</figure>
 
 আজকের হালাকায় ডা. সাইফুল্লাহ একটা প্রশ্ন করলেন যা শুনে আমরা সবাই থমকে গেলাম।
 

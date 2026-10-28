@@ -357,6 +357,41 @@ html {
   max-width: 820px;
 }
 
+.blog-post .prose {
+  max-width: 70ch;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Hind Siliguri', sans-serif;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.blog-post .prose h1,
+.blog-post .prose h2,
+.blog-post .prose h3,
+.blog-post .prose h4,
+.blog-post .prose h5,
+.blog-post .prose h6 {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace, 'Hind Siliguri', serif;
+}
+
+.blog-post .prose a {
+  color: rgb(255, 99, 71);
+}
+
+.blog-post .prose figure {
+  margin: 1.25em 0 1.75em;
+}
+
+.blog-post .prose figcaption,
+.blog-post .prose .unsplash-credit {
+  font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace, 'Hind Siliguri', serif;
+  font-size: 0.85rem;
+  color: #a6a6a6;
+  margin: 0.4em 0 0;
+}
+
 .blog-index h1,
 .blog-post h1,
 .blog-tags h1 {
@@ -420,9 +455,9 @@ html {
   margin: 0 0 30px;
 }
 
-.blog-post .prose {
-  line-height: 1.8;
-  font-size: 1.15rem;
+.blog-post .prose p,
+.blog-post .prose li {
+  font-size: 18px;
 }
 
 .blog-post .prose h2,

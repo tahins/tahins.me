@@ -18,9 +18,10 @@ heroImageCredit:
 originalUrl: https://tahins.medium.com/79348dc0e0b1
 ---
 
-<img src="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?auto=format&fit=crop&w=1600&q=80" alt="" />
-
-*Photo by [Jens Lelie](https://unsplash.com/@madebyjens) on [Unsplash](https://unsplash.com/photos/u0vgcIOQG08)*
+<figure>
+<img src="https://images.unsplash.com/photo-1429743305873-d4065c15f93e?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+<figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@madebyjens">Jens Lelie</a> on <a href="https://unsplash.com/photos/u0vgcIOQG08">Unsplash</a></figcaption>
+</figure>
 
 কিছুদিন ধরে একটা চিন্তা আমার মাথায় ঘুরছে। নিজের দৈনন্দিন কাজগুলো নিয়ে ভাবতে গিয়েই চিন্তাটা আসলো।
 

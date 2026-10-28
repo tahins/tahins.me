@@ -18,9 +18,10 @@ heroImageCredit:
 originalUrl: https://tahins.medium.com/eb3e2a421c17
 ---
 
-<img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?auto=format&fit=crop&w=1600&q=80" alt="" />
-
-*Photo by [Mnz](https://unsplash.com/@mnzoutfits) on [Unsplash](https://unsplash.com/photos/AIE1_Kp5Zp4)*
+<figure>
+<img src="https://images.unsplash.com/photo-1542219550-2da790bf52e9?auto=format&fit=crop&w=1600&q=80" alt="" loading="lazy" />
+<figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@mnzoutfits">Mnz</a> on <a href="https://unsplash.com/photos/AIE1_Kp5Zp4">Unsplash</a></figcaption>
+</figure>
 
 সূরা ইউসুফে মোট তিনবার “জামা” (কামীছ)-এর উল্লেখ এসেছে। কুরআনে কোনো শব্দের পুনরাবৃত্তি কখনো নিরর্থক নয় -​ প্রতিটি জামার পেছনে লুকিয়ে আছে জীবনের এক একটি গভীর শিক্ষা।
 

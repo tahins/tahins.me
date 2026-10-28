@@ -64,6 +64,8 @@ test('Unsplash images stay remote and keep photographer credit', async () => {
   assert.match(rewritten.html, /Unsplash/);
   const file = toMarkdownFile(parseExportHtml(html));
   assert.match(file.markdown, /<img src="https:\/\/images\.unsplash\.com\/photo-1502086223501-7ea6ecd79368/);
+  assert.match(file.markdown, /loading="lazy"/);
+  assert.match(file.markdown, /<figcaption class="unsplash-credit">/);
   assert.doesNotMatch(file.markdown, /!\[.*\]\(https:\/\/images\.unsplash\.com/);
 });
 
