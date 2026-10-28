@@ -1,57 +1,51 @@
 ---
-import { Picture } from 'astro:assets';
-import { projects } from '../data/site.js';
-
-const images = import.meta.glob<{ default: ImageMetadata }>('../assets/projects/*', {
-  eager: true,
-  import: 'default',
-});
-
-function projectImage(filename) {
-  const image = images[`../assets/projects/${filename}`];
-  if (!image) {
-    throw new Error(`Missing project image: ${filename}`);
-  }
-  return image;
-}
+import { currentProjects, archiveProjects } from '../data/site.js';
 ---
 
 <section class="projects section" id="projects" aria-labelledby="projects-heading">
   <h2 id="projects-heading" class="section-title">Projects</h2>
-  <ul class="project-list">
-    {projects.map((project, index) => (
+  <ul class="current-projects">
+    {currentProjects.map((project) => (
       <li>
-        <div class={`project-media ${project.bgSize && project.bgSize !== 'cover' ? 'is-contain' : 'is-cover'}`}>
-          <Picture
-            src={projectImage(project.imageUrl)}
-            alt={project.imageAlt || ''}
-            widths={[400, 800]}
-            sizes="(max-width: 768px) 100vw, 400px"
-            formats={['webp']}
-            loading={index === 0 ? 'eager' : 'lazy'}
-            decoding="async"
-          />
-        </div>
-        <div class="project-info">
-          <h3 class="project-title">{project.title}</h3>
-          <div class="project-details">
-            <div class="project-description">{project.description}</div>
-            <div class="project-technology"><strong>Built with:</strong> {project.technology}</div>
-            <div class="project-links">
-              {project.url && (
-                <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-                  <strong><i class="fab fa-chrome" aria-hidden="true"></i> Browse</strong>
-                </a>
-              )}
-              {project.githubUrl && (
-                <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                  <strong><i class="fab fa-github" aria-hidden="true"></i> View code</strong>
-                </a>
-              )}
-            </div>
-          </div>
+        <h3 class="project-title">{project.title}</h3>
+        <p class="project-description">{project.description}</p>
+        <div class="project-links">
+          {project.url && (
+            <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+              Open
+            </a>
+          )}
+          {project.githubUrl && (
+            <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              View code
+            </a>
+          )}
         </div>
       </li>
     ))}
   </ul>
+
+  <details class="archive">
+    <summary>Archive</summary>
+    <ul class="archive-list">
+      {archiveProjects.map((project) => (
+        <li>
+          <span class="archive-name">{project.title}</span>
+          <span class="archive-desc faded-text">{project.description}</span>
+          <span class="archive-links">
+            {project.url && (
+              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                Open
+              </a>
+            )}
+            {project.githubUrl && (
+              <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                View code
+              </a>
+            )}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </details>
 </section>

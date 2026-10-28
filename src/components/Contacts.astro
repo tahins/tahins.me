@@ -5,17 +5,21 @@ import { contacts } from '../data/site.js';
 <section class="contacts" id="contact" aria-labelledby="contact-heading">
   <h2 id="contact-heading" class="section-title">Contact</h2>
   <ul class="contact-items">
-    {contacts.map((contact) => (
-      <li>
-        <a
-          href={contact.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={contact.text === 'Email' ? 'Email Tahin' : `Tahin on ${contact.text}`}
-        >
-          <i class={contact.iconClassName} aria-hidden="true"></i>
-        </a>
-      </li>
-    ))}
+    {contacts.map((contact) => {
+      const isEmail = contact.text === 'Email';
+      return (
+        <li>
+          <a
+            href={contact.url}
+            target={isEmail ? undefined : '_blank'}
+            rel={isEmail ? undefined : 'noopener noreferrer'}
+            aria-label={isEmail ? 'Email Tahin' : `Tahin on ${contact.text}`}
+          >
+            <i class={contact.iconClassName} aria-hidden="true"></i>
+            <span class="contact-label">{contact.text}</span>
+          </a>
+        </li>
+      );
+    })}
   </ul>
 </section>

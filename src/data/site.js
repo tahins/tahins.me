@@ -1,8 +1,8 @@
 export const site = {
   url: 'https://tahins.me',
-  title: '@tahins — Staff Software Engineer & Engineering Leader',
+  title: '@tahins — Staff Software Engineer',
   description:
-    'E. M. Yeaseenur Rahman Tahin — Staff Software Engineer at Chaldal PLC. Engineering leader with 13+ years building high-performing teams and mission-critical platforms.',
+    'E. M. Yeaseenur Rahman Tahin — Staff Software Engineer at Chaldal PLC. 13+ years building high-performing teams and mission-critical platforms.',
   author: 'E. M. Yeaseenur Rahman Tahin',
   shortName: '@tahins',
   fontAwesomeKit: 'https://kit.fontawesome.com/f9b50c9352.js',
@@ -10,9 +10,9 @@ export const site = {
 
 export const navLinks = [
   { text: 'projects', url: '/#projects' },
+  { text: 'blog', url: '/blog/' },
   { text: 'profile', url: '/#profile' },
   { text: 'contact', url: '/#contact' },
-  { text: 'blog', url: '/blog/' },
 ];
 
 export const contacts = [
@@ -20,11 +20,6 @@ export const contacts = [
     text: 'Email',
     iconClassName: 'fas fa-envelope-square 7x',
     url: 'mailto:tahin.36@gmail.com?subject=Hello Tahin',
-  },
-  {
-    text: 'Medium',
-    iconClassName: 'fab fa-medium',
-    url: 'https://www.medium.com/@tahins',
   },
   {
     text: 'Linkedin',
@@ -48,158 +43,127 @@ export const contacts = [
   },
 ];
 
-export const projects = [
+/**
+ * Current work leads. One-liners are drafts for Tahin except Dua Deck
+ * and Guided Verses, which use wording from each site.
+ * No URL is invented: Todox, GetBriefly, HajjMate and Quran Map have
+ * none in this repo, so those cards have no Open link.
+ */
+export const currentProjects = [
+  {
+    title: 'Todox',
+    description: 'A minimal, monochrome weekly to-do app.',
+  },
+  {
+    title: 'GetBriefly',
+    description: 'Bengali and English news, briefly.',
+  },
+  {
+    title: 'HajjMate',
+    description: 'A Hajj and Umrah companion app for pilgrims.',
+  },
+  {
+    title: 'Quran Map',
+    description: 'A calm companion for Quran memorization.',
+  },
+  {
+    title: 'Alaap',
+    description: 'A privacy-first SMS app for Android.',
+    url: 'https://alaap.tahins.me/',
+  },
+  {
+    title: 'Dua Deck',
+    description:
+      'A tranquil and artistic Dua companion with swipeable cards, collection management, and daily recitation tracking.',
+    url: 'https://dua-deck.tahins.me/',
+  },
   {
     title: 'Guided Verses',
-    description: 'An immersive Quran experience for web and mobile.',
-    technology: 'AngularJS, PWA',
-    // Browse omitted: SSL error on https://app.guidedverses.com (listed in PR).
-    imageUrl: 'gdvs.png',
-    imageAlt: 'Guided Verses app logo',
-    bgSize: '200px',
+    description:
+      'A friendly reading experience and a resourceful understanding experience of the verses from the noble Qur\'an.',
+    url: 'https://app.guidedverses.xyz/',
   },
-  {
-    title: 'Alaap SMS',
-    description: 'A spam-free, organized SMS inbox for Android.',
-    technology: 'React, Material UI',
-    // Browse omitted: Cloudflare login wall on https://alaap.app/ (listed in PR).
-    imageUrl: 'alaap.png',
-    imageAlt: 'Alaap SMS app artwork',
-    bgSize: 'cover',
-  },
+];
+
+export const archiveProjects = [
   {
     title: 'Prayer Time',
     description: 'A beautiful way to know the prayer times in your city.',
-    technology: 'React, Typescript, PWA',
     url: 'https://prayer-time.tahins.me',
     githubUrl: 'https://www.github.com/tahins/prayer-time-ts',
-    imageUrl: 'prayer-time.png',
-    imageAlt: 'Prayer Time app logo',
-    bgSize: '200px',
   },
   {
     title: 'কোভিড-১৯ পরিস্থিতি',
     description: 'A Covid-19 status app for Bangladesh.',
-    technology: 'Vue, Serverless Lambda, PWA',
     url: 'https://coronabd.tahins.me',
-    imageUrl: 'coronabd.png',
-    imageAlt: 'COVID-19 Bangladesh status app logo',
-    bgSize: '200px',
   },
   {
     title: 'Refactoring Color',
     description: 'Generate the UI color palette for your next project.',
-    technology: 'Hyperapp',
     url: 'https://refactoring-color.tahins.me',
     githubUrl: 'https://www.github.com/tahins/refactoring-color',
-    imageUrl: 'refactoring-color.jpg',
-    imageAlt: 'Abstract color field for the Refactoring Color palette generator',
-    bgSize: 'cover',
   },
   {
     title: 'Readly',
     description: 'Read the breaking news, awesomely.',
-    technology: 'Vue',
     url: 'https://readly.tahins.me',
     githubUrl: 'https://www.github.com/tahins/readly',
-    imageUrl: 'readly.jpg',
-    imageAlt: 'Readly news app artwork',
-    bgSize: 'cover',
   },
   {
     title: 'Islam Porichiti',
     description: 'A video based Islamic QA website.',
-    technology: 'AngularJS',
-    // Browse omitted: http://www.islamporichiti.com returns 500 (listed in PR).
-    imageUrl: 'islam-porichiti.png',
-    imageAlt: 'Islam Porichiti logo',
-    bgSize: '200px',
+    // Open omitted: http://www.islamporichiti.com does not resolve (listed in PR).
   },
   {
     title: 'Tahin Weds Opi',
     description: 'Completing the half of our deen.',
-    technology: 'CSS3 animation',
     url: 'https://wedding.tahins.me',
     githubUrl: 'https://www.github.com/tahins/wedding',
-    imageUrl: 'wedding.jpg',
-    imageAlt: 'Artwork from Tahin and Opi\'s wedding site',
-    bgSize: 'cover',
   },
   {
     title: 'My Village',
     description: 'A 360° experience of my home at Chitholia, Feni.',
-    technology: 'React VR',
     url: 'https://village.tahins.me',
     githubUrl: 'https://www.github.com/tahins/village',
-    imageUrl: 'village.jpg',
-    imageAlt: '360 degree view of Chitholia village',
-    bgSize: 'cover',
   },
   {
     title: 'আবহাওয়া',
     description: 'A simple and minimal weather app.',
-    technology: 'AngularJS',
     url: 'https://abohawa.tahins.me',
     githubUrl: 'https://www.github.com/tahins/abohawa',
-    imageUrl: 'abohawa.png',
-    imageAlt: 'Abohawa weather app logo',
-    bgSize: '200px',
   },
   {
     title: 'angular-gnrad',
     description: 'Easily integrate G&R ads in your AngularJS applications.',
-    technology: 'AngularJS',
     url: 'https://www.npmjs.com/package/angular-gnrad',
     githubUrl: 'https://www.github.com/tahins/angular-gnrad',
-    imageUrl: 'angular-gnrad.jpg',
-    imageAlt: 'angular-gnrad package artwork',
-    bgSize: 'cover',
   },
   {
     title: 'Dark Knight',
     description: 'Because, he is Batman.',
-    technology: 'HTML, CSS, JS',
     url: 'https://dark-knight.tahins.me',
     githubUrl: 'https://www.github.com/tahins/dark-knight',
-    imageUrl: 'dark-knight.jpg',
-    imageAlt: 'Dark Knight Batman artwork',
-    bgSize: 'cover',
   },
   {
     title: 'Man Goes Mobile Website',
     description: 'The legendary company website for Man Goes Mobile.',
-    technology: 'HTML, CSS, JS',
     url: 'https://mangoesmobile.tahins.me',
     githubUrl: 'https://www.github.com/tahins/mangoesmobile',
-    imageUrl: 'mangoesmobile.jpg',
-    imageAlt: 'Man Goes Mobile website artwork',
-    bgSize: 'cover',
   },
   {
     title: 'Slate',
     description: 'Just write.',
-    technology: 'HTML, CSS, JS',
     url: 'https://slate.tahins.me',
     githubUrl: 'https://www.github.com/tahins/slate',
-    imageUrl: 'readly.jpg',
-    imageAlt: 'Slate writing app artwork',
-    bgSize: 'cover',
   },
   {
     title: 'rongdhonu',
     description: 'A Twitter Bootstrap fork with G&R Brand Guideline.',
-    technology: 'LESS',
     githubUrl: 'https://www.github.com/tahins/rongdhonu',
-    imageUrl: 'rongdhonu.jpg',
-    imageAlt: 'rongdhonu Bootstrap theme artwork',
-    bgSize: 'cover',
   },
   {
     title: 'G&R Loader',
     description: 'A loading animation with G&R Logo.',
-    technology: 'CSS3 animation',
-    // Browse omitted: http://codepen.io/tahins/full/lzdmc returns 500 (listed in PR).
-    imageUrl: 'gandr-loading.jpg',
-    imageAlt: 'G&R loading animation artwork',
+    // Open omitted: CodePen http://codepen.io/tahins/full/lzdmc is blocked (listed in PR).
   },
 ];
