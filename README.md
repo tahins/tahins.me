@@ -2,6 +2,20 @@
 
 Personal site of E. M. Yeaseenur Rahman Tahin. Static [Astro](https://astro.build) site, hosted on Netlify.
 
+## Routes
+
+| Path | Page |
+| --- | --- |
+| `/` | Home: hero, current projects, collapsed archive, profile, contact |
+| `/#projects` | Current work grid, with Archive as a `<details>` list below |
+| `/#profile` | Profile |
+| `/#contact` | Contact |
+| `/blog/` | Blog index |
+| `/blog/<slug>/` | A post |
+| `/blog/tags/<tag>/` | Posts with that tag |
+| `/blog/rss.xml` | RSS |
+| `/sitemap-index.xml` | Sitemap |
+
 ## Scripts
 
 ```bash
