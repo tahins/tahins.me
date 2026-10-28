@@ -53,7 +53,7 @@ export const projects = [
     title: 'Guided Verses',
     description: 'An immersive Quran experience for web and mobile.',
     technology: 'AngularJS, PWA',
-    url: 'https://app.guidedverses.com',
+    // Browse omitted: SSL error on https://app.guidedverses.com (listed in PR).
     imageUrl: '/img/projects/gdvs.png',
     bgSize: '200px',
   },
@@ -61,13 +61,13 @@ export const projects = [
     title: 'Alaap SMS',
     description: 'A spam-free, organized SMS inbox for Android.',
     technology: 'React, Material UI',
-    url: 'https://alaap.app/',
+    // Browse omitted: Cloudflare login wall on https://alaap.app/ (listed in PR).
     imageUrl: '/img/projects/alaap.png',
     bgSize: 'cover',
   },
   {
     title: 'Prayer Time',
-    description: 'A beautiful way to the know the prayer times in your city.',
+    description: 'A beautiful way to know the prayer times in your city.',
     technology: 'React, Typescript, PWA',
     url: 'https://prayer-time.tahins.me',
     githubUrl: 'https://www.github.com/tahins/prayer-time-ts',
@@ -104,7 +104,7 @@ export const projects = [
     title: 'Islam Porichiti',
     description: 'A video based Islamic QA website.',
     technology: 'AngularJS',
-    url: 'http://www.islamporichiti.com',
+    // Browse omitted: http://www.islamporichiti.com returns 500 (listed in PR).
     imageUrl: '/img/projects/islam-porichiti.png',
     bgSize: '200px',
   },
@@ -182,8 +182,8 @@ export const projects = [
   {
     title: 'G&R Loader',
     description: 'A loading animation with G&R Logo.',
-    technology: 'CSS3 animaiton',
-    url: 'http://codepen.io/tahins/full/lzdmc',
+    technology: 'CSS3 animation',
+    // Browse omitted: http://codepen.io/tahins/full/lzdmc returns 500 (listed in PR).
     imageUrl: '/img/projects/gandr-loading.jpg',
   },
 ];
