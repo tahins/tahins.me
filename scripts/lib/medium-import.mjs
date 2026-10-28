@@ -27,6 +27,16 @@ export const SLUG_BY_STORY_ID = {
   '597067493830': 'mobile-e-thakun-gr-er-sathe',
 };
 
+/**
+ * Medium export filenames for responses use the parent story title.
+ * These two are comments, not posts — import as draft even if the HTML
+ * is missing p-in-reply-to.
+ */
+export const RESPONSE_FILENAME_HINTS = [
+  /your[-_. ]*dramatic[-_. ]*intro/i,
+  /one[-_. ]*might[-_. ]*never[-_. ]*figure[-_. ]*it[-_. ]*out/i,
+];
+
 const MEDIUM_CDN = /(?:cdn-images-1\.medium\.com|miro\.medium\.com)/i;
 const TRACKING_IMG = /medium\.com\/_\/stat/i;
 const UNSPLASH_HOST = /(?:images\.)?unsplash\.com/i;
@@ -295,6 +305,7 @@ export function parseExportHtml(html = '', filename = '') {
 }
 
 export function isMediumResponse(html = '', filename = '') {
+  if (RESPONSE_FILENAME_HINTS.some((re) => re.test(filename))) return true;
   const $ = load(html);
   if ($('.p-in-reply-to, a.p-in-reply-to').length) return true;
   const footer = $('footer').text();

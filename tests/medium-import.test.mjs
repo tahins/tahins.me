@@ -188,6 +188,39 @@ test('Medium responses (comments) import as draft', async () => {
   assert.match(file.markdown, /originalUrl: https:\/\/tahins\.medium\.com\/aaaaaaaaaaaa/);
 });
 
+test('named response filenames are drafts even without p-in-reply-to', () => {
+  const html = `<article><h1 class="p-name">Your dramatic intro…</h1>
+    <a class="p-canonical" href="https://tahins.medium.com/bbbbbbbbbbbb"></a>
+    <section class="e-content"><p>Short reply.</p></section></article>`;
+  assert.equal(isMediumResponse(html, '2015-12-14_Your-dramatic-intro--.html'), true);
+  assert.equal(
+    isMediumResponse(html, '2016-10-03_One-might-never-figure-it-out--.html'),
+    true,
+  );
+  assert.equal(parseExportHtml(html, '2016-10-03_One-might-never-figure-it-out--.html').draft, true);
+  assert.equal(isMediumResponse(html, '2018-04-25_Sample-ccf34a785233.html'), false);
+});
+
+test('export zip ignores everything except posts/*.html', async () => {
+  const story = await load('medium-export-sample.html');
+  const response = await load('medium-response-sample.html');
+  const zip = new JSZip();
+  zip.file('profile/profile.html', '<html><body>private</body></html>');
+  zip.file('claps/claps.csv', 'private');
+  zip.file('drafts/secret.html', '<article><h1>Draft</h1><section class="e-content"><p>no</p></section></article>');
+  zip.file('posts/2018-04-25_Sample-ccf34a785233.html', story);
+  zip.file('posts/2015-12-14_Your-dramatic-intro--.html', response);
+  const { written, report } = await importFromExportZip(await zip.generateAsync({ type: 'nodebuffer' }), {
+    download: false,
+  });
+  assert.equal(report.found, 2);
+  assert.equal(written.length, 2);
+  const drafts = written.filter((post) => post.draft);
+  assert.equal(drafts.length, 1);
+  assert.match(drafts[0].filename, /your-dramatic-intro/);
+  assert.ok(!written.some((post) => /secret|private|Draft/.test(post.title)));
+});
+
 test('mergePosts de-dupes RSS and export by story id', () => {
   const merged = mergePosts([
     [{ title: 'From zip', originalUrl: 'https://tahins.medium.com/ccf34a785233', html: '<p>zip</p>' }],
