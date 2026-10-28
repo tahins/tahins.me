@@ -90,7 +90,12 @@ test('article covers and project images in dist are WebP and stay under 500 KB',
     for (const url of urls) referenced.add(url);
     if (cover) {
       assert.doesNotMatch(cover, /\.(png|jpe?g)(?:\s|"|,|$)/i, `${slug} cover is not WebP-only`);
-      assert.match(cover, /\.webp/i, `${slug} cover missing WebP`);
+      const localCover = /\/_astro\//.test(cover);
+      if (localCover) {
+        assert.match(cover, /\.webp/i, `${slug} cover missing WebP`);
+      } else {
+        assert.match(cover, /fm=webp/, `${slug} Unsplash cover missing fm=webp`);
+      }
     }
     if (og.includes('/_astro/')) {
       assert.match(og, /\.webp(\?|$)/i, `${slug} og:image is not WebP`);
