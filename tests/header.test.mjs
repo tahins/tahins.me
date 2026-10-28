@@ -51,6 +51,11 @@ test('bar tokens are the home look and are not theme tokens', () => {
   assert.match(css, /\.navbar \.nav-links \{[\s\S]*text-transform:\s*uppercase/);
   assert.match(css, /min-height:\s*44px/);
   assert.match(css, /flex-wrap:\s*nowrap/);
+  assert.match(css, /\.navbar \.nav-links a \{[\s\S]*border-bottom:\s*4px solid transparent/);
+  assert.match(
+    css,
+    /\.navbar \.nav-links a:hover,\s*\.navbar \.nav-links a\[aria-current='page'\] \{[\s\S]*border-bottom-color:\s*var\(--bar-underline\)/,
+  );
   assert.doesNotMatch(css, /\.blog-theme \{[^}]*--bar-bg/);
   assert.doesNotMatch(css, /\.blog-theme \{[^}]*--bar-fg/);
 });

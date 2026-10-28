@@ -198,6 +198,12 @@ html {
   letter-spacing: inherit;
 }
 
+.navbar .nav-links a {
+  /* Reserve the 4px underline so aria-current/hover don't shrink the
+     border-box and shift the glyph up by ~2px. */
+  border-bottom: 4px solid transparent;
+}
+
 .navbar .brand {
   padding-left: 0;
   border-bottom: 4px solid var(--bar-underline);
@@ -205,7 +211,7 @@ html {
 
 .navbar .nav-links a:hover,
 .navbar .nav-links a[aria-current='page'] {
-  border-bottom: 4px solid var(--bar-underline);
+  border-bottom-color: var(--bar-underline);
 }
 
 .navbar .nav-links {

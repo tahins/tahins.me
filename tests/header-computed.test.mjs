@@ -119,6 +119,47 @@ test('header computed styles match on / and an article in light and dark', async
         assert.match(home.fontFamily, /Consolas/i);
       }
     }
+
+    for (const width of [390, 1440]) {
+      for (const pathname of ['/blog/', '/blog/tin-ti-jama-surah-yusuf/', '/blog/tags/tdd/']) {
+        const page = await browser.newPage({
+          viewport: { width, height: 900 },
+          colorScheme: 'light',
+        });
+        await page.goto(`${origin}${pathname}`, { waitUntil: 'networkidle', timeout: 30000 });
+        await page.evaluate(() => document.fonts.ready);
+        const reading = await page.evaluate(() => {
+          const current = document.querySelector('.navbar .nav-links a[aria-current="page"]');
+          const other = [...document.querySelectorAll('.navbar .nav-links a')].find(
+            (link) => link.getAttribute('aria-current') !== 'page',
+          );
+          const textBox = (el) => {
+            const range = document.createRange();
+            range.selectNodeContents(el);
+            return range.getBoundingClientRect();
+          };
+          const a = textBox(current);
+          const b = textBox(other);
+          return {
+            currentTop: a.top,
+            otherTop: b.top,
+            currentBottom: a.bottom,
+            otherBottom: b.bottom,
+            minHeight: getComputedStyle(current).minHeight,
+          };
+        });
+        assert.equal(reading.minHeight, '44px', `${width}px ${pathname} min-height`);
+        assert.ok(
+          Math.abs(reading.currentTop - reading.otherTop) <= 0.5,
+          `${width}px ${pathname} text top ${reading.currentTop} vs ${reading.otherTop}`,
+        );
+        assert.ok(
+          Math.abs(reading.currentBottom - reading.otherBottom) <= 0.5,
+          `${width}px ${pathname} text baseline ${reading.currentBottom} vs ${reading.otherBottom}`,
+        );
+        await page.close();
+      }
+    }
   } finally {
     await browser.close();
     server.close();
