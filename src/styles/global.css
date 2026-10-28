@@ -347,6 +347,7 @@ html {
 .project-thumb {
   width: 48px;
   height: 48px;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background: #111;
 }
@@ -357,6 +358,12 @@ html {
   width: 48px;
   height: 48px;
   object-fit: cover;
+}
+
+.project-thumb--shot picture,
+.project-thumb--shot img {
+  object-fit: cover;
+  object-position: top;
 }
 
 .project-placeholder {

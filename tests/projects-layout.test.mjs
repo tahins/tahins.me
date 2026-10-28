@@ -23,6 +23,24 @@ test('project thumbnails use Astro Picture with alt, not hotlinks', () => {
   assert.match(astro, /alt=\{alts\[project\.title\]\}/);
   assert.doesNotMatch(astro, /images\.unsplash\.com/);
   assert.match(astro, /project-placeholder/);
+  assert.match(astro, /assets\/projects\/todox\.png/);
+  assert.match(astro, /assets\/projects\/getbriefly\.png/);
+  assert.match(astro, /assets\/projects\/quran-map\.png/);
+  assert.match(astro, /assets\/projects\/dua-deck\.png/);
+  assert.match(astro, /fallbackFormat: 'webp'/);
+  assert.match(astro, /width: 800, height: 500/);
+  assert.match(
+    astro,
+    /Todox: 'Todox home page with the headline The Command Center For Your Life'/,
+  );
+  assert.match(astro, /getbriefly: 'getbriefly home page with the headline News, simplified'/);
+  assert.match(
+    astro,
+    /'Quran Map': 'Quran Map surah list in Bangla, with the Mushaf and memorization modes'/,
+  );
+  assert.match(astro, /'Dua Deck': 'Dua Deck showing a swipeable dua card in Arabic'/);
+  assert.match(css, /\.project-thumb--shot (?:picture|img)[\s\S]*object-position:\s*top/);
+  assert.match(css, /\.project-thumb \{[\s\S]*aspect-ratio:\s*1\s*\/\s*1/);
 });
 
 test('current-work CSS is mobile-first list, then 2-col, then 3-col cards', () => {

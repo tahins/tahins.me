@@ -3,16 +3,30 @@ import { Picture } from 'astro:assets';
 import { currentProjects, archiveProjects } from '../data/site.js';
 import alaapThumb from '../assets/projects/alaap.png';
 import guidedVersesThumb from '../assets/projects/gdvs.png';
+import todoxThumb from '../assets/projects/todox.png';
+import getbrieflyThumb from '../assets/projects/getbriefly.png';
+import quranMapThumb from '../assets/projects/quran-map.png';
+import duaDeckThumb from '../assets/projects/dua-deck.png';
 
 const thumbs = {
+  Todox: todoxThumb,
+  getbriefly: getbrieflyThumb,
+  'Quran Map': quranMapThumb,
   'Alaap SMS': alaapThumb,
+  'Dua Deck': duaDeckThumb,
   'Guided Verses': guidedVersesThumb,
 };
 
 const alts = {
+  Todox: 'Todox home page with the headline The Command Center For Your Life',
+  getbriefly: 'getbriefly home page with the headline News, simplified',
+  'Quran Map': 'Quran Map surah list in Bangla, with the Mushaf and memorization modes',
+  'Dua Deck': 'Dua Deck showing a swipeable dua card in Arabic',
   'Alaap SMS': 'Alaap SMS inbox on a phone, with a clean personal-message list',
   'Guided Verses': 'Guided Verses app icon with Arabic calligraphy of Al-Qur’an',
 };
+
+const SITE_SHOTS = new Set(['Todox', 'getbriefly', 'Quran Map', 'Dua Deck']);
 ---
 
 <section class="projects section" id="projects" aria-labelledby="projects-heading">
@@ -23,7 +37,7 @@ const alts = {
       const initial = [...project.title][0];
       return (
         <li class:list={['current-project', { 'has-open': Boolean(project.url) }]}>
-          <div class="project-thumb">
+          <div class:list={['project-thumb', { 'project-thumb--shot': SITE_SHOTS.has(project.title) }]}>
             {thumb ? (
               <Picture
                 src={thumb}
@@ -33,6 +47,9 @@ const alts = {
                 formats={['webp']}
                 loading="lazy"
                 decoding="async"
+                {...(SITE_SHOTS.has(project.title)
+                  ? { width: 800, height: 500, fallbackFormat: 'webp' }
+                  : {})}
               />
             ) : (
               <span class="project-placeholder" aria-hidden="true">{initial}</span>
