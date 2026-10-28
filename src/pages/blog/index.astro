@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogChrome from '../../components/BlogChrome.astro';
+import BlogCompactAuthor from '../../components/BlogCompactAuthor.astro';
+import BlogPostList from '../../components/BlogPostList.astro';
+import BlogSidebar from '../../components/BlogSidebar.astro';
+import { getPublishedPosts } from '../../lib/blog.js';
+import { site } from '../../data/site.js';
+
+const posts = await getPublishedPosts();
+---
+
+<BaseLayout
+  variant="blog"
+  title={`Blog — ${site.shortName}`}
+  description="Writing by E. M. Yeaseenur Rahman Tahin, moved from Medium onto tahins.me."
+  canonical={`${site.url}/blog/`}
+  preloadFont="/fonts/literata-latin-400-v3.103.woff2"
+>
+  <BlogChrome>
+    <div class="blog-layout">
+      <BlogCompactAuthor />
+      <main class="blog-feed">
+        <h1 class="blog-page-title">Blog</h1>
+        <BlogPostList posts={posts} />
+      </main>
+      <BlogSidebar />
+    </div>
+  </BlogChrome>
+</BaseLayout>

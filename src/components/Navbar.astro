@@ -1,0 +1,29 @@
+---
+import { navLinks, site } from '../data/site.js';
+
+const path = Astro.url.pathname;
+const onBlog = path === '/blog' || path === '/blog/' || path.startsWith('/blog/');
+
+function isCurrent(url = '') {
+  return url === '/blog/' || url === '/blog' ? onBlog : false;
+}
+---
+
+<header class="site-header">
+  <nav class="navbar" aria-label="Site">
+    <div class="left">
+      <a href="/" class="brand">{site.shortName}</a>
+    </div>
+    <div class="right">
+      <ul class="nav-links">
+        {navLinks.map((navLink) => (
+          <li>
+            <a href={navLink.url} aria-current={isCurrent(navLink.url) ? 'page' : undefined}>
+              {navLink.text}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>

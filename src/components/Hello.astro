@@ -1,0 +1,29 @@
+---
+import { contacts } from '../data/site.js';
+
+const email = contacts.find((contact) => contact.text === 'Email');
+---
+
+<div class="hello">
+  <div class="quote">
+    <a href="https://sunnah.com/riyadussaliheen/18/1" class="silent-link" target="_blank" rel="noopener noreferrer">
+      speak a good word or remain silent.
+    </a>
+  </div>
+  <div class="summary">
+    <h1 class="hello-heading">
+      <span class="hello-name">E. M. Yeaseenur Rahman Tahin</span>
+      <span class="position faded-text">Staff Software Engineer</span>
+    </h1>
+    <div class="description">
+      Building high-performing teams
+      <br />
+      and mission-critical platforms.
+      <br />
+      <span class="love">13+</span> years in the craft.
+    </div>
+    {email && (
+      <a class="email-me" href={email.url}>Email me</a>
+    )}
+  </div>
+</div>

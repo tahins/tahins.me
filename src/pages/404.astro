@@ -1,0 +1,22 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site.js';
+---
+
+<BaseLayout
+  title={`Page not found — ${site.shortName}`}
+  description="That page is not on tahins.me."
+>
+  <div class="home not-found-page">
+    <main class="not-found">
+      <h1>Page not found</h1>
+      <p>That URL is not on this site.</p>
+      <p class="not-found-links">
+        <a href="/">Home</a>
+        <a href="/blog/">Blog</a>
+      </p>
+    </main>
+    <Footer />
+  </div>
+</BaseLayout>

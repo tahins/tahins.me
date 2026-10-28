@@ -1,0 +1,69 @@
+const IMG_TAG = /<(?:img|Picture)\b[\s\S]*?>/g;
+const ANCHOR_TAG = /<a\b[\s\S]*?>/gi;
+const H1_TAG = /<h1\b/gi;
+const EMPTY_HREF = /\bhref\s*=\s*(["'])\s*\1/i;
+
+export function findImgsMissingAlt(html = '') {
+  return [...html.matchAll(IMG_TAG)]
+    .map((match) => match[0])
+    .filter((tag) => !/\balt\s*=/i.test(tag));
+}
+
+function altValue(tag = '') {
+  const quoted = tag.match(/\balt\s*=\s*(["'])([\s\S]*?)\1/i);
+  if (quoted) return quoted[2];
+  if (/\balt\s*=\s*\{/.test(tag)) return '{expr}';
+  return null;
+}
+
+function isExplicitlyDecorative(tag = '') {
+  return (
+    /\brole\s*=\s*(["'])presentation\1/i.test(tag) ||
+    /\baria-hidden\s*=\s*(["'])true\1/i.test(tag)
+  );
+}
+
+/** Content images with missing or blank alt. Decorative imgs must set role="presentation" or aria-hidden="true". */
+export function findContentImgsWithBlankAlt(html = '') {
+  return [...html.matchAll(IMG_TAG)]
+    .map((match) => match[0])
+    .filter((tag) => {
+      if (isExplicitlyDecorative(tag)) return false;
+      const alt = altValue(tag);
+      return alt == null || alt.trim() === '';
+    });
+}
+
+export function findEmptyHrefs(html = '') {
+  const empty = [];
+  for (const match of html.matchAll(ANCHOR_TAG)) {
+    const tag = match[0];
+    if (EMPTY_HREF.test(tag) || !/\bhref\s*=/i.test(tag)) {
+      empty.push(tag);
+    }
+  }
+  return empty;
+}
+
+export function countH1(html = '') {
+  return [...html.matchAll(H1_TAG)].length;
+}
+
+const UNSPLASH_IMG = /<img\b[^>]*images\.unsplash\.com[^>]*>/gi;
+
+function decodeAmpersands(value = '') {
+  return value.replace(/&amp;/gi, '&').replace(/&#x26;/gi, '&').replace(/&#38;/g, '&');
+}
+
+export function findUnsplashImgsMissingSize(html = '') {
+  return [...html.matchAll(UNSPLASH_IMG)]
+    .map((match) => match[0])
+    .filter((tag) => {
+      const decoded = decodeAmpersands(tag);
+      return (
+        !/\bsrcset=/i.test(decoded) ||
+        !/[?&]w=\d+/i.test(decoded) ||
+        !/[?&]fm=webp/i.test(decoded)
+      );
+    });
+}

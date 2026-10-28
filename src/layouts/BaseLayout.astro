@@ -1,0 +1,66 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+import { site } from '../data/site.js';
+
+const {
+  title = site.title,
+  description = site.description,
+  canonical,
+  ogImage,
+  ogImageAlt,
+  type = 'website',
+  publishedTime,
+  tags = [],
+  variant = 'home',
+  preloadFont,
+  lang = 'en',
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, site.url).href;
+const image = ogImage || new URL('/img/me.webp', site.url).href;
+const imageAlt = ogImageAlt || site.author;
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={image} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta property="og:site_name" content={site.shortName} />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@tahins" />
+    <meta name="twitter:creator" content="@tahins" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    {publishedTime && <meta property="article:published_time" content={publishedTime} />}
+    {tags.map((tag) => <meta property="article:tag" content={tag} />)}
+    {preloadFont && (
+      <link rel="preload" href={preloadFont} as="font" type="font/woff2" crossorigin />
+    )}
+    <script src={site.fontAwesomeKit} crossorigin="anonymous"></script>
+    <!--
+      Analytics placeholder
+      Universal Analytics UA-43970194-1 was removed (UA sunset).
+      Add GA4 (G-XXXXXXXX) or enable Netlify Analytics here later.
+    -->
+  </head>
+  <body class={variant === 'blog' ? 'blog-theme' : undefined}>
+    <Navbar />
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,54 @@
+---
+import { Picture } from 'astro:assets';
+import UnsplashCredit from './UnsplashCredit.astro';
+import { isUnsplashImage, previewSource } from '../lib/blog.js';
+import { localBlogImage } from '../lib/blog-images.js';
+import { COVER_WIDTHS, WEBP_QUALITY, servedSize, servedWidths } from '../lib/image-widths.js';
+import { unsplashSized, unsplashSrcset } from '../lib/unsplash.js';
+
+const { post } = Astro.props;
+const source = previewSource(post);
+const unsplash = source && isUnsplashImage(source);
+const local = source ? localBlogImage(source) : null;
+const localWidths = local ? servedWidths(local, COVER_WIDTHS) : [];
+const localSize = local ? servedSize(local, localWidths) : null;
+const alt = post.data.heroImageAlt || post.data.title;
+const credit = post.data.heroImageCredit;
+---
+
+{(unsplash || local) && (
+  <div class="article-cover">
+    <div class="post-cover">
+      {unsplash && (
+        <img
+          src={unsplashSized(source, 1600)}
+          srcset={unsplashSrcset(source, COVER_WIDTHS)}
+          sizes="100vw"
+          width="2400"
+          height="1350"
+          alt={alt}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      )}
+      {local && (
+        <Picture
+          src={local}
+          alt={alt}
+          widths={localWidths}
+          sizes="100vw"
+          width={localSize.width}
+          height={localSize.height}
+          formats={['webp']}
+          fallbackFormat="webp"
+          quality={WEBP_QUALITY}
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        />
+      )}
+    </div>
+    {credit && unsplash && <UnsplashCredit credit={credit} />}
+  </div>
+)}

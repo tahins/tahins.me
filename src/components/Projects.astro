@@ -1,0 +1,134 @@
+---
+import { Picture } from 'astro:assets';
+import { currentProjects, archiveProjects } from '../data/site.js';
+import { PROJECT_WIDTHS, WEBP_QUALITY, servedWidths } from '../lib/image-widths.js';
+import alaapThumb from '../assets/projects/alaap.png';
+import guidedVersesThumb from '../assets/projects/gdvs.png';
+import hajjmateThumb from '../assets/projects/hajjmate.png';
+import todoxThumb from '../assets/projects/todox.png';
+import getbrieflyThumb from '../assets/projects/getbriefly.png';
+import quranMapThumb from '../assets/projects/quran-map.png';
+import duaDeckThumb from '../assets/projects/dua-deck.png';
+
+const thumbs = {
+  Todox: todoxThumb,
+  getbriefly: getbrieflyThumb,
+  HajjMate: hajjmateThumb,
+  'Quran Map': quranMapThumb,
+  'Alaap SMS': alaapThumb,
+  'Dua Deck': duaDeckThumb,
+  'Guided Verses': guidedVersesThumb,
+};
+
+const alts = {
+  Todox: 'Todox home page with the headline The Command Center For Your Life',
+  getbriefly: 'getbriefly home page with the headline News, simplified',
+  HajjMate: 'HajjMate home page with the headline Never miss a step on your sacred journey',
+  'Quran Map': 'Quran Map surah list in Bangla, with the Mushaf and memorization modes',
+  'Dua Deck': 'Dua Deck showing a swipeable dua card in Arabic',
+  'Alaap SMS': 'Alaap SMS home page with the headline Your OTPs stay loud. Your promos go quiet',
+  'Guided Verses':
+    'Guided Verses on phone, tablet, desktop, and laptop showing a verse with English and Bangla translations',
+};
+
+const SITE_SHOTS = new Set(Object.keys(thumbs));
+---
+
+<section class="projects section" id="projects" aria-labelledby="projects-heading">
+  <h2 id="projects-heading" class="section-title">Projects</h2>
+  <ul class="current-projects">
+    {currentProjects.map((project) => {
+      const thumb = thumbs[project.title];
+      const initial = [...project.title][0];
+      const thumbWidths = thumb ? servedWidths(thumb, PROJECT_WIDTHS) : [];
+      return (
+        <li class:list={['current-project', { 'has-open': Boolean(project.url) }]}>
+          <div class:list={['project-thumb', { 'project-thumb--shot': SITE_SHOTS.has(project.title) }]}>
+            {thumb ? (
+              <Picture
+                src={thumb}
+                alt={alts[project.title]}
+                widths={thumbWidths}
+                sizes="(max-width: 639px) 48px, (max-width: 1023px) 45vw, 30vw"
+                width={800}
+                height={500}
+                formats={['webp']}
+                fallbackFormat="webp"
+                quality={WEBP_QUALITY}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <span class="project-placeholder" aria-hidden="true">{initial}</span>
+            )}
+          </div>
+          <div class="project-copy">
+            <h3 class="project-title">
+              {project.url ? (
+                <a
+                  class="project-stretched"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+            <p class="project-description">{project.description}</p>
+            {(project.url || project.githubUrl) && (
+              <div class="project-links">
+                {project.url && (
+                  <a
+                    class="project-link project-open"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    class="project-link project-code"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View code
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </li>
+      );
+    })}
+  </ul>
+
+  <details class="archive">
+    <summary>Archive</summary>
+    <ul class="archive-list">
+      {archiveProjects.map((project) => (
+        <li>
+          <span class="archive-name">{project.title}</span>
+          <span class="archive-desc faded-text">{project.description}</span>
+          <span class="archive-links">
+            {project.url && (
+              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
+                Open
+              </a>
+            )}
+            {project.githubUrl && (
+              <a class="project-link project-code" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                View code
+              </a>
+            )}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </details>
+</section>

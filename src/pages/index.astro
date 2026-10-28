@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hello from '../components/Hello.astro';
+import Projects from '../components/Projects.astro';
+import Profile from '../components/Profile.astro';
+import Contacts from '../components/Contacts.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site.js';
+---
+
+<BaseLayout title={site.title} description={site.description} canonical={`${site.url}/`}>
+  <div class="home">
+    <div class="above-fold">
+      <Hello />
+    </div>
+    <Projects />
+    <Profile />
+    <Contacts />
+    <Footer />
+  </div>
+</BaseLayout>

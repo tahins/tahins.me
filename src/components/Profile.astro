@@ -1,0 +1,45 @@
+---
+import { Picture } from 'astro:assets';
+import portrait from '../assets/me.webp';
+---
+
+<section class="profile section" id="profile" aria-labelledby="profile-heading">
+  <h2 id="profile-heading" class="section-title">Profile</h2>
+  <div class="profile-container">
+    <div class="profile-image">
+      <Picture
+        src={portrait}
+        alt="Portrait of E. M. Yeaseenur Rahman Tahin"
+        widths={[400, 800]}
+        sizes="(max-width: 768px) 80vw, 400px"
+        formats={['webp']}
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+    <div class="profile-summary">
+      <div class="profile-name"><span class="faded-text">I am </span><strong>E. M. Yeaseenur Rahman Tahin</strong></div>
+      <div class="profile-position">Staff Software Engineer <span class="faded-text">at 🥚 Chaldal PLC, Dhaka, Bangladesh</span></div>
+      <div class="profile-description faded-text">
+        <p>
+          Staff Software Engineer with 13+ years building high-performing teams and delivering
+          complex, mission-critical platforms — from early product work to leading delivery
+          across multi-platform organizations.
+        </p>
+        <p>
+          At Chaldal, I oversee technical delivery across grocery &amp; supply chain,
+          warehouse operations, perishable network, Cookups, HR, internal comms and an
+          inventory investment platform — spanning e-commerce, logistics, food-tech and
+          enterprise tooling. My recent work sits where reliability meets regulation:
+          ledger-grade order reconciliation, PCI-DSS and PSP compliance with Bangladesh Bank,
+          event-driven systems at scale and GenAI tools that ship in production.
+        </p>
+        <p>
+          I believe correctness, traceability and reliability must be engineered — not assumed.
+          I lead organizations, but I stay hands-on on architecture, security and the hard
+          problems that don't fit on a slide.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

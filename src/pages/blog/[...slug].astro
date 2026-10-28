@@ -1,0 +1,112 @@
+---
+import { getImage } from 'astro:assets';
+import { render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogChrome from '../../components/BlogChrome.astro';
+import BlogAvatar from '../../components/BlogAvatar.astro';
+import ArticleCover from '../../components/ArticleCover.astro';
+import {
+  formatDate,
+  getPublishedPosts,
+  isRemoteImage,
+  postExcerpt,
+  postLang,
+  postPath,
+  previewSource,
+  readingLabel,
+} from '../../lib/blog.js';
+import { localBlogImage } from '../../lib/blog-images.js';
+import { unsplashSized } from '../../lib/unsplash.js';
+import { COVER_BEFORE_TITLE } from '../../lib/article-layout.js';
+import { blogProfile, site } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const excerpt = postExcerpt(post);
+const lang = postLang(post);
+const canonical = new URL(postPath(post), site.url).href;
+const hero = previewSource(post);
+const heroIsRemote = Boolean(hero && isRemoteImage(hero));
+const hasHero = Boolean(hero && (heroIsRemote || localBlogImage(hero)));
+
+let ogImage;
+if (heroIsRemote) {
+  ogImage = /images\.unsplash\.com/i.test(hero) ? unsplashSized(hero, 1200) : hero;
+} else if (hero) {
+  const local = localBlogImage(hero);
+  if (local) {
+    const optimized = await getImage({
+      src: local,
+      width: Math.min(1200, local.width),
+      format: 'webp',
+      quality: 82,
+    });
+    ogImage = new URL(optimized.src, site.url).href;
+  }
+}
+---
+
+<BaseLayout
+  variant="blog"
+  lang={lang}
+  title={`${post.data.title} — ${site.shortName}`}
+  description={excerpt}
+  canonical={canonical}
+  ogImage={ogImage}
+  ogImageAlt={post.data.heroImageAlt || post.data.title}
+  type="article"
+  publishedTime={post.data.pubDate.toISOString()}
+  tags={post.data.tags}
+  preloadFont="/fonts/literata-latin-400-v3.103.woff2"
+>
+  <BlogChrome>
+    <article class:list={['blog-post', { 'has-hero': hasHero }]} lang={lang}>
+      {COVER_BEFORE_TITLE && <ArticleCover post={post} />}
+
+      <header class="article-header">
+        <h1 class="article-title">{post.data.title}</h1>
+        <div class="article-author">
+          <BlogAvatar size={48} />
+          <div>
+            <p class="sidebar-name">{blogProfile.name}</p>
+            <p class="post-byline">
+              {formatDate(post.data.pubDate)}
+              {' · '}
+              {readingLabel(post.body)}
+              {post.data.updatedDate && ` · updated ${formatDate(post.data.updatedDate)}`}
+            </p>
+          </div>
+        </div>
+      </header>
+
+      {!COVER_BEFORE_TITLE && <ArticleCover post={post} />}
+
+      <div class="prose">
+        <Content />
+      </div>
+
+      <footer class="article-footer">
+        {post.data.tags.length > 0 && (
+          <p class="tag-list">
+            {post.data.tags.map((tag) => (
+              <a href={`/blog/tags/${tag}/`}>#{tag}</a>
+            ))}
+          </p>
+        )}
+        <section class="article-about">
+          <h2>About Tahin</h2>
+          <p>{blogProfile.bio}</p>
+          <p><a href="/blog/">More on the blog</a></p>
+        </section>
+      </footer>
+    </article>
+  </BlogChrome>
+</BaseLayout>

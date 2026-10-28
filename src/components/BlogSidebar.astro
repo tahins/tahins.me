@@ -1,0 +1,95 @@
+---
+import BlogAvatar from './BlogAvatar.astro';
+import PostPreviewThumb from './PostPreviewThumb.astro';
+import {
+  featuredPosts,
+  formatDate,
+  getPublishedPosts,
+  postPath,
+  tagCounts,
+} from '../lib/blog.js';
+import { blogProfile, contacts, currentProjects } from '../data/site.js';
+
+const posts = await getPublishedPosts();
+const popular = featuredPosts(posts);
+const topics = tagCounts(posts);
+const work = currentProjects.filter((project) => project.url);
+const email = contacts.find((contact) => contact.text === 'Email');
+---
+
+<aside class="blog-sidebar" aria-label="Blog sidebar">
+  <section class="sidebar-about">
+    <h2 class="sidebar-heading">About Tahin</h2>
+    <BlogAvatar size={88} />
+    <p class="sidebar-name">{blogProfile.name}</p>
+    <p class="sidebar-role">{blogProfile.role}</p>
+    <p class="sidebar-bio">{blogProfile.bio}</p>
+    <div class="sidebar-actions">
+      <a href="/#profile">Profile</a>
+      {email && <a href={email.url}>Email me</a>}
+    </div>
+  </section>
+
+  <section class="sidebar-subscribe">
+    <h2 class="sidebar-heading">Subscribe</h2>
+    <a class="sidebar-rss" href="/blog/rss.xml">
+      <svg class="rss-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path
+          fill="currentColor"
+          d="M6.18 17.82a2.18 2.18 0 1 1-4.36 0 2.18 2.18 0 0 1 4.36 0zM.5 7.58v3.09c6.52 0 11.83 5.31 11.83 11.83h3.09C15.42 14.73 8.77 8.08.5 7.58zm0-7.08v3.11c10.4.52 18.77 8.87 19.27 19.27H23C22.48 9.05 14.45.52.5.5z"
+        ></path>
+      </svg>
+      RSS feed
+    </a>
+  </section>
+
+  {popular.length > 0 && (
+    <section class="sidebar-popular">
+      <h2 class="sidebar-heading">Popular</h2>
+      <ul>
+        {popular.map((post) => (
+          <li>
+            <a class="popular-link" href={postPath(post)}>
+              <PostPreviewThumb post={post} sizes="56px" />
+              <span>
+                <span class="popular-title">{post.data.title}</span>
+                <span class="popular-date">{formatDate(post.data.pubDate)}</span>
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {topics.length > 0 && (
+    <section class="sidebar-topics">
+      <h2 class="sidebar-heading">Topics</h2>
+      <ul class="topic-chips">
+        {topics.map(({ tag, count }) => (
+          <li>
+            <a class="topic-chip" href={`/blog/tags/${tag}/`}>
+              #{tag}
+              <span class="topic-count">{count}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  {work.length > 0 && (
+    <section class="sidebar-work">
+      <h2 class="sidebar-heading">Current work</h2>
+      <ul class="work-links">
+        {work.map((project) => (
+          <li>
+            <a href={project.url} target="_blank" rel="noopener noreferrer">
+              {project.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+</aside>

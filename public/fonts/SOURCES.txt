@@ -1,0 +1,48 @@
+Self-hosted OFL fonts. SIL Open Font License 1.1.
+Filenames include a version because Netlify caches /fonts/* immutable
+(Cache-Control: public, max-age=31536000, immutable). A changed font
+must get a new filename.
+
+Literata 3.103 (googlefonts/literata)
+  https://github.com/googlefonts/literata/releases/tag/3.103
+  Source TTFs from the release zip: fonts/ttf/Literata-Regular.ttf,
+  Literata-Italic.ttf, Literata-Bold.ttf.
+  Files: literata-latin-400-v3.103.woff2,
+         literata-latin-400-italic-v3.103.woff2,
+         literata-latin-700-v3.103.woff2
+  License: OFL-Literata.txt
+
+Noto Serif Bengali v3.000 (notofonts/bengali)
+  https://github.com/notofonts/bengali/releases/tag/NotoSerifBengali-v3.000
+  Source TTFs from the release zip:
+  NotoSerifBengali/unhinted/ttf/NotoSerifBengali-Regular.ttf
+  NotoSerifBengali/unhinted/ttf/NotoSerifBengali-Bold.ttf
+  Files: noto-serif-bengali-400-v3.000.woff2,
+         noto-serif-bengali-700-v3.000.woff2
+  License: OFL-NotoSerifBengali.txt
+
+Hind Siliguri 1.001 (Indian Type Foundry via google/fonts ofl/hindsiliguri)
+  https://github.com/google/fonts/tree/main/ofl/hindsiliguri
+  Source: https://github.com/itfoundry/hind-siliguri
+  Source TTFs: HindSiliguri-Regular.ttf, HindSiliguri-Bold.ttf.
+  Files: hind-siliguri-400-v1.001.woff2,
+         hind-siliguri-700-v1.001.woff2
+  License: OFL-HindSiliguri.txt
+  Used for Bengali archive titles on the home page
+  (কোভিড-১৯ পরিস্থিতি, আবহাওয়া). Not preloaded.
+
+Subset one-off with fonttools pyftsubset (not a package.json dependency).
+Weights: 400 and 700 only.
+
+Literata unicodes: U+0020-007E, U+00A0-00FF, U+2010-2027, U+2030-205E,
+U+20AC, U+2122 (Basic Latin, Latin-1, common punctuation).
+
+Noto Serif Bengali unicodes: U+0980-09FF, U+0964-0965 (danda),
+U+200C-200D, U+25CC. --layout-features='*' so GSUB/GPOS conjuncts remain.
+
+Hind Siliguri unicodes: U+0980-09FF. --layout-features='*' so GSUB/GPOS
+conjuncts remain (স্থ in পরিস্থিতি). @font-face unicode-range: U+0980-09FF.
+
+Italic: Literata 400 italic is included because blog markdown uses <em>.
+Bold italic is left to the browser to synthesize. Noto has no italic file.
+Hind Siliguri has no italic file.

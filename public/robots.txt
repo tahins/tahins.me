@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://tahins.me/sitemap-index.xml
