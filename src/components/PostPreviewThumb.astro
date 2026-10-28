@@ -2,12 +2,14 @@
 import { Picture } from 'astro:assets';
 import { isUnsplashImage, previewSource } from '../lib/blog.js';
 import { localBlogImage } from '../lib/blog-images.js';
+import { CARD_WIDTHS, WEBP_QUALITY, servedWidths } from '../lib/image-widths.js';
 import { unsplashSized, unsplashSrcset } from '../lib/unsplash.js';
 
 const { post, sizes = '(max-width: 639px) 80px, 112px' } = Astro.props;
 const source = previewSource(post);
 const unsplash = source && isUnsplashImage(source);
 const local = source ? localBlogImage(source) : null;
+const localWidths = local ? servedWidths(local, CARD_WIDTHS) : [];
 const alt = post.data.heroImageAlt || post.data.title;
 ---
 
@@ -28,11 +30,13 @@ const alt = post.data.heroImageAlt || post.data.title;
     <Picture
       src={local}
       alt={alt}
-      widths={[80, 112, 160, 224, 240]}
+      widths={localWidths}
       sizes={sizes}
       width={112}
       height={112}
       formats={['webp']}
+      fallbackFormat="webp"
+      quality={WEBP_QUALITY}
       loading="lazy"
       decoding="async"
     />

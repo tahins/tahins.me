@@ -29,7 +29,8 @@ test('cover is full-bleed with the designer CSS and 100vw srcset', () => {
     /\.post-cover img,[\s\S]*display:\s*block;[\s\S]*width:\s*100%;[\s\S]*height:\s*auto;[\s\S]*max-height:\s*70vh;[\s\S]*object-fit:\s*cover/,
   );
   assert.match(cover, /sizes="100vw"/);
-  assert.match(cover, /\[800, 1600, 2400\]/);
+  assert.match(cover, /COVER_WIDTHS/);
+  assert.match(cover, /fallbackFormat="webp"/);
   assert.match(cover, /loading="eager"/);
   assert.match(cover, /fetchpriority="high"/);
 });
@@ -77,6 +78,31 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
     index,
     /href="\/blog\/tin-ti-jama-surah-yusuf\/"[\s\S]*?photo-1548768041-2fceab4c0b85\?w=240&fm=webp&q=75/,
   );
+});
+
+test('local covers are WebP-only, never upscaled past the source width', async (t) => {
+  const dist = path.join(root, 'dist');
+  if (!(await exists(dist))) {
+    t.skip('dist/ not built yet');
+    return;
+  }
+  const nyay = await readFile(path.join(dist, 'blog/nyay-o-ihsan/index.html'), 'utf8');
+  const cover = nyay.match(/<div class="post-cover">[\s\S]*?<\/div>/)[0];
+  assert.match(cover, /type="image\/webp"/);
+  assert.doesNotMatch(cover, /\.(png|jpe?g)/i);
+  assert.match(cover, /800w/);
+  assert.match(cover, /1400w/);
+  assert.doesNotMatch(cover, /1600w|2400w/);
+  assert.match(nyay, /property="og:image" content="https:\/\/tahins\.me\/_astro\/[^"]+\.webp"/);
+
+  const tdd = await readFile(
+    path.join(dist, 'blog/the-mindset-behind-test-driven-development-tdd/index.html'),
+    'utf8',
+  );
+  const tddCover = tdd.match(/<div class="post-cover">[\s\S]*?<\/div>/)[0];
+  assert.doesNotMatch(tddCover, /\.(png|jpe?g)/i);
+  assert.match(tddCover, /800w/);
+  assert.doesNotMatch(tddCover, /1600w|2400w/);
 });
 
 test('tin-ti-jama frontmatter uses the sgx6AIOB7Ak Unsplash cover, not a body duplicate', async () => {

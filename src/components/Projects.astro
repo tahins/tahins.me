@@ -1,6 +1,7 @@
 ---
 import { Picture } from 'astro:assets';
 import { currentProjects, archiveProjects } from '../data/site.js';
+import { PROJECT_WIDTHS, WEBP_QUALITY, servedWidths } from '../lib/image-widths.js';
 import alaapThumb from '../assets/projects/alaap.png';
 import guidedVersesThumb from '../assets/projects/gdvs.png';
 import hajjmateThumb from '../assets/projects/hajjmate.png';
@@ -39,6 +40,7 @@ const SITE_SHOTS = new Set(Object.keys(thumbs));
     {currentProjects.map((project) => {
       const thumb = thumbs[project.title];
       const initial = [...project.title][0];
+      const thumbWidths = thumb ? servedWidths(thumb, PROJECT_WIDTHS) : [];
       return (
         <li class:list={['current-project', { 'has-open': Boolean(project.url) }]}>
           <div class:list={['project-thumb', { 'project-thumb--shot': SITE_SHOTS.has(project.title) }]}>
@@ -46,14 +48,15 @@ const SITE_SHOTS = new Set(Object.keys(thumbs));
               <Picture
                 src={thumb}
                 alt={alts[project.title]}
-                widths={[96, 480, 800]}
+                widths={thumbWidths}
                 sizes="(max-width: 639px) 48px, (max-width: 1023px) 45vw, 30vw"
+                width={800}
+                height={500}
                 formats={['webp']}
+                fallbackFormat="webp"
+                quality={WEBP_QUALITY}
                 loading="lazy"
                 decoding="async"
-                {...(SITE_SHOTS.has(project.title)
-                  ? { width: 800, height: 500, fallbackFormat: 'webp' }
-                  : {})}
               />
             ) : (
               <span class="project-placeholder" aria-hidden="true">{initial}</span>

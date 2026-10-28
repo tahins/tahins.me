@@ -43,7 +43,12 @@ if (heroIsRemote) {
 } else if (hero) {
   const local = localBlogImage(hero);
   if (local) {
-    const optimized = await getImage({ src: local, width: 1200 });
+    const optimized = await getImage({
+      src: local,
+      width: Math.min(1200, local.width),
+      format: 'webp',
+      quality: 82,
+    });
     ogImage = new URL(optimized.src, site.url).href;
   }
 }

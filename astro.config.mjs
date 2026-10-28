@@ -32,9 +32,10 @@ export default defineConfig({
   trailingSlash: 'always',
   integrations: [mdx(), sitemap()],
   // CTO-approved. Hosted images only; Unsplash stays a hotlink.
+  // Local WebP is q82 / effort 6 and never upscaled (see src/image-service.mjs).
   image: {
     service: {
-      entrypoint: 'astro/assets/services/sharp',
+      entrypoint: './src/image-service.mjs',
     },
   },
   markdown: {

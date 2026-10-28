@@ -30,8 +30,10 @@ test('project thumbnails use Astro Picture with alt, not hotlinks', () => {
   assert.match(astro, /assets\/projects\/alaap\.png/);
   assert.match(astro, /assets\/projects\/dua-deck\.png/);
   assert.match(astro, /assets\/projects\/gdvs\.png/);
-  assert.match(astro, /fallbackFormat: 'webp'/);
-  assert.match(astro, /width: 800, height: 500/);
+  assert.match(astro, /fallbackFormat="webp"/);
+  assert.match(astro, /width=\{800\}/);
+  assert.match(astro, /height=\{500\}/);
+  assert.match(astro, /quality=\{WEBP_QUALITY\}/);
   assert.match(
     astro,
     /Todox: 'Todox home page with the headline The Command Center For Your Life'/,
