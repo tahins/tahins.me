@@ -33,7 +33,3 @@ Playing and pausing a whole ad group or campaign is now possible. If you want to
 Hopefully now you can spend less time managing your advertising campaigns and spend more time doing the things you love ❤.
 
 Please continue letting us know your feedbacks.
-
-* * *
-
-[Spend less time managing ads and more time enjoying life](https://medium.com/green-and-red/spend-less-time-managing-ads-and-more-time-enjoying-life-fbd57388146d) was originally published in [Think Digital](https://medium.com/green-and-red) on Medium, where people are continuing the conversation by highlighting and responding to this story.

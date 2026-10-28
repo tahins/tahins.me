@@ -74,7 +74,3 @@ In where **G&R** can make a great way for advertisers.
 Co-author: [Md. Saidur Rahman Sagor](https://medium.com/u/3b90702ce13f), Senior Manager, Growth, G&R
 
 Special thanks: [Muhammad Nazimuddaula](https://medium.com/u/346171d82b46), CEO, G&R
-
-* * *
-
-[Go Mobile with G&R](https://medium.com/green-and-red/go-mobile-with-g-r-937707e66678) was originally published in [Think Digital](https://medium.com/green-and-red) on Medium, where people are continuing the conversation by highlighting and responding to this story.

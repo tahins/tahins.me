@@ -74,7 +74,3 @@ originalUrl: https://tahins.medium.com/597067493830
 সহ-রচয়িতা: [মো: সাইদুর রহমান](https://medium.com/@saidur), জ্যেষ্ঠ ব্যবস্থাপক, ক্রমোন্নতি, G&R
 
 বিশেষ ধন্যবাদ: [মোহাম্মদ নাজিমুদ্দৌলা](https://medium.com/@nazimuddaula), প্রধান নির্বাহী কর্মকর্তা, G&R
-
-* * *
-
-[মোবাইলে থাকুন G&R-এর সাথে](https://medium.com/%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF-%E0%A6%95%E0%A6%A5%E0%A6%A8/%E0%A6%AE%E0%A7%8B%E0%A6%AC%E0%A6%BE%E0%A6%87%E0%A6%B2%E0%A7%87-%E0%A6%A5%E0%A6%BE%E0%A6%95%E0%A7%81%E0%A6%A8-g-r-%E0%A6%8F%E0%A6%B0-%E0%A6%B8%E0%A6%BE%E0%A6%A5%E0%A7%87-597067493830) was originally published in [প্রযুক্তি কথন](https://medium.com/%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%AF%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF-%E0%A6%95%E0%A6%A5%E0%A6%A8) on Medium, where people are continuing the conversation by highlighting and responding to this story.

@@ -55,7 +55,3 @@ The result was tremendous in terms of reach. These ads were shown 6M times, 2,18
 > “G&R is constantly seeking clever ways to reach and engage consumers on digital space. G&R’s Ad Network technology helped us discover digital audiences passionate about LG brand. Through this innovative campaign we were able to generate a handsome leads from online.” — M. Nafeezul Bari, Head of Digital, Adcomm
 
 Overall, it was a great experience for both LG-Butterfly and G&R. It gave LG-Butterfly a great exposure and put them in a unique position digitally.
-
-* * *
-
-[LG’s Innovative Digital Scratch Card Campaign to Draw a Positive attention](https://medium.com/green-and-red/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention-4092275114fe) was originally published in [Think Digital](https://medium.com/green-and-red) on Medium, where people are continuing the conversation by highlighting and responding to this story.
