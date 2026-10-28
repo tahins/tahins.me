@@ -1,30 +1,87 @@
 ---
+import { Picture } from 'astro:assets';
 import { currentProjects, archiveProjects } from '../data/site.js';
+import alaapThumb from '../assets/projects/alaap.png';
+import guidedVersesThumb from '../assets/projects/gdvs.png';
+
+const thumbs = {
+  Alaap: alaapThumb,
+  'Guided Verses': guidedVersesThumb,
+};
+
+const alts = {
+  Alaap: 'Alaap SMS inbox on a phone, with a clean personal-message list',
+  'Guided Verses': 'Guided Verses app icon with Arabic calligraphy of Al-Qur’an',
+};
 ---
 
 <section class="projects section" id="projects" aria-labelledby="projects-heading">
   <h2 id="projects-heading" class="section-title">Projects</h2>
   <ul class="current-projects">
-    {currentProjects.map((project) => (
-      <li>
-        <h3 class="project-title">{project.title}</h3>
-        <p class="project-description">{project.description}</p>
-        {(project.url || project.githubUrl) && (
-          <div class="project-links">
-            {project.url && (
-              <a class="project-link" href={project.url} target="_blank" rel="noopener noreferrer">
-                Open
-              </a>
-            )}
-            {project.githubUrl && (
-              <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                View code
-              </a>
+    {currentProjects.map((project) => {
+      const thumb = thumbs[project.title];
+      const initial = [...project.title][0];
+      return (
+        <li class:list={['current-project', { 'has-open': Boolean(project.url) }]}>
+          <div class="project-thumb">
+            {thumb ? (
+              <Picture
+                src={thumb}
+                alt={alts[project.title]}
+                widths={[96, 480, 800]}
+                sizes="(max-width: 639px) 48px, (max-width: 1023px) 45vw, 30vw"
+                formats={['webp']}
+                loading="lazy"
+                decoding="async"
+              />
+            ) : (
+              <span class="project-placeholder" aria-hidden="true">{initial}</span>
             )}
           </div>
-        )}
-      </li>
-    ))}
+          <div class="project-copy">
+            <h3 class="project-title">
+              {project.url ? (
+                <a
+                  class="project-stretched"
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {project.title}
+                </a>
+              ) : (
+                project.title
+              )}
+            </h3>
+            <p class="project-description">{project.description}</p>
+            {(project.url || project.githubUrl) && (
+              <div class="project-links">
+                {project.url && (
+                  <a
+                    class="project-link project-open"
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Open
+                  </a>
+                )}
+                {project.githubUrl && (
+                  <a
+                    class="project-link project-code"
+                    href={project.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View code
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
+        </li>
+      );
+    })}
   </ul>
 
   <details class="archive">
@@ -41,7 +98,7 @@ import { currentProjects, archiveProjects } from '../data/site.js';
               </a>
             )}
             {project.githubUrl && (
-              <a class="project-link" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <a class="project-link project-code" href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                 View code
               </a>
             )}
