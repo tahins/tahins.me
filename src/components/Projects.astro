@@ -1,5 +1,19 @@
 ---
+import { Picture } from 'astro:assets';
 import { projects } from '../data/site.js';
+
+const images = import.meta.glob<{ default: ImageMetadata }>('../assets/projects/*', {
+  eager: true,
+  import: 'default',
+});
+
+function projectImage(filename) {
+  const image = images[`../assets/projects/${filename}`];
+  if (!image) {
+    throw new Error(`Missing project image: ${filename}`);
+  }
+  return image;
+}
 ---
 
 <section class="projects section" id="projects" aria-labelledby="projects-heading">
@@ -8,11 +22,12 @@ import { projects } from '../data/site.js';
     {projects.map((project, index) => (
       <li>
         <div class={`project-media ${project.bgSize && project.bgSize !== 'cover' ? 'is-contain' : 'is-cover'}`}>
-          <img
-            src={project.imageUrl}
+          <Picture
+            src={projectImage(project.imageUrl)}
             alt={project.imageAlt || ''}
-            width="800"
-            height="300"
+            widths={[400, 800]}
+            sizes="(max-width: 768px) 100vw, 400px"
+            formats={['webp']}
             loading={index === 0 ? 'eager' : 'lazy'}
             decoding="async"
           />

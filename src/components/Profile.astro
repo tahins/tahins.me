@@ -1,12 +1,18 @@
+---
+import { Picture } from 'astro:assets';
+import portrait from '../assets/me.webp';
+---
+
 <section class="profile section" id="profile" aria-labelledby="profile-heading">
   <h2 id="profile-heading" class="section-title">Profile</h2>
   <div class="profile-container">
     <div class="profile-image">
-      <img
-        src="/img/me.webp"
+      <Picture
+        src={portrait}
         alt="Portrait of E. M. Yeaseenur Rahman Tahin"
-        width="800"
-        height="800"
+        widths={[400, 800]}
+        sizes="(max-width: 768px) 80vw, 400px"
+        formats={['webp']}
         loading="lazy"
         decoding="async"
       />
