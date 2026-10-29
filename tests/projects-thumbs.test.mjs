@@ -100,6 +100,30 @@ test('dist has no raw project-shot PNG files', async (t) => {
   }
 });
 
+test('home page current-work cards are Todox, Alaap SMS, getbriefly, HajjMate, Quran Map, Dua Deck, Guided Verses', async (t) => {
+  if (!(await exists(dist))) {
+    t.skip('dist/ not built yet');
+    return;
+  }
+  const html = await readFile(path.join(dist, 'index.html'), 'utf8');
+  const list = html.match(/<ul class="current-projects">[\s\S]*?<\/ul>/);
+  assert.ok(list, 'missing current-projects list');
+  assert.deepEqual(
+    [...list[0].matchAll(/<h3 class="project-title">[\s\S]*?<\/h3>/g)].map((match) =>
+      match[0].replace(/<[^>]+>/g, '').trim(),
+    ),
+    [
+      'Todox',
+      'Alaap SMS',
+      'getbriefly',
+      'HajjMate',
+      'Quran Map',
+      'Dua Deck',
+      'Guided Verses',
+    ],
+  );
+});
+
 test('every current-project card renders a site-shot img with alt and a fixed thumb ratio', async (t) => {
   if (!(await exists(dist))) {
     t.skip('dist/ not built yet');
@@ -176,6 +200,15 @@ test('every current-project card renders a site-shot img with alt and a fixed th
         assert.equal(byTitle[title]?.imgHeight, '500');
       }
       assert.equal(after.length, Object.keys(SHOT_ALTS).length);
+      assert.deepEqual(after.map((row) => row.title), [
+        'Todox',
+        'Alaap SMS',
+        'getbriefly',
+        'HajjMate',
+        'Quran Map',
+        'Dua Deck',
+        'Guided Verses',
+      ]);
 
       for (const [phase, rows] of [
         ['before', before],

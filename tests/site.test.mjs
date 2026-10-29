@@ -25,6 +25,23 @@ test('contact list starts with email and has no Medium', () => {
   );
 });
 
+const HOME_PROJECT_ORDER = [
+  'Todox',
+  'Alaap SMS',
+  'getbriefly',
+  'HajjMate',
+  'Quran Map',
+  'Dua Deck',
+  'Guided Verses',
+];
+
+test('home current-work cards are Todox, Alaap SMS, getbriefly, HajjMate, Quran Map, Dua Deck, Guided Verses', () => {
+  assert.deepEqual(
+    currentProjects.map((project) => project.title),
+    HOME_PROJECT_ORDER,
+  );
+});
+
 test('current work uses Tahin-supplied links and leaves HajjMate without a URL', () => {
   const byTitle = Object.fromEntries(currentProjects.map((project) => [project.title, project]));
   assert.equal(byTitle.Todox.url, 'https://todox.tahins.me/');
