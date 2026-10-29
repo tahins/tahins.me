@@ -64,7 +64,25 @@ async function exists(filePath) {
 const MEDIUM_IMAGE_HOST =
   /(?:cdn-images-\d+\.medium\.com|miro\.medium\.com)/i;
 
+async function redirectFromPaths() {
+  const redirectsFile = path.join(dist, '_redirects');
+  if (!(await exists(redirectsFile))) return new Set();
+  const text = await readFile(redirectsFile, 'utf8');
+  const froms = new Set();
+  for (const line of text.split('\n')) {
+    const trimmed = line.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+    const [from] = trimmed.split(/\s+/);
+    if (from) {
+      froms.add(from);
+      froms.add(from.replace(/\/$/, ''));
+    }
+  }
+  return froms;
+}
+
 const files = (await walk(dist)).filter((file) => file.endsWith('.html'));
+const redirected = await redirectFromPaths();
 const broken = [];
 const mediumHosts = [];
 const missingAlt = [];
@@ -92,7 +110,7 @@ for (const file of files) {
   for (const target of localTargets(html)) {
     if (target.startsWith('/http')) continue;
     const ok = await Promise.any(distPathFor(target).map((candidate) => exists(candidate).then((yes) => (yes ? candidate : Promise.reject()))),).catch(() => null);
-    if (!ok) {
+    if (!ok && !redirected.has(target) && !redirected.has(target.replace(/\/$/, ''))) {
       broken.push({ file: rel, target });
     }
   }

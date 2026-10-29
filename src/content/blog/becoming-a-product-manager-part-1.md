@@ -1,5 +1,6 @@
 ---
 slug: becoming-a-product-manager-part-1
+excerpt: "While I was trying to know what Product Manager means and what's his role in a company, I came across hundreds of articles."
 title: Becoming a Product Manager - Part 1
 description: — A theoretical approach Writers note While I was trying to know what Product Manager means and what’s his role in a company, I came across hundreds of articles. I read few of them, 6/7 of them to be exact or may be 7/8…
 pubDate: 2015-02-28T00:00:00.000Z

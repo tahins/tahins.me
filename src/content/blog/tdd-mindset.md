@@ -1,5 +1,8 @@
 ---
-slug: the-mindset-behind-test-driven-development-tdd
+slug: tdd-mindset
+old_slugs:
+  - the-mindset-behind-test-driven-development-tdd
+excerpt: "TDD is not a new concept in modern software development practices. However, many software engineers still find it very weird and contrary to common sense."
 title: The mindset behind Test Driven Development (TDD)
 description: TDD, or Test Driven Development in full, is not a new concept in modern software development practices. However, many software engineers still find it very weird and contrary to common sense. In this brief article, I…
 pubDate: 2018-04-22T18:04:35.000Z

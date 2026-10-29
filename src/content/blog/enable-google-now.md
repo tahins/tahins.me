@@ -1,5 +1,8 @@
 ---
-slug: enable-google-now-in-non-supported-countries
+slug: enable-google-now
+old_slugs:
+  - enable-google-now-in-non-supported-countries
+excerpt: "Enable Google Now in non-supported countries without factory reset or root."
 title: Enable Google Now in non-supported countries
 description: "— without factory reset or root Enable Google Now in non-supported countries (without factory reset or root): Turn on Developer Options: Settings > About Phone > tap ‘Build Number’ several times until you are notified…"
 pubDate: 2014-10-14T00:00:00.000Z

@@ -56,12 +56,12 @@ test('featured lists Tahin’s Popular posts in the listed order', async () => {
   const blogLib = await readFile(path.join(root, 'src/lib/blog.js'), 'utf8');
   assert.match(
     blogLib,
-    /export const POPULAR_SLUGS = \[\s*'tin-ti-jama-surah-yusuf',\s*'shotto-ki-ar-mithya-ki',\s*'the-mindset-behind-test-driven-development-tdd',/,
+    /export const POPULAR_SLUGS = \[\s*'3-dress-surah-yusuf',\s*'what-is-truth',\s*'tdd-mindset',/,
   );
   const expected = [
-    'tin-ti-jama-surah-yusuf',
-    'shotto-ki-ar-mithya-ki',
-    'the-mindset-behind-test-driven-development-tdd',
+    '3-dress-surah-yusuf',
+    'what-is-truth',
+    'tdd-mindset',
   ];
   const posts = (await walk(path.join(root, 'src/content/blog'))).filter((file) =>
     file.endsWith('.md'),
@@ -159,7 +159,7 @@ test('built /blog rows have a preview and the sidebar; tag pages have posts', as
   assert.doesNotMatch(sample, /href=["']["']/);
 
   const articleHtml = await readFile(
-    path.join(dist, 'blog/the-mindset-behind-test-driven-development-tdd/index.html'),
+    path.join(dist, 'blog/tdd-mindset/index.html'),
     'utf8',
   );
   assert.match(articleHtml, /class="blog-post/);

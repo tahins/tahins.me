@@ -68,7 +68,7 @@ test('built pages share nav hrefs; Blog is current on articles', async (t) => {
   }
   const homeHtml = await readFile(path.join(dist, 'index.html'), 'utf8');
   const articleHtml = await readFile(
-    path.join(dist, 'blog/tin-ti-jama-surah-yusuf/index.html'),
+    path.join(dist, 'blog/3-dress-surah-yusuf/index.html'),
     'utf8',
   );
   const blogHtml = await readFile(path.join(dist, 'blog/index.html'), 'utf8');

@@ -1,5 +1,8 @@
 ---
-slug: spend-less-time-managing-ads-and-more-time-enjoying-life
+slug: less-time-managing-ads
+old_slugs:
+  - spend-less-time-managing-ads-and-more-time-enjoying-life
+excerpt: "Sometimes managing an online advertising campaign can be exhausting. Specially when you have 10-15 campaigns to manage with hundreds of ad creatives."
 title: Spend less time managing ads and more time enjoying life
 description: Sometimes managing an online advertising campaign can be exhausting. Specially when you have 10–15 campaigns to manage with hundreds of ad creatives, it can take a lot of time. So today, G&R is introducing 2 new…
 pubDate: 2016-05-16T11:06:18.000Z

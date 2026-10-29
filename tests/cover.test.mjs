@@ -42,7 +42,7 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
     return;
   }
   const html = await readFile(
-    path.join(dist, 'blog/tin-ti-jama-surah-yusuf/index.html'),
+    path.join(dist, 'blog/3-dress-surah-yusuf/index.html'),
     'utf8',
   );
   const coverBlock = html.match(/<div class="article-cover">[\s\S]*?<\/div>\s*(?:<p class="unsplash-credit">[\s\S]*?<\/p>)?/);
@@ -76,7 +76,7 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
   const index = await readFile(path.join(dist, 'blog/index.html'), 'utf8');
   assert.match(
     index,
-    /href="\/blog\/tin-ti-jama-surah-yusuf\/"[\s\S]*?photo-1548768041-2fceab4c0b85\?w=240&fm=webp&q=75/,
+    /href="\/blog\/3-dress-surah-yusuf\/"[\s\S]*?photo-1548768041-2fceab4c0b85\?w=240&fm=webp&q=75/,
   );
 });
 
@@ -86,7 +86,7 @@ test('local covers are WebP-only, never upscaled past the source width', async (
     t.skip('dist/ not built yet');
     return;
   }
-  const nyay = await readFile(path.join(dist, 'blog/nyay-o-ihsan/index.html'), 'utf8');
+  const nyay = await readFile(path.join(dist, 'blog/justice-and-ihsan/index.html'), 'utf8');
   const cover = nyay.match(/<div class="post-cover">[\s\S]*?<\/div>/)[0];
   assert.match(cover, /type="image\/webp"/);
   assert.doesNotMatch(cover, /\.(png|jpe?g)/i);
@@ -96,7 +96,7 @@ test('local covers are WebP-only, never upscaled past the source width', async (
   assert.match(nyay, /property="og:image" content="https:\/\/tahins\.me\/_astro\/[^"]+\.webp"/);
 
   const tdd = await readFile(
-    path.join(dist, 'blog/the-mindset-behind-test-driven-development-tdd/index.html'),
+    path.join(dist, 'blog/tdd-mindset/index.html'),
     'utf8',
   );
   const tddCover = tdd.match(/<div class="post-cover">[\s\S]*?<\/div>/)[0];
@@ -107,7 +107,7 @@ test('local covers are WebP-only, never upscaled past the source width', async (
 
 test('tin-ti-jama frontmatter uses the sgx6AIOB7Ak Unsplash cover, not a body duplicate', async () => {
   const md = await readFile(
-    path.join(root, 'src/content/blog/tin-ti-jama-surah-yusuf.md'),
+    path.join(root, 'src/content/blog/3-dress-surah-yusuf.md'),
     'utf8',
   );
   const closed = md.indexOf('\n---\n', 4);

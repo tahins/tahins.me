@@ -73,9 +73,9 @@ export function tagCounts(posts, limit = 10) {
 
 /** Sidebar Popular order. Tahin-picked; do not reorder by date. */
 export const POPULAR_SLUGS = [
-  'tin-ti-jama-surah-yusuf',
-  'shotto-ki-ar-mithya-ki',
-  'the-mindset-behind-test-driven-development-tdd',
+  '3-dress-surah-yusuf',
+  'what-is-truth',
+  'tdd-mindset',
 ];
 
 export function featuredPosts(posts, limit = 5) {

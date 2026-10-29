@@ -15,18 +15,24 @@ export const DEFAULT_RSS_URL = 'https://medium.com/feed/@tahins';
 export const SITE_ORIGIN = 'https://tahins.me';
 
 /**
- * Readable slugs for Bangla posts. Medium export filenames for these are
- * mostly dashes, and the URL path is percent-encoded Bengali.
- * Tahin can rename any of these in git; list them in the PR.
+ * Canonical slugs by Medium story id. Bangla export filenames are mostly
+ * dashes / percent-encoded Bengali; English Medium paths can also be long.
+ * Keep this in sync when renaming a live post (and list the old slug in
+ * frontmatter old_slugs so /blog/<old>/ 301s).
  */
 export const SLUG_BY_STORY_ID = {
-  df686b6e20f5: 'nyay-o-ihsan',
-  eb3e2a421c17: 'tin-ti-jama-surah-yusuf',
-  '79348dc0e0b1': 'protita-kajer-samne-duto-proshno',
-  eef7ed9450d4: 'shotto-ki-ar-mithya-ki',
-  '691e2717e8fc': 'durbol-sei-onneshonkari',
-  '597067493830': 'mobile-e-thakun-gr-er-sathe',
-  b0898a050790: 'enable-google-now-in-non-supported-countries',
+  df686b6e20f5: 'justice-and-ihsan',
+  eb3e2a421c17: '3-dress-surah-yusuf',
+  '79348dc0e0b1': 'two-questions-before-work',
+  eef7ed9450d4: 'what-is-truth',
+  '691e2717e8fc': 'weak-seeker',
+  '597067493830': 'stay-mobile-with-g-r',
+  b0898a050790: 'enable-google-now',
+  a1ac7a9e3dd7: 'ad-creator-tool',
+  '4092275114fe': 'lg-scratch-card',
+  fbd57388146d: 'less-time-managing-ads',
+  ccf34a785233: 'tdd-by-example',
+  b02deccbff81: 'tdd-mindset',
 };
 
 /**

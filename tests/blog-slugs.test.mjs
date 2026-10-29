@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { parse as parseYaml } from 'yaml';
 import { loadBlogFrontmatter } from '../scripts/lib/blog-frontmatter.mjs';
 import {
   SLUG_RE,
@@ -17,21 +18,39 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const blogDir = path.join(root, 'src/content/blog');
 
 const EXPECTED_POST_PATHS = [
+  '/blog/3-dress-surah-yusuf/',
+  '/blog/ad-creator-tool/',
   '/blog/becoming-a-product-manager-part-1/',
-  '/blog/durbol-sei-onneshonkari/',
-  '/blog/enable-google-now-in-non-supported-countries/',
+  '/blog/enable-google-now/',
   '/blog/g-r-html5-clicktag-tutorial/',
   '/blog/go-mobile-with-g-r/',
-  '/blog/introducing-ad-creator-tool-by-g-r/',
-  '/blog/lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention/',
-  '/blog/mobile-e-thakun-gr-er-sathe/',
-  '/blog/nyay-o-ihsan/',
-  '/blog/protita-kajer-samne-duto-proshno/',
-  '/blog/shotto-ki-ar-mithya-ki/',
-  '/blog/spend-less-time-managing-ads-and-more-time-enjoying-life/',
-  '/blog/test-driven-development-tdd-by-example/',
-  '/blog/the-mindset-behind-test-driven-development-tdd/',
-  '/blog/tin-ti-jama-surah-yusuf/',
+  '/blog/justice-and-ihsan/',
+  '/blog/less-time-managing-ads/',
+  '/blog/lg-scratch-card/',
+  '/blog/stay-mobile-with-g-r/',
+  '/blog/tdd-by-example/',
+  '/blog/tdd-mindset/',
+  '/blog/two-questions-before-work/',
+  '/blog/weak-seeker/',
+  '/blog/what-is-truth/',
+];
+
+const PREVIOUSLY_LIVE_SLUGS = [
+  'becoming-a-product-manager-part-1',
+  'durbol-sei-onneshonkari',
+  'enable-google-now-in-non-supported-countries',
+  'g-r-html5-clicktag-tutorial',
+  'go-mobile-with-g-r',
+  'introducing-ad-creator-tool-by-g-r',
+  'lgs-innovative-digital-scratch-card-campaign-to-draw-a-positive-attention',
+  'mobile-e-thakun-gr-er-sathe',
+  'nyay-o-ihsan',
+  'protita-kajer-samne-duto-proshno',
+  'shotto-ki-ar-mithya-ki',
+  'spend-less-time-managing-ads-and-more-time-enjoying-life',
+  'test-driven-development-tdd-by-example',
+  'the-mindset-behind-test-driven-development-tdd',
+  'tin-ti-jama-surah-yusuf',
 ];
 
 async function exists(filePath) {
@@ -107,7 +126,27 @@ test('every post has a unique valid slug equal to its current URL', () => {
   assert.deepEqual(paths, [...EXPECTED_POST_PATHS].sort());
   for (const post of posts) {
     const stem = post.file.replace(/\.mdx?$/, '');
-    assert.equal(post.slug, stem, `${post.file} slug should match the previous filename URL`);
+    assert.equal(post.slug, stem, `${post.file} slug should match the filename`);
+  }
+  for (const old of PREVIOUSLY_LIVE_SLUGS) {
+    const post = posts.find((p) => p.slug === old || p.old_slugs.includes(old));
+    assert.ok(post, `previously live slug ${old} must still resolve via slug or old_slugs`);
+  }
+});
+
+test('every post has a short excerpt without long dashes', async () => {
+  for (const post of posts) {
+    const raw = await readFile(path.join(blogDir, post.file), 'utf8');
+    const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+    const data = parseYaml(match[1]) ?? {};
+    assert.equal(typeof data.excerpt, 'string', `${post.file} needs excerpt`);
+    assert.ok(data.excerpt.trim().length > 0, `${post.file} excerpt is empty`);
+    assert.ok(data.excerpt.length <= 160, `${post.file} excerpt is ${data.excerpt.length} chars`);
+    assert.equal(
+      /[—–\u2013\u2014]/.test(data.excerpt),
+      false,
+      `${post.file} excerpt has a long dash`,
+    );
   }
 });
 
