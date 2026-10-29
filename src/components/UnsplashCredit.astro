@@ -4,17 +4,10 @@ const { credit } = Astro.props;
 
 {credit && (
   <p class="unsplash-credit">
-    Photo by{' '}
-    {credit.photographerUrl ? (
+    Photo by{' '}{credit.photographerUrl ? (
       <a href={credit.photographerUrl} rel="noopener noreferrer">{credit.photographer}</a>
-    ) : (
-      credit.photographer
-    )}
-    {' '}on{' '}
-    {credit.unsplashUrl ? (
+    ) : credit.photographer}{' '}on{' '}{credit.unsplashUrl ? (
       <a href={credit.unsplashUrl} rel="noopener noreferrer">Unsplash</a>
-    ) : (
-      'Unsplash'
-    )}
+    ) : 'Unsplash'}
   </p>
 )}

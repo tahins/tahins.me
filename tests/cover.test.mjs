@@ -41,10 +41,10 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
     t.skip('dist/ not built yet');
     return;
   }
-  const html = await readFile(
+  const html = (await readFile(
     path.join(dist, 'blog/3-dress-surah-yusuf/index.html'),
     'utf8',
-  );
+  )).replaceAll('&amp;', '&');
   const coverBlock = html.match(/<div class="article-cover">[\s\S]*?<\/div>\s*(?:<p class="unsplash-credit">[\s\S]*?<\/p>)?/);
   assert.ok(coverBlock, 'missing article-cover');
   assert.match(html, /class="post-cover"/);
@@ -73,7 +73,10 @@ test('built Unsplash covers use 800/1600/2400 and keep credit in the column', as
   assert.match(html, /name="twitter:image" content="https:\/\/images\.unsplash\.com\/photo-1548768041-2fceab4c0b85\?w=1200&fm=webp&q=75"/);
   assert.match(html, /og:image:alt" content="কালো পৃষ্ঠে কালো, ধূসর ও বাদামি তিনটি ভি-নেক জামা"/);
   assert.doesNotMatch(html, /<div class="prose">[\s\S]*<img[\s\S]*photo-1548768041/);
-  const index = await readFile(path.join(dist, 'blog/index.html'), 'utf8');
+  const index = (await readFile(path.join(dist, 'blog/index.html'), 'utf8')).replaceAll(
+    '&amp;',
+    '&',
+  );
   assert.match(
     index,
     /href="\/blog\/3-dress-surah-yusuf\/"[\s\S]*?photo-1548768041-2fceab4c0b85\?w=240&fm=webp&q=75/,

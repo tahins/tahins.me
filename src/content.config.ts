@@ -33,7 +33,7 @@ const blog = defineCollection({
     heroImage: z.string().optional(),
     heroImageAlt: z.string().optional(),
     heroImageCredit: unsplashCredit,
-    originalUrl: z.string().url().optional(),
+    originalUrl: z.url().optional(),
   }),
 });
 

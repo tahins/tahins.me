@@ -28,7 +28,7 @@ const service = {
     if (transform.format === 'svg') return { data: inputBuffer, format: 'svg' };
 
     const result = sharp(inputBuffer, {
-      failOnError: false,
+      failOn: 'none',
       pages: -1,
       limitInputPixels: config.service.config.limitInputPixels,
     });
