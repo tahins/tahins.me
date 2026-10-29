@@ -61,6 +61,11 @@ export const currentProjects = [
     url: 'https://todox.tahins.me/',
   },
   {
+    title: 'Alaap SMS',
+    description: 'A privacy-first SMS app for Android.',
+    url: 'https://alaap.tahins.me/',
+  },
+  {
     title: 'getbriefly',
     description: 'Your personal Bengali news, briefly.',
     url: 'https://getbriefly.news/',
@@ -73,11 +78,6 @@ export const currentProjects = [
     title: 'Quran Map',
     description: 'A calm companion for Quran memorization.',
     url: 'https://quran-map.tahins.me/',
-  },
-  {
-    title: 'Alaap SMS',
-    description: 'A privacy-first SMS app for Android.',
-    url: 'https://alaap.tahins.me/',
   },
   {
     title: 'Dua Deck',
