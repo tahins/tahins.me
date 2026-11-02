@@ -11,17 +11,17 @@ tags:
   - bangla
 draft: false
 featured: false
-heroImage: https://images.unsplash.com/photo-1757397584789-8b2c5bfcdbc3?w=1200&fm=webp&q=75
+heroImage: https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?w=1200&fm=webp&q=75
 heroImageAlt: "সবুজ সার্কিট বোর্ডের কাছ থেকে তোলা ছবি, যাতে ছোট ছোট ইলেকট্রনিক যন্ত্রাংশ দেখা যাচ্ছে"
 heroImageCredit:
-  photographer: Albert Stoynov
-  photographerUrl: https://unsplash.com/@albertstoynov
-  unsplashUrl: https://unsplash.com/photos/Aqa1pHQ57pw
+  photographer: Harrison Broadbent
+  photographerUrl: https://unsplash.com/@harrisonbroadbent
+  unsplashUrl: https://unsplash.com/photos/nePxBIvqUlU
 ---
 
 <figure>
-  <img src="https://images.unsplash.com/photo-1757397584789-8b2c5bfcdbc3?w=1200&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1757397584789-8b2c5bfcdbc3?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1757397584789-8b2c5bfcdbc3?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1757397584789-8b2c5bfcdbc3?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 800px) 100vw, 800px" alt="সবুজ সার্কিট বোর্ডের কাছ থেকে তোলা ছবি, যাতে ছোট ছোট ইলেকট্রনিক যন্ত্রাংশ দেখা যাচ্ছে" loading="eager" />
-  <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@albertstoynov?utm_source=tahins.me&utm_medium=referral">Albert Stoynov</a> on <a href="https://unsplash.com/photos/Aqa1pHQ57pw?utm_source=tahins.me&utm_medium=referral">Unsplash</a></figcaption>
+  <img src="https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?w=1200&fm=webp&q=75" srcset="https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?w=400&fm=webp&q=75 400w, https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?w=800&fm=webp&q=75 800w, https://images.unsplash.com/photo-1586920740280-e7da670f7cb7?w=1200&fm=webp&q=75 1200w" sizes="(max-width: 800px) 100vw, 800px" alt="সবুজ সার্কিট বোর্ডের কাছ থেকে তোলা ছবি, যাতে ছোট ছোট ইলেকট্রনিক যন্ত্রাংশ দেখা যাচ্ছে" loading="eager" />
+  <figcaption class="unsplash-credit">Photo by <a href="https://unsplash.com/@harrisonbroadbent?utm_source=tahins.me&utm_medium=referral">Harrison Broadbent</a> on <a href="https://unsplash.com/photos/nePxBIvqUlU?utm_source=tahins.me&utm_medium=referral">Unsplash</a></figcaption>
 </figure>
 
 পাঁচ-ছয় বছরের পুরোনো ফোনটা হঠাৎ ধীর হয়ে গেছে, নতুন আপডেট আর আসে না, প্রিয় অ্যাপটা বলছে "Your device is not supported anymore"। তখন অনেকেরই মনে হয়, এটা নিশ্চয়ই বড় কোম্পানিগুলোর চক্রান্ত, যাতে আমরা বাধ্য হয়ে নতুন ফোন কিনি। এই ধারণার একটা নামও আছে: প্ল্যানড অবসোলেসেন্স/Planned obsolence, মানে পরিকল্পনা করে কোন পণ্যকে তাড়াতাড়ি অচল করে দেওয়া।
@@ -57,4 +57,4 @@ heroImageCredit:
 
 শুধু গতি নয়, নতুন ফোনে এমন কাজ করা যায় যা পুরোনো হার্ডওয়্যারে করাই যায় না। যেমন অ্যাপলের এআই ফিচারগুলোর জন্য কমপক্ষে ৮ জিবি র‍্যাম লাগে, তাই সেগুলো আইফোন ১৫ প্রো বা তার পরের মডেলেই চলে। আরও বড় অন-ডিভাইস মডেলের জন্য লাগে ১২ জিবি র‍্যাম ([Ars Technica](https://arstechnica.com/gadgets/2026/06/ios-27-and-ipados-27-dont-drop-support-for-any-iphones-and-just-a-few-ipads/))। এটা সফটওয়্যার দিয়ে ম্যানেজ করার ব্যাপার নয়, মেমোরি না থাকলে এআই মডেলটা বসানোর জায়গাই তো নেই।
 
-অভিযোগ আর অগ্রগতির দুই দিকই দেখা হলো। [পরের পর্বে](/blog/phone-planned-obsolescence-part-2/) দেখবো ডেভেলপাররা কেন পুরোনো ফোনে অ্যাপ সাপোর্ট করা ছেড়ে দেন, কোম্পানিগুলো কীভাবে বদলাচ্ছে আর দেখবো পুরোনো ফোন কীভাবে বেশিদিন চালানো যায়।
+অভিযোগ আর অগ্রগতির দুই দিকই দেখা হলো। পরের পর্বে দেখবো ডেভেলপাররা কেন পুরোনো ফোনে অ্যাপ সাপোর্ট করা ছেড়ে দেন, কোম্পানিগুলো কীভাবে বদলাচ্ছে আর দেখবো পুরোনো ফোন কীভাবে বেশিদিন চালানো যায়।
