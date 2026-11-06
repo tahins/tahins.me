@@ -35,6 +35,7 @@ const EXPECTED_POST_PATHS = [
   '/blog/two-questions-before-work/',
   '/blog/weak-seeker/',
   '/blog/what-is-truth/',
+  '/blog/when-alone-with-allah/',
 ];
 
 const PREVIOUSLY_LIVE_SLUGS = [
@@ -123,7 +124,7 @@ test('fails on a missing slug, invalid format, or duplicate slug', () => {
 
 test('every post has a unique valid slug equal to its current URL', () => {
   assertSlugs(posts);
-  assert.equal(posts.length, 17);
+  assert.equal(posts.length, 18);
   const paths = posts.map((post) => `/blog/${post.slug}/`).sort();
   assert.deepEqual(paths, [...EXPECTED_POST_PATHS].sort());
   for (const post of posts) {
