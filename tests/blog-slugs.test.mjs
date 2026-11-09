@@ -26,6 +26,7 @@ const EXPECTED_POST_PATHS = [
   '/blog/g-r-html5-clicktag-tutorial/',
   '/blog/go-mobile-with-g-r/',
   '/blog/justice-and-ihsan/',
+  '/blog/leave-it-for-allah/',
   '/blog/less-time-managing-ads/',
   '/blog/lg-scratch-card/',
   '/blog/phone-planned-obsolescence-part-1/',
@@ -123,7 +124,7 @@ test('fails on a missing slug, invalid format, or duplicate slug', () => {
 
 test('every post has a unique valid slug equal to its current URL', () => {
   assertSlugs(posts);
-  assert.equal(posts.length, 17);
+  assert.equal(posts.length, 18);
   const paths = posts.map((post) => `/blog/${post.slug}/`).sort();
   assert.deepEqual(paths, [...EXPECTED_POST_PATHS].sort());
   for (const post of posts) {
