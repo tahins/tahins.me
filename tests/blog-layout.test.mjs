@@ -107,6 +107,21 @@ test('blog CSS is a 680px column, then a 1024px sidebar, Literata body, and colo
   assert.match(css, /\.blog-post \.prose img,\s*\.blog-post \.prose picture \{[\s\S]*width:\s*100%/);
 });
 
+test('pull-quote is larger, italic, and indented, distinct from verse blockquotes', () => {
+  assert.match(
+    css,
+    /\.blog-post \.prose \.pull-quote \{[\s\S]*?font-style:\s*italic;[\s\S]*?font-size:\s*1\.18em/,
+  );
+  assert.match(css, /\.blog-post \.prose \.pull-quote \{[\s\S]*?padding:\s*0 0 0 1\.35em/);
+  assert.match(css, /\.blog-post \.prose \.pull-quote \{[\s\S]*?border:\s*0/);
+  assert.match(css, /\.blog-post \.prose \.pull-quote \{[\s\S]*?color:\s*var\(--blog-text\)/);
+  assert.match(css, /\.blog-post \.prose blockquote \{[\s\S]*?border-left:\s*3px solid/);
+  assert.match(
+    css,
+    /@media \(min-width: 768px\) \{[\s\S]*\.blog-post \.prose \.pull-quote \{[\s\S]*padding-left:\s*2\.15em/,
+  );
+});
+
 test('sidebar markup is an aside with RSS, topics, and current work — no Medium', () => {
   assert.match(sidebar, /<aside class="blog-sidebar" aria-label="Blog sidebar">/);
   assert.match(sidebar, /href="\/blog\/rss\.xml"/);

@@ -1189,6 +1189,17 @@ html {
   color: var(--blog-muted);
 }
 
+/* Medium-style pull quote: larger, indented, italic. Not a verse blockquote. */
+.blog-post .prose .pull-quote {
+  margin: 1.75em 0;
+  padding: 0 0 0 1.35em;
+  border: 0;
+  font-style: italic;
+  font-size: 1.18em;
+  line-height: 1.55;
+  color: var(--blog-text);
+}
+
 .blog-post .prose img,
 .blog-post .prose picture {
   display: block;
@@ -1266,6 +1277,11 @@ html {
   .blog-post:lang(bn) .prose {
     font-size: 21px;
     line-height: 1.8;
+  }
+
+  .blog-post .prose .pull-quote {
+    padding-left: 2.15em;
+    font-size: 1.22em;
   }
 }
 
