@@ -27,6 +27,7 @@ const EXPECTED_POST_PATHS = [
   '/blog/g-r-html5-clicktag-tutorial/',
   '/blog/go-mobile-with-g-r/',
   '/blog/justice-and-ihsan/',
+  '/blog/leave-it-for-allah/',
   '/blog/less-time-managing-ads/',
   '/blog/lg-scratch-card/',
   '/blog/phone-planned-obsolescence-part-1/',
